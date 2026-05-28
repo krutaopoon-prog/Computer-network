@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <title>Network Zombie Quiz - เกมสอบถามเครือข่ายแนวซอมบี้</title>
+    <link rel="stylesheet" href="../../shared/css/global.css?v=1.0">
+    <link rel="stylesheet" href="css/game.css?v=1.0">
+</head>
+<body>
+    <div class="game-wrapper">
+        <!-- Header -->
+        <header class="game-header">
+            <h1>🧟 Network Zombie Quiz</h1>
+            <p>เอาชีวิตรอดจากฝูงซอมบี้ด้วยความรู้เครือข่าย!</p>
+        </header>
+
+        <!-- Start Screen -->
+        <div id="start-screen" class="screen active">
+            <div class="start-content">
+                <div class="zombie-icon">🧟‍♂️</div>
+                
+                <div class="game-rules">
+                    <h3>📋 กติกา</h3>
+                    <ul>
+                        <li>🎯 ตอบคำถามให้ถูกต้องเพื่อฆ่าซอมบี้</li>
+                        <li>⏱️ ตอบให้ทันก่อนหมดเวลา (เร็วขึ้นตามคะแนน)</li>
+                        <li>❌ ตอบผิด = <strong>GAME OVER</strong></li>
+                        <li>⌨️ ใช้ลูกศรซ้าย/ขวา หรือ A/D เพื่อตอบ</li>
+                        <li>🏆 บันทึก High Score ของคุณ!</li>
+                    </ul>
+                </div>
+                
+                <div class="high-score-box" id="high-score-display">
+                    High Score: 0
+                </div>
+                
+                <button id="start-btn" class="btn btn-primary">
+                    ▶️ เริ่มเกม
+                </button>
+            </div>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="game-screen" class="screen">
+            <!-- Game Info -->
+            <div class="game-info">
+                <div class="score-box">
+                    Score: <span id="score-display">0</span>
+                </div>
+                <div class="high-score-box">
+                    High: <span id="high-score-game">0</span>
+                </div>
+            </div>
+
+            <!-- Timer -->
+            <div class="timer-container">
+                <div class="timer-bar-wrapper">
+                    <div id="timer-bar" class="timer-bar"></div>
+                </div>
+                <div class="timer-text">
+                    ⏱️ <span id="timer-text">10</span> วินาที
+                </div>
+            </div>
+
+            <!-- Zombie Area -->
+            <div class="zombie-area" id="zombie-container">
+                <div class="ground-line"></div>
+                <div id="zombie" class="zombie zombie-type-1" style="left: 100%;">🧟‍♂️</div>
+            </div>
+
+            <!-- Question -->
+            <div class="question-container">
+                <h2 id="question-text" class="question-text">
+                    กำลังโหลดคำถาม...
+                </h2>
+                
+                <div class="options-container">
+                    <button id="option-1" class="option-btn">
+                        ตัวเลือก 1
+                    </button>
+                    <button id="option-2" class="option-btn">
+                        ตัวเลือก 2
+                    </button>
+                </div>
+                
+                <p class="keyboard-hint">
+                    <kbd>←</kbd> หรือ <kbd>A</kbd> = ซ้าย | 
+                    <kbd>→</kbd> หรือ <kbd>D</kbd> = ขวา
+                </p>
+            </div>
+        </div>
+
+        <!-- Game Over Screen -->
+        <div id="game-over-screen" class="screen">
+            <div class="game-over-content">
+                <div class="skull-icon">💀</div>
+                
+                <h2 class="game-over-title">GAME OVER</h2>
+                <p id="game-over-reason" class="game-over-reason">
+                    💀 ตอบผิด! ซอมบี้กัดคุณ!
+                </p>
+                
+                <div class="final-score-box">
+                    <div class="final-score-label">คะแนนที่ได้</div>
+                    <div id="final-score" class="final-score-value">0</div>
+                </div>
+                
+                <button id="restart-btn" class="btn btn-primary">
+                    🔄 เล่นใหม่
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/questions.js?v=1.0"></script>
+    <script src="js/game.js?v=1.0"></script>
+</body>
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <title>Games - เกมฝึกหัด Computer Network</title>
+    <link rel="stylesheet" href="../shared/css/global.css?v=1.0">
+    <style>
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .game-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-align: center;
+        }
+        
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+        
+        .game-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+        
+        .game-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.75rem;
+        }
+        
+        .game-card p {
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+        
+        .play-btn {
+            display: inline-block;
+            padding: 0.75rem 2rem;
+            background: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: background 0.3s ease;
+        }
+        
+        .play-btn:hover {
+            background: var(--secondary-color);
+        }
+        
+        .game-stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        
+        .coming-soon {
+            opacity: 0.6;
+        }
+        
+        .coming-soon .play-btn {
+            background: #9ca3af;
+            cursor: not-allowed;
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            background: #10b981;
+            color: white;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="page-header">
+        <h1>🎮 เกมฝึกหัด</h1>
+        <p>เรียนรู้ผ่านการเล่นเกมสนุกๆ</p>
+    </header>
+
+    <nav class="breadcrumb">
+        <a href="../index.html">หน้าแรก</a>
+        <span class="separator">/</span>
+        <span>เกม</span>
+    </nav>
+
+    <div class="container">
+        <div class="games-grid">
+            <!-- Network Zombie Quiz -->
+            <div class="game-card">
+                <div class="game-icon">🧟‍♂️</div>
+                <h3>Network Zombie Quiz <span class="badge">NEW</span></h3>
+                <p>เอาชีวิตรอดจากฝูงซอมบี้ด้วยความรู้เครือข่าย! ตอบคำถามให้ถูกและเร็ว</p>
+                <div class="game-stats">
+                    <span>🎯 50+ คำถาม</span>
+                    <span>⚡ จับเวลา</span>
+                    <span>🏆 High Score</span>
+                </div>
+                <a href="zombie-quiz/index.html" class="play-btn">▶️ เล่นเกม</a>
+            </div>
+            
+            <!-- Protocol Simulator (Coming Soon) -->
+            <div class="game-card coming-soon">
+                <div class="game-icon">📡</div>
+                <h3>Protocol Simulator</h3>
+                <p>จำลองการทำงานของ Protocol ต่างๆ แบบ interactive</p>
+                <div class="game-stats">
+                    <span>🔄 TCP Handshake</span>
+                    <span>📦 Packet Journey</span>
+                </div>
+                <span class="play-btn">เร็วๆ นี้</span>
+            </div>
+            
+            <!-- OSI Layer Builder (Coming Soon) -->
+            <div class="game-card coming-soon">
+                <div class="game-icon">🏗️</div>
+                <h3>OSI Layer Builder</h3>
+                <p>สร้าง OSI Model ด้วยตัวเอง ลากวาง Layer ให้ถูกต้อง</p>
+                <div class="game-stats">
+                    <span>🧩 Puzzle</span>
+                    <span>📚 7 Layers</span>
+                </div>
+                <span class="play-btn">เร็วๆ นี้</span>
+            </div>
+            
+            <!-- Packet Tracer Challenge (Coming Soon) -->
+            <div class="game-card coming-soon">
+                <div class="game-icon">🔧</div>
+                <h3>Network Troubleshooter</h3>
+                <p>แก้ไขปัญหาเครือข่ายต่างๆ วิเคราะห์และหาสาเหตุ</p>
+                <div class="game-stats">
+                    <span>🔍 Debug</span>
+                    <span>🌐 Real Scenarios</span>
+                </div>
+                <span class="play-btn">เร็วๆ นี้</span>
+            </div>
+        </div>
+        
+        <div class="info-box" style="margin-top: 3rem;">
+            <h3>💡 วิธีเล่น Network Zombie Quiz</h3>
+            <ul>
+                <li>เกมจะสุ่มคำถามจาก <strong>ทุกบทเรียน</strong> (Standards, OSI, Protocols)</li>
+                <li>มี <strong>2 ตัวเลือก</strong> - กดปุ่มหรือใช้ลูกศรซ้าย/ขวา (A/D)</li>
+                <li>ตอบ <strong>ภายในเวลา</strong> ที่กำหนด (เวลาจะลดลงเมื่อคะแนนสูงขึ้น)</li>
+                <li>ตอบผิดหรือหมดเวลา = <strong>GAME OVER</strong> (เริ่มใหม่ตั้งแต่ 0)</li>
+                <li>คำถาม <strong>ไม่ซ้ำ</strong> จนกว่าจะตอบครบทุกข้อ แล้วจะวนใหม่</li>
+                <li>High Score จะบันทึกไว้ในเบราวเซอร์ของคุณ</li>
+            </ul>
+        </div>
+    </div>
+
+    <footer class="page-footer">
+        <p>เพิ่มเกมใหม่เรื่อยๆ - Stay tuned!</p>
+    </footer>
+</body>
+</html>
