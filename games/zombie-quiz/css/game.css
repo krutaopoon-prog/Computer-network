@@ -279,13 +279,13 @@ body {
     border-radius: 10px;
 }
 
-/* Zombie (Right side, moves left towards player) */
+/* Zombie (Starts far right, moves left towards player) */
 .zombie {
     position: absolute;
     bottom: 25px;
-    right: 10%;
+    left: 85%; /* Start far on the right side */
     font-size: 3.5rem;
-    transition: right 0.1s linear;
+    transition: left 0.1s linear;
     filter: drop-shadow(0 0 15px rgba(229, 62, 62, 0.7));
     z-index: 5;
 }

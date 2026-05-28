@@ -12,9 +12,9 @@ class ZombieQuizGame {
         this.baseTime = 10;
         this.minTime = 3;
         this.isPlaying = false;
-        this.zombiePosition = 70; // Percentage from right (starts at 70%, moves towards player at 15%)
-        this.playerPosition = 15; // Player is at 15% from left
-        this.dangerZone = 25; // When zombie reaches 25% from right, game over
+        this.zombiePosition = 85; // Percentage from left (starts at 85%, far right side)
+        this.playerPosition = 10; // Player is at 10% from left
+        this.dangerZone = 20; // When zombie reaches 20% from left, game over (reaches player)
         
         this.initElements();
         this.bindEvents();
@@ -125,9 +125,11 @@ class ZombieQuizGame {
         this.option1Btn.textContent = this.currentQuestion.options[0];
         this.option2Btn.textContent = this.currentQuestion.options[1];
         
-        // Reset zombie position (starts at right side)
-        this.zombiePosition = 70;
+        // Reset zombie position (starts far on the right side at 85%)
+        this.zombiePosition = 85;
+        this.zombie.style.transition = 'left 0.1s linear';
         this.zombie.classList.remove('moving');
+        this.player.classList.remove('attacked');
         this.updateZombiePosition();
         
         // Calculate time based on score (get harder)
@@ -169,12 +171,12 @@ class ZombieQuizGame {
             }
             
             // Move zombie from right to left (towards player)
-            // Starts at 70% from right, moves towards player at 15%
+            // Starts at 85% from left (far right), moves towards player at 10%
             const progress = (maxTime - currentTime) / maxTime;
-            this.zombiePosition = 70 - (progress * 50); // Moves from 70% to 20%
+            this.zombiePosition = 85 - (progress * 65); // Moves from 85% to 20%
             this.updateZombiePosition();
             
-            // Check if zombie reached player
+            // Check if zombie reached player (at 20% from left)
             if (this.zombiePosition <= this.dangerZone) {
                 this.player.classList.add('attacked');
                 this.gameOver('zombie-attack');
@@ -187,8 +189,8 @@ class ZombieQuizGame {
     }
 
     updateZombiePosition() {
-        // Position from right (zombie moves from right towards player)
-        this.zombie.style.right = `${this.zombiePosition}%`;
+        // Position from left (zombie starts at 85% and moves left towards player at 10%)
+        this.zombie.style.left = `${this.zombiePosition}%`;
     }
 
     answer(selectedIndex) {
@@ -229,8 +231,8 @@ class ZombieQuizGame {
             correctBtn.classList.add('correct');
             
             // Zombie attacks player animation
-            this.zombie.style.transition = 'right 0.5s ease';
-            this.zombie.style.right = '15%';
+            this.zombie.style.transition = 'left 0.5s ease';
+            this.zombie.style.left = `${this.playerPosition}%`;
             
             setTimeout(() => {
                 this.player.classList.add('attacked');
