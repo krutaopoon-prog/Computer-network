@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>โปรโตคอลรุ่นเก่า - Legacy Protocols</title>
+    <link rel="stylesheet" href="../../shared/css/global.css?v=1.0">
+</head>
+<body>
+    <header class="page-header">
+        <h1>📼 โปรโตคอลรุ่นเก่า</h1>
+        <p>IPX/SPX, NetBEUI, AppleTalk</p>
+    </header>
+
+    <nav class="breadcrumb">
+        <a href="../../index.html">หน้าแรก</a>
+        <span class="separator">/</span>
+        <a href="../index.html">โปรโตคอล</a>
+        <span class="separator">/</span>
+        <span>โปรโตคอลรุ่นเก่า</span>
+    </nav>
+
+    <div class="container">
+        <section class="theory-section">
+            <div class="theory-header">
+                <h2>📖 ทฤษฎี: โปรโตคอลรุ่นเก่า</h2>
+                <button class="theory-toggle-btn" onclick="toggleTheory()" id="toggle-btn">ซ่อนเนื้อหา</button>
+            </div>
+            
+            <div class="theory-content" id="theory-content">
+                <div class="theory-block">
+                    <h3>ทำไมต้องเรียนโปรโตคอลรุ่นเก่า?</h3>
+                    <p>แม้ปัจจุบันจะใช้ TCP/IP เป็นหลัก แต่การรู้จักโปรโตคอลรุ่นเก่าช่วยให้เข้าใจวิวัฒนาการของเครือข่าย และยังอาจพบในระบบเก่าที่ยังใช้งานอยู่</p>
+                    
+                    <div class="term-box">
+                        <h4>📘 Legacy Protocols</h4>
+                        <ul>
+                            <li><strong>IPX/SPX:</strong> ของ Novell NetWare</li>
+                            <li><strong>NetBEUI:</strong> ของ Microsoft</li>
+                            <li><strong>AppleTalk:</strong> ของ Apple Computer</li>
+                            <li><strong>สถานะ:</strong> เลิกใช้แล้ว แต่ยังมีประวัติศาสตร์สำคัญ</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>ตารางเปรียบเทียบ</h3>
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>โปรโตคอล</th>
+                                <th>บริษัท</th>
+                                <th>ใช้กับ</th>
+                                <th>สถานะ</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>IPX/SPX</td>
+                                <td>Novell</td>
+                                <td>NetWare Networks</td>
+                                <td>เลิกใช้</td>
+                            </tr>
+                            <tr>
+                                <td>NetBEUI</td>
+                                <td>Microsoft</td>
+                                <td>Windows LAN (ขนาดเล็ก)</td>
+                                <td>เลิกใช้</td>
+                            </tr>
+                            <tr>
+                                <td>AppleTalk</td>
+                                <td>Apple</td>
+                                <td>Macintosh Networks</td>
+                                <td>เลิกใช้</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section style="margin-top: 2rem;">
+            <h3 style="margin-bottom: 1rem;">เลือกโปรโตคอลเพื่อดูรายละเอียด</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+                <a href="ipx-spx.html" style="background: white; padding: 1.5rem; border-radius: 12px; text-decoration: none; color: var(--text-color); box-shadow: 0 2px 4px rgba(0,0,0,0.1); border: 2px solid transparent;">
+                    <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">IPX/SPX</h4>
+                    <p style="color: var(--text-muted);">Novell NetWare Protocol Suite</p>
+                </a>
+                <a href="netbeui.html" style="background: white; padding: 1.5rem; border-radius: 12px; text-decoration: none; color: var(--text-color); box-shadow: 0 2px 4px rgba(0,0,0,0.1); border: 2px solid transparent;">
+                    <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">NetBEUI</h4>
+                    <p style="color: var(--text-muted);">Microsoft LAN Protocol</p>
+                </a>
+                <a href="appletalk.html" style="background: white; padding: 1.5rem; border-radius: 12px; text-decoration: none; color: var(--text-color); box-shadow: 0 2px 4px rgba(0,0,0,0.1); border: 2px solid transparent;">
+                    <h4 style="color: var(--primary-color); margin-bottom: 0.5rem;">AppleTalk</h4>
+                    <p style="color: var(--text-muted);">Apple Macintosh Protocol</p>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <footer class="page-footer">
+        <p>แหล่งอ้างอิง: Microsoft, Novell, Apple Documentation</p>
+    </footer>
+
+    <script>
+        function toggleTheory() {
+            const content = document.getElementById('theory-content');
+            const btn = document.getElementById('toggle-btn');
+            if (content.classList.contains('collapsed')) {
+                content.classList.remove('collapsed');
+                btn.textContent = 'ซ่อนเนื้อหา';
+            } else {
+                content.classList.add('collapsed');
+                btn.textContent = 'แสดงเนื้อหา';
+            }
+        }
+    </script>
+</body>
+</html>

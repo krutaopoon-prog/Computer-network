@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>มาตรฐาน IEEE 802 - IEEE 802 Standards</title>
+    <link rel="stylesheet" href="../../shared/css/global.css?v=1.0">
+    <style>
+        .ieee-table th,
+        .ieee-table td {
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            text-align: left;
+        }
+        
+        .ieee-table th {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .ieee-table tr:nth-child(even) {
+            background: #f8fafc;
+        }
+        
+        .status-active { color: var(--success-color); font-weight: 600; }
+        .status-legacy { color: var(--warning-color); }
+        .status-obsolete { color: var(--error-color); }
+    </style>
+</head>
+<body>
+    <header class="page-header">
+        <h1>📡 มาตรฐาน IEEE 802</h1>
+        <p>LAN/MAN Standards Committee</p>
+    </header>
+
+    <nav class="breadcrumb">
+        <a href="../../index.html">หน้าแรก</a>
+        <span class="separator">/</span>
+        <a href="../index.html">โปรโตคอล</a>
+        <span class="separator">/</span>
+        <span>IEEE 802 Standards</span>
+    </nav>
+
+    <div class="container">
+        <section class="theory-section">
+            <div class="theory-header">
+                <h2>📖 ทฤษฎี: IEEE 802 Standards</h2>
+                <button class="theory-toggle-btn" onclick="toggleTheory()" id="toggle-btn">ซ่อนเนื้อหา</button>
+            </div>
+            
+            <div class="theory-content" id="theory-content">
+                <div class="theory-block">
+                    <h3>IEEE 802 คืออะไร?</h3>
+                    <p>IEEE 802 เป็นชุดมาตรฐาน LAN (Local Area Network) และ MAN (Metropolitan Area Network) ที่ IEEE กำหนด ใช้ในเครือข่ายท้องถิ่นและเครือข่ายระดับเมือง</p>
+                    
+                    <div class="term-box">
+                        <h4>📘 IEEE 802 Committee</h4>
+                        <ul>
+                            <li><strong>เริ่มต้น:</strong> 1980 (เลข 80 + ปี 2 หลัก = 802)</li>
+                            <li><strong>ความรับผิดชอบ:</strong> LAN, MAN, PAN Standards</li>
+                            <li><strong>Working Groups:</strong> หลายกลุ่มย่อย เช่น 802.3, 802.11</li>
+                            <li><strong>สัมพันธ์กับ OSI:</strong> กำหนด Layer 1 (Physical) และ Layer 2 (Data Link)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>ตารางมาตรฐาน IEEE 802</h3>
+                    <table class="ieee-table" style="width: 100%;">
+                        <thead>
+                            <tr>
+                                <th>มาตรฐาน</th>
+                                <th>ชื่อ</th>
+                                <th>รายละเอียด</th>
+                                <th>สถานะ</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>802.1</strong></td>
+                                <td>Bridging & Management</td>
+                                <td>การเชื่อมต่อเครือข่าย (VLAN, Spanning Tree)</td>
+                                <td><span class="status-active">ใช้งาน</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>802.2</strong></td>
+                                <td>Logical Link Control</td>
+                                <td>LLC Sublayer - เชื่อมต่อกับ Network Layer</td>
+                                <td><span class="status-active">ใช้งาน</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>802.3</strong></td>
+                                <td>Ethernet</td>
+                                <td>Wired LAN - 10Mbps ถึง 400Gbps</td>
+                                <td><span class="status-active">ใช้งาน</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>802.4</strong></td>
+                                <td>Token Bus</td>
+                                <td>Bus Topology with Token Passing</td>
+                                <td><span class="status-obsolete">เลิกใช้</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>802.5</strong></td>
+                                <td>Token Ring</td>
+                                <td>Ring Topology (IBM Token Ring)</td>
+                                <td><span class="status-obsolete">เลิกใช้</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>802.11</strong></td>
+                                <td>Wireless LAN (WiFi)</td>
+                                <td>Wireless Networking - a/b/g/n/ac/ax/be</td>
+                                <td><span class="status-active">ใช้งาน</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>802.15</strong></td>
+                                <td>WPAN</td>
+                                <td>Bluetooth, Zigbee, UWB</td>
+                                <td><span class="status-active">ใช้งาน</span></td>
+                            </tr>
+                            <tr>
+                                <td><strong>802.16</strong></td>
+                                <td>WiMAX</td>
+                                <td>Wireless Metropolitan Area Network</td>
+                                <td><span class="status-legacy">จำกัด</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <section style="margin-top: 2rem;">
+            <h3 style="margin-bottom: 1rem;">เลือกมาตรฐานเพื่อดูรายละเอียด</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+                <a href="8023-ethernet.html" style="background: white; padding: 1.5rem; border-radius: 12px; text-decoration: none; color: var(--text-color); box-shadow: 0 2px 4px rgba(0,0,0,0.1); border: 2px solid var(--layer2-color);">
+                    <h4 style="color: var(--layer2-color);">IEEE 802.3 - Ethernet</h4>
+                    <p style="color: var(--text-muted);">Wired LAN Standards</p>
+                </a>
+                <a href="80211-wifi.html" style="background: white; padding: 1.5rem; border-radius: 12px; text-decoration: none; color: var(--text-color); box-shadow: 0 2px 4px rgba(0,0,0,0.1); border: 2px solid var(--layer3-color);">
+                    <h4 style="color: var(--layer3-color);">IEEE 802.11 - WiFi</h4>
+                    <p style="color: var(--text-muted);">Wireless LAN Standards</p>
+                </a>
+                <a href="80215-bluetooth.html" style="background: white; padding: 1.5rem; border-radius: 12px; text-decoration: none; color: var(--text-color); box-shadow: 0 2px 4px rgba(0,0,0,0.1); border: 2px solid var(--layer5-color);">
+                    <h4 style="color: var(--layer5-color);">IEEE 802.15 - WPAN</h4>
+                    <p style="color: var(--text-muted);">Bluetooth, Zigbee</p>
+                </a>
+                <a href="80216-wimax.html" style="background: white; padding: 1.5rem; border-radius: 12px; text-decoration: none; color: var(--text-color); box-shadow: 0 2px 4px rgba(0,0,0,0.1); border: 2px solid var(--layer6-color);">
+                    <h4 style="color: var(--layer6-color);">IEEE 802.16 - WiMAX</h4>
+                    <p style="color: var(--text-muted);">Wireless MAN</p>
+                </a>
+                <a href="comparison-table.html" style="background: var(--primary-color); color: white; padding: 1.5rem; border-radius: 12px; text-decoration: none; grid-column: 1 / -1;">
+                    <h4>ตารางเปรียบเทียบทั้งหมด</h4>
+                    <p>สรุปมาตรฐาน IEEE 802.x</p>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <footer class="page-footer">
+        <p>แหล่งอ้างอิง: https://standards.ieee.org</p>
+    </footer>
+
+    <script>
+        function toggleTheory() {
+            const content = document.getElementById('theory-content');
+            const btn = document.getElementById('toggle-btn');
+            if (content.classList.contains('collapsed')) {
+                content.classList.remove('collapsed');
+                btn.textContent = 'ซ่อนเนื้อหา';
+            } else {
+                content.classList.add('collapsed');
+                btn.textContent = 'แสดงเนื้อหา';
+            }
+        }
+    </script>
+</body>
+</html>

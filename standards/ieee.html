@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IEEE - Institute of Electrical and Electronics Engineers</title>
+    <link rel="stylesheet" href="../shared/css/global.css?v=1.0">
+</head>
+<body>
+    <header class="page-header">
+        <h1>⚡ IEEE</h1>
+        <p>Institute of Electrical and Electronics Engineers</p>
+    </header>
+
+    <nav class="breadcrumb">
+        <a href="../index.html">หน้าแรก</a>
+        <span class="separator">/</span>
+        <a href="index.html">มาตรฐานเครือข่าย</a>
+        <span class="separator">/</span>
+        <span>IEEE</span>
+    </nav>
+
+    <div class="container">
+        <section class="theory-section">
+            <div class="theory-header">
+                <h2>📖 ทฤษฎี: IEEE</h2>
+                <button class="theory-toggle-btn" onclick="toggleTheory()" id="toggle-btn">ซ่อนเนื้อหา</button>
+            </div>
+            
+            <div class="theory-content" id="theory-content">
+                <div class="theory-block">
+                    <h3>IEEE คืออะไร?</h3>
+                    <p>IEEE (Institute of Electrical and Electronics Engineers) เป็นองค์กรวิชาชีพระดับโลกที่ใหญ่ที่สุดด้านเทคโนโลยี มีสมาชิกกว่า 400,000 คนในกว่า 160 ประเทศ</p>
+                    
+                    <div class="term-box">
+                        <h4>📘 ข้อมูลทั่วไป</h4>
+                        <ul>
+                            <li><strong>ก่อตั้ง:</strong> 1 มกราคม 1963 (จากการรวม AIEE และ IRE)</li>
+                            <li><strong>สำนักงานใหญ่:</strong> นิวยอร์ก สหรัฐอเมริกา</li>
+                            <li><strong>สมาชิก:</strong> กว่า 400,000 คน</li>
+                            <li><strong>มาตรฐาน:</strong> กว่า 1,000 มาตรฐาน (Standards)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>มาตรฐาน IEEE 802 (LAN/MAN Standards)</h3>
+                    <p>ชุดมาตรฐานที่สำคัญที่สุดสำหรับเครือข่ายท้องถิ่น (LAN) และเครือข่ายนคร (MAN)</p>
+                    
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>มาตรฐาน</th>
+                                <th>ชื่อ</th>
+                                <th>รายละเอียด</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>802.1</strong></td>
+                                <td>Bridging & Management</td>
+                                <td>การเชื่อมต่อเครือข่ายและการจัดการ</td>
+                            </tr>
+                            <tr>
+                                <td><strong>802.2</strong></td>
+                                <td>Logical Link Control</td>
+                                <td>ชั้น Data Link ส่วน LLC</td>
+                            </tr>
+                            <tr>
+                                <td><strong>802.3</strong></td>
+                                <td>Ethernet</td>
+                                <td>เครือข่ายแบบใช้สาย (Wired LAN)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>802.4</strong></td>
+                                <td>Token Bus</td>
+                                <td>(เลิกใช้แล้ว)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>802.5</strong></td>
+                                <td>Token Ring</td>
+                                <td>(เลิกใช้แล้ว)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>802.11</strong></td>
+                                <td>Wireless LAN</td>
+                                <td>Wi-Fi ทุกรุ่น (a, b, g, n, ac, ax)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>802.15</strong></td>
+                                <td>Wireless Personal Area Network</td>
+                                <td>Bluetooth, Zigbee, UWB</td>
+                            </tr>
+                            <tr>
+                                <td><strong>802.16</strong></td>
+                                <td>Broadband Wireless</td>
+                                <td>WiMAX</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="page-footer">
+        <p>แหล่งอ้างอิง: https://www.ieee.org</p>
+    </footer>
+
+    <script>
+        function toggleTheory() {
+            const content = document.getElementById('theory-content');
+            const btn = document.getElementById('toggle-btn');
+            if (content.classList.contains('collapsed')) {
+                content.classList.remove('collapsed');
+                btn.textContent = 'ซ่อนเนื้อหา';
+            } else {
+                content.classList.add('collapsed');
+                btn.textContent = 'แสดงเนื้อหา';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layer 1 - Physical Layer</title>
+    <link rel="stylesheet" href="../shared/css/global.css?v=1.0">
+    <style>
+        .layer-header {
+            background: var(--layer1-color);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+        .layer-header h1 { margin: 0; }
+        .layer-header .subtitle { opacity: 0.9; margin-top: 0.5rem; }
+    </style>
+</head>
+<body>
+    <div class="layer-header">
+        <h1>Layer 1: Physical Layer</h1>
+        <div class="subtitle">ชั้นกายภาพ - สื่อสารผ่านสื่อกระแสไฟฟ้า/แสง</div>
+    </div>
+
+    <nav class="breadcrumb">
+        <a href="../index.html">หน้าแรก</a>
+        <span class="separator">/</span>
+        <a href="index.html">หน้าที่แต่ละ Layer</a>
+        <span class="separator">/</span>
+        <span>Layer 1 - Physical</span>
+    </nav>
+
+    <div class="container">
+        <section class="theory-section">
+            <div class="theory-header">
+                <h2>📖 ทฤษฎี: Physical Layer</h2>
+                <button class="theory-toggle-btn" onclick="toggleTheory()" id="toggle-btn">ซ่อนเนื้อหา</button>
+            </div>
+            
+            <div class="theory-content" id="theory-content">
+                <div class="theory-block">
+                    <h3>หน้าที่ของ Physical Layer</h3>
+                    <p>Physical Layer เป็นชั้นล่างสุดของ OSI Model จัดการการสื่อสารกายภาพจริงๆ ผ่านสายเคเบิล สัญญาณไฟฟ้า หรือคลื่นวิทยุ</p>
+                    
+                    <div class="term-box">
+                        <h4>📘 Physical Layer</h4>
+                        <ul>
+                            <li><strong>PDU:</strong> Bits (0 และ 1)</li>
+                            <li><strong>หน้าที่:</strong> ส่งสัญญาณกายภาพ จัดการสื่อส่งข้อมูล</li>
+                            <li><strong>อุปกรณ์:</strong> Hub, Repeater, Cable, Network Interface</li>
+                            <li><strong>Analogy:</strong> เหมือนถนนที่รถวิ่ง</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>หน้าที่หลัก</h3>
+                    <ul>
+                        <li><strong>Bit Transmission:</strong> ส่ง Bits ผ่านสื่อกายภาพ</li>
+                        <li><strong>Physical Topology:</strong> กำหนดรูปแบบการเชื่อมต่อ (Bus, Star, Mesh)</li>
+                        <li><strong>Signal Encoding:</strong> แปลง Bits เป็นสัญญาณไฟฟ้า/แสง/วิทยุ</li>
+                        <li><strong>Data Rate:</strong> ควบคุมความเร็วการส่งข้อมูล</li>
+                        <li><strong>Physical Interface:</strong> กำหนดขนาดและรูปแบบ Connector</li>
+                    </ul>
+                </div>
+
+                <div class="theory-block">
+                    <h3>สื่อส่งข้อมูล (Transmission Media)</h3>
+                    <ul>
+                        <li><strong>Twisted Pair Cable:</strong> สายคู่บิด (Cat5e, Cat6, Cat6a)</li>
+                        <li><strong>Coaxial Cable:</strong> สายโคแอกเชียล (รุ่นเก่า, ใช้กับ TV)</li>
+                        <li><strong>Fiber Optic:</strong> สายใยแก้วนำแสง (Single-mode, Multi-mode)</li>
+                        <li><strong>Wireless:</strong> คลื่นวิทยุ (Radio, Microwave, Infrared)</li>
+                    </ul>
+                </div>
+
+                <div class="theory-block">
+                    <h3>อุปกรณ์ใน Physical Layer</h3>
+                    <ul>
+                        <li><strong>Hub:</strong> ต่อเชื่อมอุปกรณ์หลายเครื่อง (Broadcast ทุก Port)</li>
+                        <li><strong>Repeater:</strong> ขยายสัญญาณให้ส่งได้ไกลขึ้น</li>
+                        <li><strong>NIC (Network Interface Card):</strong> การ์ดเครือข่าย</li>
+                        <li><strong>Modem:</strong> แปลงสัญญาณดิจิตอล↔อนาลอก</li>
+                    </ul>
+                </div>
+
+                <div class="theory-block">
+                    <h3>Topologies</h3>
+                    <ul>
+                        <li><strong>Bus:</strong> ต่อบนเส้นทางเดียวกัน (รุ่นเก่า)</li>
+                        <li><strong>Star:</strong> ต่อรวมศูนย์กลาง (Hub/Switch)</li>
+                        <li><strong>Ring:</strong> ต่อเป็นวงกลม (Token Ring)</li>
+                        <li><strong>Mesh:</strong> เชื่อมต่อทุกคู่ (ความปลอดภัยสูง)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section style="text-align: center; margin-top: 2rem;">
+            <a href="layer2-datalink.html" style="display: inline-block; background: var(--layer2-color); color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none;">← Layer 2: Data Link</a>
+            <a href="index.html" style="display: inline-block; background: var(--primary-color); color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; margin: 0 0.5rem;">ดูทั้งหมด</a>
+            <a href="../osi-communication/index.html" style="display: inline-block; background: var(--success-color); color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none;">การสื่อสารบน OSI →</a>
+        </section>
+    </div>
+
+    <footer class="page-footer">
+        <p>แหล่งอ้างอิง: ISO/IEC 7498-1</p>
+    </footer>
+
+    <script>
+        function toggleTheory() {
+            const content = document.getElementById('theory-content');
+            const btn = document.getElementById('toggle-btn');
+            if (content.classList.contains('collapsed')) {
+                content.classList.remove('collapsed');
+                btn.textContent = 'ซ่อนเนื้อหา';
+            } else {
+                content.classList.add('collapsed');
+                btn.textContent = 'แสดงเนื้อหา';
+            }
+        }
+    </script>
+</body>
+</html>

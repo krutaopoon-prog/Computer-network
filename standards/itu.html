@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ITU - International Telecommunication Union</title>
+    <link rel="stylesheet" href="../shared/css/global.css?v=1.0">
+</head>
+<body>
+    <header class="page-header">
+        <h1>📡 ITU</h1>
+        <p>International Telecommunication Union</p>
+    </header>
+
+    <nav class="breadcrumb">
+        <a href="../index.html">หน้าแรก</a>
+        <span class="separator">/</span>
+        <a href="index.html">มาตรฐานเครือข่าย</a>
+        <span class="separator">/</span>
+        <span>ITU</span>
+    </nav>
+
+    <div class="container">
+        <section class="theory-section">
+            <div class="theory-header">
+                <h2>📖 ทฤษฎี: ITU</h2>
+                <button class="theory-toggle-btn" onclick="toggleTheory()" id="toggle-btn">ซ่อนเนื้อหา</button>
+            </div>
+            
+            <div class="theory-content" id="theory-content">
+                <div class="theory-block">
+                    <h3>ITU คืออะไร?</h3>
+                    <p>ITU (International Telecommunication Union) เป็นหน่วยงานเฉพาะทางของสหประชาชาติ (UN Specialized Agency) ที่รับผิดชอบด้านเทคโนโลยีสารสนเทศและการสื่อสาร เป็นองค์กรที่เก่าแก่ที่สุดของ UN</p>
+                    
+                    <div class="term-box">
+                        <h4>📘 ข้อมูลทั่วไป</h4>
+                        <ul>
+                            <li><strong>ก่อตั้ง:</strong> 17 พฤษภาคม 1865 (ในชื่อ International Telegraph Union)</li>
+                            <li><strong>เข้าร่วม UN:</strong> ปี 1947</li>
+                            <li><strong>สำนักงานใหญ่:</strong> เจนีวา ประเทศสวิตเซอร์แลนด์</li>
+                            <li><strong>สมาชิก:</strong> 193 ประเทศ + กว่า 900 องค์กรภาคเอกชน</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>3 ภาคีของ ITU</h3>
+                    <ul>
+                        <li><strong>ITU-R</strong> (Radiocommunication Sector) - กำหนดมาตรฐานวิทยุสื่อสาร</li>
+                        <li><strong>ITU-T</strong> (Telecommunication Standardization Sector) - มาตรฐานโทรคมนาคม</li>
+                        <li><strong>ITU-D</strong> (Development Sector) - พัฒนาด้านโทรคมนาคม</li>
+                    </ul>
+                </div>
+
+                <div class="theory-block">
+                    <h3>มาตรฐานที่เกี่ยวข้องกับเครือข่าย (ITU-T)</h3>
+                    <ul>
+                        <li><strong>X Series</strong> - Data Networks, Open System Communications</li>
+                        <li><strong>G Series</strong> - Transmission Systems and Media</li>
+                        <li><strong>V Series</strong> - Data Communication over Telephone Network</li>
+                        <li><strong>H Series</strong> - Audiovisual and Multimedia Systems</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="page-footer">
+        <p>แหล่งอ้างอิง: https://www.itu.int</p>
+    </footer>
+
+    <script>
+        function toggleTheory() {
+            const content = document.getElementById('theory-content');
+            const btn = document.getElementById('toggle-btn');
+            if (content.classList.contains('collapsed')) {
+                content.classList.remove('collapsed');
+                btn.textContent = 'ซ่อนเนื้อหา';
+            } else {
+                content.classList.add('collapsed');
+                btn.textContent = 'แสดงเนื้อหา';
+            }
+        }
+    </script>
+</body>
+</html>

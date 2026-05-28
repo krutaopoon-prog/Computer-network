@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EIA - Electronic Industries Alliance</title>
+    <link rel="stylesheet" href="../shared/css/global.css?v=1.0">
+</head>
+<body>
+    <header class="page-header">
+        <h1>🔌 EIA</h1>
+        <p>Electronic Industries Alliance</p>
+    </header>
+
+    <nav class="breadcrumb">
+        <a href="../index.html">หน้าแรก</a>
+        <span class="separator">/</span>
+        <a href="index.html">มาตรฐานเครือข่าย</a>
+        <span class="separator">/</span>
+        <span>EIA</span>
+    </nav>
+
+    <div class="container">
+        <section class="theory-section">
+            <div class="theory-header">
+                <h2>📖 ทฤษฎี: EIA</h2>
+                <button class="theory-toggle-btn" onclick="toggleTheory()" id="toggle-btn">ซ่อนเนื้อหา</button>
+            </div>
+            
+            <div class="theory-content" id="theory-content">
+                <div class="theory-block">
+                    <h3>EIA คืออะไร?</h3>
+                    <p>EIA (Electronic Industries Alliance) เป็นองค์กรอุตสาหกรรมอิเล็กทรอนิกส์ของสหรัฐอเมริกา กำหนดมาตรฐานสำหรับอุปกรณ์อิเล็กทรอนิกส์และการสื่อสาร ปัจจุบัน EIA ยุบตัวลงแล้ว แต่มาตรฐานยังคงใช้อยู่</p>
+                    
+                    <div class="term-box">
+                        <h4>📘 ข้อมูลทั่วไป</h4>
+                        <ul>
+                            <li><strong>ก่อตั้ง:</strong> 1924</li>
+                            <li><strong>ยุบตัว:</strong> 2011</li>
+                            <li><strong>สำนักงานใหญ่:</strong> อาร์ลิงตัน รัฐเวอร์จิเนีย</li>
+                            <li><strong>หมายเหตุ:</strong> มาตรฐาน EIA ถูกโอนไปให้ ECA และต่อมาให้ TIA</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>มาตรฐาน EIA ที่ใช้ในปัจจุบัน</h3>
+                    <ul>
+                        <li><strong>EIA/TIA-568</strong> - Commercial Building Telecommunications Cabling (ร่วมกับ TIA)</li>
+                        <li><strong>EIA-232</strong> - RS-232 Serial Communication Standard (Port Serial)</li>
+                        <li><strong>EIA-422</strong> - สื่อสารแบบ Differential Serial</li>
+                        <li><strong>EIA-485</strong> - RS-485 Multi-drop Communication</li>
+                        <li><strong>EIA-530</strong> - High-speed Serial Interface</li>
+                    </ul>
+                </div>
+
+                <div class="theory-block">
+                    <h3>RS-232 คืออะไร?</h3>
+                    <p>RS-232 (Recommended Standard 232) เป็นมาตรฐานการสื่อสารแบบอนุกรม (Serial Communication) ที่ใช้กันมายาวนาน ใช้สำหรับเชื่อมต่ออุปกรณ์ต่างๆ เช่น Modem, Mouse, และ Console Port ของ Router/Switch</p>
+                    
+                    <div class="term-box">
+                        <h4>📘 คุณสมบัติ RS-232</h4>
+                        <ul>
+                            <li><strong>ระยะทาง:</strong> สูงสุด 15 เมตร</li>
+                            <li><strong>ความเร็ว:</strong> สูงสุด 20 Kbps (แบบดั้งเดิม)</li>
+                            <li><strong>สัญญาณ:</strong> Unbalanced (single-ended)</li>
+                            <li><strong>ตัวเชื่อมต่อ:</strong> DB-9 (9 pins) หรือ DB-25 (25 pins)</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="page-footer">
+        <p>แหล่งอ้างอิง: https://www.eia.org (ปัจจุบันโอนให้ TIA - https://www.tiaonline.org)</p>
+    </footer>
+
+    <script>
+        function toggleTheory() {
+            const content = document.getElementById('theory-content');
+            const btn = document.getElementById('toggle-btn');
+            if (content.classList.contains('collapsed')) {
+                content.classList.remove('collapsed');
+                btn.textContent = 'ซ่อนเนื้อหา';
+            } else {
+                content.classList.add('collapsed');
+                btn.textContent = 'แสดงเนื้อหา';
+            }
+        }
+    </script>
+</body>
+</html>

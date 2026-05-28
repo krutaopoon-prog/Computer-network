@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>มาตรฐานเครือข่ายคอมพิวเตอร์ - องค์กรกำหนดมาตรฐาน</title>
+    <link rel="stylesheet" href="../shared/css/global.css?v=1.0">
+    <style>
+        .org-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+        
+        .org-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-decoration: none;
+            color: var(--text-color);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            transition: all 0.2s;
+            border: 2px solid transparent;
+        }
+        
+        .org-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+            border-color: var(--primary-color);
+        }
+        
+        .org-abbr {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .org-name {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .org-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+        }
+        
+        .comparison-table th,
+        .comparison-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border: 1px solid var(--border-color);
+        }
+        
+        .comparison-table th {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .comparison-table tr:nth-child(even) {
+            background: #f8fafc;
+        }
+    </style>
+</head>
+<body>
+    <header class="page-header">
+        <h1>🏛️ มาตรฐานเครือข่ายคอมพิวเตอร์</h1>
+        <p>องค์กรระหว่างประเทศที่กำหนดมาตรฐานเครือข่าย</p>
+    </header>
+
+    <nav class="breadcrumb">
+        <a href="../index.html">หน้าแรก</a>
+        <span class="separator">/</span>
+        <span>มาตรฐานเครือข่าย</span>
+    </nav>
+
+    <div class="container">
+        <!-- Theory Section -->
+        <section class="theory-section">
+            <div class="theory-header">
+                <h2>📖 ทฤษฎี: องค์กรกำหนดมาตรฐาน</h2>
+                <button class="theory-toggle-btn" onclick="toggleTheory()" id="toggle-btn">ซ่อนเนื้อหา</button>
+            </div>
+            
+            <div class="theory-content" id="theory-content">
+                <div class="theory-block">
+                    <h3>ทำไมต้องมีมาตรฐาน?</h3>
+                    <p>มาตรฐานเครือข่ายคอมพิวเตอร์ (Network Standards) เป็นข้อกำหนดที่ทำให้อุปกรณ์จากผู้ผลิตต่างกันสามารถสื่อสารกันได้ โดยไม่ต้องสนใจว่าอุปกรณ์นั้นผลิตจากบริษัทอะไร</p>
+                    
+                    <div class="term-box">
+                        <h4>📘 Standard คืออะไร?</h4>
+                        <ul>
+                            <li><strong>Definition:</strong> ข้อกำหนดทางเทคนิคที่กำหนดวิธีการทำงานของระบบ</li>
+                            <li><strong>Simple analogy:</strong> เหมือนภาษาสากลที่ทุกคนเข้าใจเหมือนกัน</li>
+                            <li><strong>Examples:</strong> ปลั๊กไฟมีมาตรฐานเดียวกัน ไม่ว่าซื้อจากยี่ห้อไหนก็เสียบได้</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>5 องค์กรกำหนดมาตรฐานหลัก</h3>
+                    
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>องค์กร</th>
+                                <th>ชื่อเต็ม</th>
+                                <th>ความเชี่ยวชาญ</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>ISO</strong></td>
+                                <td>International Organization for Standardization</td>
+                                <td>มาตรฐานทั่วไป เช่น OSI Model</td>
+                            </tr>
+                            <tr>
+                                <td><strong>ITU</strong></td>
+                                <td>International Telecommunication Union</td>
+                                <td>โทรคมนาคมและสื่อสาร</td>
+                            </tr>
+                            <tr>
+                                <td><strong>ANSI</strong></td>
+                                <td>American National Standards Institute</td>
+                                <td>มาตรฐานอเมริกัน</td>
+                            </tr>
+                            <tr>
+                                <td><strong>IEEE</strong></td>
+                                <td>Institute of Electrical and Electronics Engineers</td>
+                                <td>มาตรฐาน LAN/MAN (802.x)</td>
+                            </tr>
+                            <tr>
+                                <td><strong>EIA</strong></td>
+                                <td>Electronic Industries Alliance</td>
+                                <td>อุปกรณ์อิเล็กทรอนิกส์และสื่อสาร</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="theory-block">
+                    <h3>แหล่งอ้างอิง</h3>
+                    <ul>
+                        <li>ISO - https://www.iso.org</li>
+                        <li>ITU - https://www.itu.int</li>
+                        <li>ANSI - https://www.ansi.org</li>
+                        <li>IEEE - https://www.ieee.org</li>
+                        <li>EIA - https://www.eia.org</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Organization Cards -->
+        <section class="org-cards">
+            <a href="iso.html" class="org-card">
+                <div class="org-abbr">ISO</div>
+                <div class="org-name">International Organization for Standardization</div>
+                <div class="org-desc">องค์กรระหว่างประเทศที่กำหนดมาตรฐานทั่วไป รวมถึง OSI Model</div>
+            </a>
+            
+            <a href="itu.html" class="org-card">
+                <div class="org-abbr">ITU</div>
+                <div class="org-name">International Telecommunication Union</div>
+                <div class="org-desc">องค์กรสหประชาชาติกำหนดมาตรฐานโทรคมนาคมและสื่อสาร</div>
+            </a>
+            
+            <a href="ansi.html" class="org-card">
+                <div class="org-abbr">ANSI</div>
+                <div class="org-name">American National Standards Institute</div>
+                <div class="org-desc">สถาบันมาตรฐานแห่งชาติสหรัฐอเมริกา</div>
+            </a>
+            
+            <a href="ieee.html" class="org-card">
+                <div class="org-abbr">IEEE</div>
+                <div class="org-name">Institute of Electrical and Electronics Engineers</div>
+                <div class="org-desc">สถาบันวิศวกรรมไฟฟ้าและอิเล็กทรอนิกส์ - มาตรฐาน 802.x</div>
+            </a>
+            
+            <a href="eia.html" class="org-card">
+                <div class="org-abbr">EIA</div>
+                <div class="org-name">Electronic Industries Alliance</div>
+                <div class="org-desc">พันธมิตรอุตสาหกรรมอิเล็กทรอนิกส์ - มาตรฐานสายเคเบิล</div>
+            </a>
+        </section>
+    </div>
+
+    <footer class="page-footer">
+        <p>Computer Network Interactive Simulators</p>
+    </footer>
+
+    <script>
+        function toggleTheory() {
+            const content = document.getElementById('theory-content');
+            const btn = document.getElementById('toggle-btn');
+            if (content.classList.contains('collapsed')) {
+                content.classList.remove('collapsed');
+                btn.textContent = 'ซ่อนเนื้อหา';
+            } else {
+                content.classList.add('collapsed');
+                btn.textContent = 'แสดงเนื้อหา';
+            }
+        }
+    </script>
+</body>
+</html>

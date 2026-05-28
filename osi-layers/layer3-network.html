@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layer 3 - Network Layer</title>
+    <link rel="stylesheet" href="../shared/css/global.css?v=1.0">
+    <style>
+        .layer-header {
+            background: var(--layer3-color);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+        .layer-header h1 { margin: 0; }
+        .layer-header .subtitle { opacity: 0.9; margin-top: 0.5rem; }
+    </style>
+</head>
+<body>
+    <div class="layer-header">
+        <h1>Layer 3: Network Layer</h1>
+        <div class="subtitle">ชั้นเครือข่าย - Routing & Logical Addressing</div>
+    </div>
+
+    <nav class="breadcrumb">
+        <a href="../index.html">หน้าแรก</a>
+        <span class="separator">/</span>
+        <a href="index.html">หน้าที่แต่ละ Layer</a>
+        <span class="separator">/</span>
+        <span>Layer 3 - Network</span>
+    </nav>
+
+    <div class="container">
+        <section class="theory-section">
+            <div class="theory-header">
+                <h2>📖 ทฤษฎี: Network Layer</h2>
+                <button class="theory-toggle-btn" onclick="toggleTheory()" id="toggle-btn">ซ่อนเนื้อหา</button>
+            </div>
+            
+            <div class="theory-content" id="theory-content">
+                <div class="theory-block">
+                    <h3>หน้าที่ของ Network Layer</h3>
+                    <p>Network Layer เป็นชั้นที่กำหนดเส้นทาง (Routing) การส่งข้อมูลจากต้นทางไปยังปลายทาง ผ่าน Network ต่างๆ ใช้ Logical Address (IP Address)</p>
+                    
+                    <div class="term-box">
+                        <h4>📘 Network Layer</h4>
+                        <ul>
+                            <li><strong>PDU:</strong> Packet</li>
+                            <li><strong>หน้าที่:</strong> Logical Addressing, Routing, Path Determination</li>
+                            <li><strong>อุปกรณ์:</strong> Router, Layer 3 Switch</li>
+                            <li><strong>Analogy:</strong> เหมือนไปรษณีย์ที่กำหนดเส้นทางจดหมาย</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>หน้าที่หลัก</h3>
+                    <ul>
+                        <li><strong>Logical Addressing:</strong> กำหนด IP Address (IPv4/IPv6)</li>
+                        <li><strong>Routing:</strong> หาเส้นทางที่ดีที่สุดไปยังปลายทาง</li>
+                        <li><strong>Packet Forwarding:</strong> ส่ง Packet ไปยัง Router ถัดไป</li>
+                        <li><strong>Fragmentation:</strong> แบ่ง Packet ให้พอดีกับ MTU</li>
+                    </ul>
+                </div>
+
+                <div class="theory-block">
+                    <h3>Protocol ใน Network Layer</h3>
+                    <ul>
+                        <li><strong>IP (Internet Protocol):</strong> IPv4, IPv6 - ส่ง Packet หลัก</li>
+                        <li><strong>ICMP:</strong> Internet Control Message Protocol (Ping, Traceroute)</li>
+                        <li><strong>ARP:</strong> Address Resolution Protocol - หา MAC จาก IP</li>
+                        <li><strong>RARP:</strong> Reverse ARP - หา IP จาก MAC</li>
+                        <li><strong>Routing Protocols:</strong> RIP, OSPF, BGP</li>
+                    </ul>
+                </div>
+
+                <div class="theory-block">
+                    <h3>IP Address</h3>
+                    <ul>
+                        <li><strong>IPv4:</strong> 32-bit (เช่น 192.168.1.1) - รองรับ ~4.3 พันล้าน Address</li>
+                        <li><strong>IPv6:</strong> 128-bit (เช่น 2001:0db8::1) - จำนวนมหาศาล</li>
+                        <li><strong>Public IP:</strong> ใช้บน Internet</li>
+                        <li><strong>Private IP:</strong> ใช้ภายในองค์กร (10.x.x.x, 192.168.x.x)</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section style="text-align: center; margin-top: 2rem;">
+            <a href="layer4-transport.html" style="display: inline-block; background: var(--layer4-color); color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none;">← Layer 4: Transport</a>
+            <a href="index.html" style="display: inline-block; background: var(--primary-color); color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; margin: 0 0.5rem;">ดูทั้งหมด</a>
+            <a href="layer2-datalink.html" style="display: inline-block; background: var(--layer2-color); color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none;">Layer 2: Data Link →</a>
+        </section>
+    </div>
+
+    <footer class="page-footer">
+        <p>แหล่งอ้างอิง: ISO/IEC 7498-1, RFC 791</p>
+    </footer>
+
+    <script>
+        function toggleTheory() {
+            const content = document.getElementById('theory-content');
+            const btn = document.getElementById('toggle-btn');
+            if (content.classList.contains('collapsed')) {
+                content.classList.remove('collapsed');
+                btn.textContent = 'ซ่อนเนื้อหา';
+            } else {
+                content.classList.add('collapsed');
+                btn.textContent = 'แสดงเนื้อหา';
+            }
+        }
+    </script>
+</body>
+</html>

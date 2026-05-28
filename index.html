@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>เครือข่ายคอมพิวเตอร์ - Interactive Simulators</title>
+    <link rel="stylesheet" href="shared/css/global.css?v=1.0">
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --success-color: #22c55e;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-color: #1e293b;
+            --text-muted: #64748b;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', 'Sarabun', Tahoma, sans-serif;
+            background: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 3rem 1rem;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-decoration: none;
+            color: var(--text-color);
+            border: 1px solid #e2e8f0;
+        }
+        
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.15);
+        }
+        
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--primary-color);
+        }
+        
+        .card-desc {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        
+        .card-topics {
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+        
+        .card-topics span {
+            background: #e0f2fe;
+            color: var(--primary-color);
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            margin-right: 0.25rem;
+        }
+        
+        .footer {
+            background: var(--text-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 3rem;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+            
+            .cards-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>🌐 เครือข่ายคอมพิวเตอร์</h1>
+        <p>Interactive Simulators สำหรับการเรียนรู้แบบโต้ตอบ</p>
+    </header>
+
+    <div class="container">
+        <section>
+            <h2 class="section-title">📚 บทที่ 1: มาตรฐานเครือข่าย</h2>
+            <div class="cards-grid">
+                <a href="standards/index.html" class="card">
+                    <div class="card-icon">🏛️</div>
+                    <div class="card-title">มาตรฐานเครือข่ายคอมพิวเตอร์</div>
+                    <div class="card-desc">องค์กรกำหนดมาตรฐานระดับโลก ISO, ITU, ANSI, IEEE, EIA</div>
+                    <div class="card-topics">
+                        <span>5 องค์กร</span>
+                        <span>Quiz</span>
+                    </div>
+                </a>
+                
+                <a href="osi-overview/index.html" class="card">
+                    <div class="card-icon">🥞</div>
+                    <div class="card-title">แบบจำลอง OSI</div>
+                    <div class="card-desc">เรียนรู้ 7 Layers ของ OSI Model พร้อม Interactive Diagram</div>
+                    <div class="card-topics">
+                        <span>7 Layers</span>
+                        <span>Interactive</span>
+                    </div>
+                </a>
+                
+                <a href="osi-layers/index.html" class="card">
+                    <div class="card-icon">📋</div>
+                    <div class="card-title">หน้าที่แต่ละ Layer</div>
+                    <div class="card-desc">รายละเอียดหน้าที่ของแต่ละชั้นใน OSI Model</div>
+                    <div class="card-topics">
+                        <span>Layer 1-7</span>
+                        <span>Protocols</span>
+                    </div>
+                </a>
+                
+                <a href="osi-communication/index.html" class="card">
+                    <div class="card-icon">📡</div>
+                    <div class="card-title">การสื่อสารบน OSI</div>
+                    <div class="card-desc">Encapsulation, Decapsulation, Peer-to-Peer Communication</div>
+                    <div class="card-topics">
+                        <span>Animation</span>
+                        <span>Data Flow</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section>
+            <h2 class="section-title">🔌 บทที่ 2: โปรโตคอลและมาตรฐาน IEEE</h2>
+            <div class="cards-grid">
+                <a href="protocols/legacy-protocols/index.html" class="card">
+                    <div class="card-icon">📼</div>
+                    <div class="card-title">โปรโตคอลรุ่นเก่า</div>
+                    <div class="card-desc">IPX/SPX, NetBEUI, AppleTalk - โปรโตคอลในยุคก่อน TCP/IP</div>
+                    <div class="card-topics">
+                        <span>Legacy</span>
+                        <span>History</span>
+                    </div>
+                </a>
+                
+                <a href="protocols/tcp-ip/index.html" class="card">
+                    <div class="card-icon">🌐</div>
+                    <div class="card-title">โปรโตคอล TCP/IP</div>
+                    <div class="card-desc">4 Layers: Application, Transport, Internet, Physical</div>
+                    <div class="card-topics">
+                        <span>TCP/IP</span>
+                        <span>4 Layers</span>
+                    </div>
+                </a>
+                
+                <a href="protocols/ieee-standards/index.html" class="card">
+                    <div class="card-icon">📡</div>
+                    <div class="card-title">มาตรฐาน IEEE</div>
+                    <div class="card-desc">802.3 Ethernet, 802.11 WiFi, 802.15 Bluetooth และอื่นๆ</div>
+                    <div class="card-topics">
+                        <span>802.x</span>
+                        <span>Wired/Wireless</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>Computer Network Interactive Simulators for Vocational Education</p>
+        <p style="opacity: 0.7; margin-top: 0.5rem;">Created for ปวช./ปวส. สาขาเทคโนโลยีสารสนเทศ</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layer 2 - Data Link Layer</title>
+    <link rel="stylesheet" href="../shared/css/global.css?v=1.0">
+    <style>
+        .layer-header {
+            background: var(--layer2-color);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+        .layer-header h1 { margin: 0; }
+        .layer-header .subtitle { opacity: 0.9; margin-top: 0.5rem; }
+    </style>
+</head>
+<body>
+    <div class="layer-header">
+        <h1>Layer 2: Data Link Layer</h1>
+        <div class="subtitle">ชั้นเชื่อมโยงข้อมูล - MAC Address & Switching</div>
+    </div>
+
+    <nav class="breadcrumb">
+        <a href="../index.html">หน้าแรก</a>
+        <span class="separator">/</span>
+        <a href="index.html">หน้าที่แต่ละ Layer</a>
+        <span class="separator">/</span>
+        <span>Layer 2 - Data Link</span>
+    </nav>
+
+    <div class="container">
+        <section class="theory-section">
+            <div class="theory-header">
+                <h2>📖 ทฤษฎี: Data Link Layer</h2>
+                <button class="theory-toggle-btn" onclick="toggleTheory()" id="toggle-btn">ซ่อนเนื้อหา</button>
+            </div>
+            
+            <div class="theory-content" id="theory-content">
+                <div class="theory-block">
+                    <h3>หน้าที่ของ Data Link Layer</h3>
+                    <p>Data Link Layer จัดการการส่งข้อมูลระหว่างอุปกรณ์ในเครือข่ายเดียวกัน (LAN) ใช้ Physical Address (MAC Address) และตรวจสอบความผิดพลาด</p>
+                    
+                    <div class="term-box">
+                        <h4>📘 Data Link Layer</h4>
+                        <ul>
+                            <li><strong>PDU:</strong> Frame</li>
+                            <li><strong>หน้าที่:</strong> Physical Addressing, MAC, Error Detection</li>
+                            <li><strong>อุปกรณ์:</strong> Switch, Bridge, Network Interface Card (NIC)</li>
+                            <li><strong>Analogy:</strong> เหมือนพนักงานส่งของในหมู่บ้านเดียวกัน</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>2 ส่วนย่อยของ Data Link Layer</h3>
+                    <ul>
+                        <li><strong>LLC (Logical Link Control):</strong> จัดการการเชื่อมต่อกับ Network Layer</li>
+                        <li><strong>MAC (Media Access Control):</strong> ควบคุมการเข้าถึงสื่อ, กำหนด MAC Address</li>
+                    </ul>
+                </div>
+
+                <div class="theory-block">
+                    <h3>MAC Address</h3>
+                    <ul>
+                        <li><strong>ความยาว:</strong> 48-bit (6 bytes)</li>
+                        <li><strong>รูปแบบ:</strong> 12 ตัวอักษร Hex (เช่น 00:1A:2B:3C:4D:5E)</li>
+                        <li><strong>Unique:</strong> ไม่ซ้ำกันทั่วโลก (กำหนดโดยผู้ผลิต)</li>
+                        <li><strong>ที่อยู่:</strong> ฝังอยู่ใน Network Card (Hardware Address)</li>
+                    </ul>
+                </div>
+
+                <div class="theory-block">
+                    <h3>Protocol ใน Data Link Layer</h3>
+                    <ul>
+                        <li><strong>Ethernet:</strong> มาตรฐาน LAN ที่ใช้ทั่วไป (IEEE 802.3)</li>
+                        <li><strong>PPP:</strong> Point-to-Point Protocol (Dial-up)</li>
+                        <li><strong>Frame Relay:</strong> WAN Technology (รุ่นเก่า)</li>
+                        <li><strong>ATM:</strong> Asynchronous Transfer Mode</li>
+                        <li><strong>HDLC:</strong> High-Level Data Link Control</li>
+                    </ul>
+                </div>
+
+                <div class="theory-block">
+                    <h3>Error Detection</h3>
+                    <ul>
+                        <li><strong>CRC (Cyclic Redundancy Check):</strong> ตรวจสอบความถูกต้องของ Frame</li>
+                        <li><strong>FCS (Frame Check Sequence):</strong> ส่วนท้ายของ Frame สำหรับตรวจสอบ</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section style="text-align: center; margin-top: 2rem;">
+            <a href="layer3-network.html" style="display: inline-block; background: var(--layer3-color); color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none;">← Layer 3: Network</a>
+            <a href="index.html" style="display: inline-block; background: var(--primary-color); color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; margin: 0 0.5rem;">ดูทั้งหมด</a>
+            <a href="layer1-physical.html" style="display: inline-block; background: var(--layer1-color); color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none;">Layer 1: Physical →</a>
+        </section>
+    </div>
+
+    <footer class="page-footer">
+        <p>แหล่งอ้างอิง: ISO/IEC 7498-1, IEEE 802.3</p>
+    </footer>
+
+    <script>
+        function toggleTheory() {
+            const content = document.getElementById('theory-content');
+            const btn = document.getElementById('toggle-btn');
+            if (content.classList.contains('collapsed')) {
+                content.classList.remove('collapsed');
+                btn.textContent = 'ซ่อนเนื้อหา';
+            } else {
+                content.classList.add('collapsed');
+                btn.textContent = 'แสดงเนื้อหา';
+            }
+        }
+    </script>
+</body>
+</html>

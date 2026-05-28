@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>การสื่อสารบน OSI - Data Communication</title>
+    <link rel="stylesheet" href="../shared/css/global.css?v=1.0">
+    <style>
+        .comm-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        .comm-card {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-decoration: none;
+            color: var(--text-color);
+            border: 2px solid transparent;
+            transition: all 0.2s;
+        }
+        
+        .comm-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            border-color: var(--primary-color);
+        }
+        
+        .comm-card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .comm-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .comm-card p {
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+    <header class="page-header">
+        <h1>📡 การสื่อสารบน OSI</h1>
+        <p>Data Flow, Encapsulation และ Decapsulation</p>
+    </header>
+
+    <nav class="breadcrumb">
+        <a href="../index.html">หน้าแรก</a>
+        <span class="separator">/</span>
+        <span>การสื่อสารบน OSI</span>
+    </nav>
+
+    <div class="container">
+        <section class="theory-section">
+            <div class="theory-header">
+                <h2>📖 ทฤษฎี: การสื่อสารบน OSI</h2>
+                <button class="theory-toggle-btn" onclick="toggleTheory()" id="toggle-btn">ซ่อนเนื้อหา</button>
+            </div>
+            
+            <div class="theory-content" id="theory-content">
+                <div class="theory-block">
+                    <h3>การสื่อสารระหว่าง 2 เครื่อง</h3>
+                    <p>เมื่อเครื่องคอมพิวเตอร์ A ต้องการส่งข้อมูลไปยังเครื่อง B ข้อมูลจะผ่านกระบวนการสำคัญ 2 อย่าง:</p>
+                    
+                    <div class="term-box">
+                        <h4>📘 กระบวนการสื่อสาร</h4>
+                        <ul>
+                            <li><strong>Encapsulation (การห่อหุ้ม):</strong> เพิ่ม Header ทีละชั้นจากบนลงล่าง</li>
+                            <li><strong>Decapsulation (การแกะห่อ):</strong> ลบ Header ทีละชั้นจากล่างขึ้นบน</li>
+                            <li><strong>Peer-to-Peer:</strong> ชั้นเดียวกันของเครื่องต่างกันสื่อสารกัน</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>Encapsulation Process</h3>
+                    <ol>
+                        <li><strong>Application:</strong> Data จากผู้ใช้</li>
+                        <li><strong>Presentation:</strong> Data + Presentation Header</li>
+                        <li><strong>Session:</strong> Data + Session Header</li>
+                        <li><strong>Transport:</strong> Segment (ข้อมูลแบ่งเป็นส่วน)</li>
+                        <li><strong>Network:</strong> Packet (เพิ่ม IP Address)</li>
+                        <li><strong>Data Link:</strong> Frame (เพิ่ม MAC Address)</li>
+                        <li><strong>Physical:</strong> Bits (แปลงเป็นสัญญาณ)</li>
+                    </ol>
+                </div>
+            </div>
+        </section>
+
+        <section class="comm-cards">
+            <a href="encapsulation.html" class="comm-card">
+                <div class="comm-card-icon">📦</div>
+                <h3>Encapsulation</h3>
+                <p>การห่อหุ้มข้อมูล - เพิ่ม Header ทีละชั้นจาก Application ถึง Physical</p>
+            </a>
+            
+            <a href="decapsulation.html" class="comm-card">
+                <div class="comm-card-icon">📂</div>
+                <h3>Decapsulation</h3>
+                <p>การแกะห่อข้อมูล - ลบ Header ทีละชั้นจาก Physical ถึง Application</p>
+            </a>
+            
+            <a href="peer-to-peer.html" class="comm-card">
+                <div class="comm-card-icon">🤝</div>
+                <h3>Peer-to-Peer Communication</h3>
+                <p>การสื่อสารระหว่างชั้นเดียวกันของเครื่องต่างกัน</p>
+            </a>
+            
+            <a href="data-journey.html" class="comm-card">
+                <div class="comm-card-icon">🚀</div>
+                <h3>Data Journey Animation</h3>
+                <p>ดูการเดินทางของข้อมูลแบบ Animation</p>
+            </a>
+        </section>
+    </div>
+
+    <footer class="page-footer">
+        <p>แหล่งอ้างอิง: ISO/IEC 7498-1</p>
+    </footer>
+
+    <script>
+        function toggleTheory() {
+            const content = document.getElementById('theory-content');
+            const btn = document.getElementById('toggle-btn');
+            if (content.classList.contains('collapsed')) {
+                content.classList.remove('collapsed');
+                btn.textContent = 'ซ่อนเนื้อหา';
+            } else {
+                content.classList.add('collapsed');
+                btn.textContent = 'แสดงเนื้อหา';
+            }
+        }
+    </script>
+</body>
+</html>

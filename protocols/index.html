@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>โปรโตคอลและมาตรฐาน IEEE - Protocols</title>
+    <link rel="stylesheet" href="../shared/css/global.css?v=1.0">
+    <style>
+        .protocol-section {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .protocol-section h2 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+        
+        .protocol-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        
+        .protocol-card {
+            background: #f8fafc;
+            border-radius: 8px;
+            padding: 1rem;
+            text-decoration: none;
+            color: var(--text-color);
+            border: 2px solid transparent;
+            transition: all 0.2s;
+        }
+        
+        .protocol-card:hover {
+            border-color: var(--primary-color);
+            background: #eff6ff;
+        }
+        
+        .protocol-card h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .protocol-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+    <header class="page-header">
+        <h1>🔌 โปรโตคอลและมาตรฐาน IEEE</h1>
+        <p>Communication Protocols and IEEE Standards</p>
+    </header>
+
+    <nav class="breadcrumb">
+        <a href="../index.html">หน้าแรก</a>
+        <span class="separator">/</span>
+        <span>โปรโตคอลและมาตรฐาน IEEE</span>
+    </nav>
+
+    <div class="container">
+        <section class="protocol-section">
+            <h2>📼 1. โปรโตคอลรุ่นเก่า (Legacy Protocols)</h2>
+            <div class="protocol-grid">
+                <a href="legacy-protocols/index.html" class="protocol-card">
+                    <h4>ภาพรวมโปรโตคอลรุ่นเก่า</h4>
+                    <p>IPX/SPX, NetBEUI, AppleTalk - เปรียบเทียบและความแตกต่าง</p>
+                </a>
+                <a href="legacy-protocols/ipx-spx.html" class="protocol-card">
+                    <h4>IPX/SPX</h4>
+                    <p>Novell NetWare Protocol Suite - ใช้ในเครือข่าย Novell</p>
+                </a>
+                <a href="legacy-protocols/netbeui.html" class="protocol-card">
+                    <h4>NetBEUI</h4>
+                    <p>NetBIOS Extended User Interface - ของ Microsoft สำหรับ LAN ขนาดเล็ก</p>
+                </a>
+                <a href="legacy-protocols/appletalk.html" class="protocol-card">
+                    <h4>AppleTalk</h4>
+                    <p>โปรโตคอลของ Apple สำหรับ Macintosh</p>
+                </a>
+            </div>
+        </section>
+
+        <section class="protocol-section">
+            <h2>🌐 2. โปรโตคอล TCP/IP</h2>
+            <div class="protocol-grid">
+                <a href="tcp-ip/index.html" class="protocol-card">
+                    <h4>ภาพรวม TCP/IP</h4>
+                    <p>4 Layers: Application, Transport, Internet, Physical</p>
+                </a>
+                <a href="tcp-ip/application-layer.html" class="protocol-card">
+                    <h4>ชั้นแอปพลิเคชัน</h4>
+                    <p>HTTP, FTP, SMTP, DNS และ Protocols อื่นๆ</p>
+                </a>
+                <a href="tcp-ip/transport-layer.html" class="protocol-card">
+                    <h4>ชั้นทรานสปอร์ต</h4>
+                    <p>TCP, UDP, Port Numbers, 3-Way Handshake</p>
+                </a>
+                <a href="tcp-ip/internet-layer.html" class="protocol-card">
+                    <h4>ชั้นอินเทอร์เน็ต</h4>
+                    <p>IP, ICMP, ARP, Routing Protocols</p>
+                </a>
+                <a href="tcp-ip/physical-layer.html" class="protocol-card">
+                    <h4>ชั้นฟิสิคัล</h4>
+                    <p>Ethernet, WiFi, Network Interface</p>
+                </a>
+                <a href="tcp-ip/tcp-ip-vs-osi.html" class="protocol-card">
+                    <h4>เปรียบเทียบ TCP/IP vs OSI</h4>
+                    <p>ความเหมือนและความแตกต่างของ 2 แบบจำลอง</p>
+                </a>
+            </div>
+        </section>
+
+        <section class="protocol-section">
+            <h2>📡 3. มาตรฐาน IEEE (802.x)</h2>
+            <div class="protocol-grid">
+                <a href="ieee-standards/index.html" class="protocol-card">
+                    <h4>ภาพรวม IEEE 802</h4>
+                    <p>LAN/MAN Standards - มาตรฐานเครือข่ายท้องถิ่น</p>
+                </a>
+                <a href="ieee-standards/8023-ethernet.html" class="protocol-card">
+                    <h4>IEEE 802.3 - Ethernet</h4>
+                    <p>Wired LAN Standards - 10Mbps ถึง 400Gbps</p>
+                </a>
+                <a href="ieee-standards/80211-wifi.html" class="protocol-card">
+                    <h4>IEEE 802.11 - WiFi</h4>
+                    <p>Wireless LAN - a, b, g, n, ac, ax (WiFi 6/6E/7)</p>
+                </a>
+                <a href="ieee-standards/80215-bluetooth.html" class="protocol-card">
+                    <h4>IEEE 802.15 - WPAN</h4>
+                    <p>Bluetooth, Zigbee, Wireless Personal Area Network</p>
+                </a>
+                <a href="ieee-standards/80216-wimax.html" class="protocol-card">
+                    <h4>IEEE 802.16 - WiMAX</h4>
+                    <p>Wireless Metropolitan Area Network</p>
+                </a>
+                <a href="ieee-standards/comparison-table.html" class="protocol-card">
+                    <h4>ตารางเปรียบเทียบ</h4>
+                    <p>สรุปมาตรฐาน IEEE 802.x ทั้งหมด</p>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <footer class="page-footer">
+        <p>แหล่งอ้างอิง: IEEE Standards, RFC Documents</p>
+    </footer>
+</body>
+</html>

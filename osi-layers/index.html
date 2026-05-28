@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>หน้าที่แต่ละ Layer - OSI 7 Layers</title>
+    <link rel="stylesheet" href="../shared/css/global.css?v=1.0">
+    <style>
+        .layers-nav {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .layer-nav-btn {
+            padding: 0.75rem;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        
+        .layer-nav-btn:hover {
+            filter: brightness(1.1);
+        }
+        
+        .summary-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1.5rem;
+        }
+        
+        .summary-table th,
+        .summary-table td {
+            padding: 0.75rem;
+            border: 1px solid var(--border-color);
+            text-align: left;
+        }
+        
+        .summary-table th {
+            background: var(--primary-color);
+            color: white;
+        }
+        
+        .summary-table tr:nth-child(even) {
+            background: #f8fafc;
+        }
+        
+        .pdu-badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .device-badge {
+            display: inline-block;
+            background: #e0f2fe;
+            color: var(--primary-color);
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin: 0.125rem;
+        }
+    </style>
+</head>
+<body>
+    <header class="page-header">
+        <h1>📋 หน้าที่แต่ละ Layer</h1>
+        <p>รายละเอียดหน้าที่ของแต่ละชั้นใน OSI Model</p>
+    </header>
+
+    <nav class="breadcrumb">
+        <a href="../index.html">หน้าแรก</a>
+        <span class="separator">/</span>
+        <span>หน้าที่แต่ละ Layer</span>
+    </nav>
+
+    <div class="container">
+        <nav class="layers-nav">
+            <a href="layer7-application.html" class="layer-nav-btn" style="background: var(--layer7-color);">7. Application</a>
+            <a href="layer6-presentation.html" class="layer-nav-btn" style="background: var(--layer6-color);">6. Presentation</a>
+            <a href="layer5-session.html" class="layer-nav-btn" style="background: var(--layer5-color); color: #1e293b;">5. Session</a>
+            <a href="layer4-transport.html" class="layer-nav-btn" style="background: var(--layer4-color);">4. Transport</a>
+            <a href="layer3-network.html" class="layer-nav-btn" style="background: var(--layer3-color);">3. Network</a>
+            <a href="layer2-datalink.html" class="layer-nav-btn" style="background: var(--layer2-color);">2. Data Link</a>
+            <a href="layer1-physical.html" class="layer-nav-btn" style="background: var(--layer1-color);">1. Physical</a>
+        </nav>
+
+        <section class="theory-section">
+            <div class="theory-header">
+                <h2>📖 สรุปหน้าที่แต่ละ Layer</h2>
+                <button class="theory-toggle-btn" onclick="toggleTheory()" id="toggle-btn">ซ่อนเนื้อหา</button>
+            </div>
+            
+            <div class="theory-content" id="theory-content">
+                <div class="theory-block">
+                    <h3>ตารางสรุป OSI 7 Layers</h3>
+                    <table class="summary-table">
+                        <thead>
+                            <tr>
+                                <th>Layer</th>
+                                <th>ชื่อ</th>
+                                <th>PDU</th>
+                                <th>หน้าที่หลัก</th>
+                                <th>อุปกรณ์/Protocol</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="background: var(--layer7-color); color: white; font-weight: bold;">7</td>
+                                <td><strong>Application</strong></td>
+                                <td><span class="pdu-badge" style="background: var(--layer7-color); color: white;">Data</span></td>
+                                <td>ติดต่อกับผู้ใช้ ให้บริการเครือข่าย</td>
+                                <td>
+                                    <span class="device-badge">HTTP</span>
+                                    <span class="device-badge">FTP</span>
+                                    <span class="device-badge">SMTP</span>
+                                    <span class="device-badge">DNS</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="background: var(--layer6-color); color: white; font-weight: bold;">6</td>
+                                <td><strong>Presentation</strong></td>
+                                <td><span class="pdu-badge" style="background: var(--layer6-color); color: white;">Data</span></td>
+                                <td>แปลงรูปแบบข้อมูล เข้ารหัส บีบอัด</td>
+                                <td>
+                                    <span class="device-badge">SSL/TLS</span>
+                                    <span class="device-badge">JPEG</span>
+                                    <span class="device-badge">ASCII</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="background: var(--layer5-color); color: #1e293b; font-weight: bold;">5</td>
+                                <td><strong>Session</strong></td>
+                                <td><span class="pdu-badge" style="background: var(--layer5-color); color: #1e293b;">Data</span></td>
+                                <td>จัดการ Session ควบคุมการติดต่อ</td>
+                                <td>
+                                    <span class="device-badge">NetBIOS</span>
+                                    <span class="device-badge">RPC</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="background: var(--layer4-color); color: white; font-weight: bold;">4</td>
+                                <td><strong>Transport</strong></td>
+                                <td><span class="pdu-badge" style="background: var(--layer4-color); color: white;">Segment</span></td>
+                                <td>End-to-End ควบคุมการส่งข้อมูล</td>
+                                <td>
+                                    <span class="device-badge">TCP</span>
+                                    <span class="device-badge">UDP</span>
+                                    <span class="device-badge">Port</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="background: var(--layer3-color); color: white; font-weight: bold;">3</td>
+                                <td><strong>Network</strong></td>
+                                <td><span class="pdu-badge" style="background: var(--layer3-color); color: white;">Packet</span></td>
+                                <td>กำหนดเส้นทาง ค้นหา IP</td>
+                                <td>
+                                    <span class="device-badge">Router</span>
+                                    <span class="device-badge">IP</span>
+                                    <span class="device-badge">ICMP</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="background: var(--layer2-color); color: white; font-weight: bold;">2</td>
+                                <td><strong>Data Link</strong></td>
+                                <td><span class="pdu-badge" style="background: var(--layer2-color); color: white;">Frame</span></td>
+                                <td>จัดการ MAC Address, Error Check</td>
+                                <td>
+                                    <span class="device-badge">Switch</span>
+                                    <span class="device-badge">MAC</span>
+                                    <span class="device-badge">Ethernet</span>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="background: var(--layer1-color); color: white; font-weight: bold;">1</td>
+                                <td><strong>Physical</strong></td>
+                                <td><span class="pdu-badge" style="background: var(--layer1-color); color: white;">Bits</span></td>
+                                <td>สื่อสารกายภาพ ส่งสัญญาณ</td>
+                                <td>
+                                    <span class="device-badge">Hub</span>
+                                    <span class="device-badge">Cable</span>
+                                    <span class="device-badge">Repeater</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="theory-block">
+                    <h3>หลักการสำคัญ</h3>
+                    <ul>
+                        <li><strong>PDU (Protocol Data Unit):</strong> หน่วยข้อมูลที่แต่ละชั้นใช้</li>
+                        <li><strong>Encapsulation:</strong> เพิ่ม Header ตอนส่งข้อมูล (จากบนลงล่าง)</li>
+                        <li><strong>Decapsulation:</strong> ลบ Header ตอนรับข้อมูล (จากล่างขึ้นบน)</li>
+                        <li><strong>Peer-to-Peer:</strong> ชั้นเดียวกันสื่อสารกันโดยตรง</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section style="margin-top: 2rem;">
+            <h3 style="text-align: center; margin-bottom: 1rem;">เลือก Layer เพื่อดูรายละเอียด</h3>
+            <div class="layers-nav">
+                <a href="layer7-application.html" class="layer-nav-btn" style="background: var(--layer7-color);">7. Application</a>
+                <a href="layer6-presentation.html" class="layer-nav-btn" style="background: var(--layer6-color);">6. Presentation</a>
+                <a href="layer5-session.html" class="layer-nav-btn" style="background: var(--layer5-color); color: #1e293b;">5. Session</a>
+                <a href="layer4-transport.html" class="layer-nav-btn" style="background: var(--layer4-color);">4. Transport</a>
+                <a href="layer3-network.html" class="layer-nav-btn" style="background: var(--layer3-color);">3. Network</a>
+                <a href="layer2-datalink.html" class="layer-nav-btn" style="background: var(--layer2-color);">2. Data Link</a>
+                <a href="layer1-physical.html" class="layer-nav-btn" style="background: var(--layer1-color);">1. Physical</a>
+            </div>
+        </section>
+    </div>
+
+    <footer class="page-footer">
+        <p>แหล่งอ้างอิง: ISO/IEC 7498-1</p>
+    </footer>
+
+    <script>
+        function toggleTheory() {
+            const content = document.getElementById('theory-content');
+            const btn = document.getElementById('toggle-btn');
+            if (content.classList.contains('collapsed')) {
+                content.classList.remove('collapsed');
+                btn.textContent = 'ซ่อนเนื้อหา';
+            } else {
+                content.classList.add('collapsed');
+                btn.textContent = 'แสดงเนื้อหา';
+            }
+        }
+    </script>
+</body>
+</html>

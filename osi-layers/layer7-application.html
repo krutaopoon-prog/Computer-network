@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layer 7 - Application Layer</title>
+    <link rel="stylesheet" href="../shared/css/global.css?v=1.0">
+    <style>
+        .layer-header {
+            background: var(--layer7-color);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+        
+        .layer-header h1 {
+            margin: 0;
+        }
+        
+        .layer-header .subtitle {
+            opacity: 0.9;
+            margin-top: 0.5rem;
+        }
+        
+        .protocol-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .protocol-card {
+            background: white;
+            border: 2px solid var(--layer7-color);
+            border-radius: 8px;
+            padding: 1rem;
+        }
+        
+        .protocol-card h4 {
+            color: var(--layer7-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .protocol-card p {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+    </style>
+</head>
+<body>
+    <div class="layer-header">
+        <h1>Layer 7: Application Layer</h1>
+        <div class="subtitle">ชั้นแอปพลิเคชัน - ติดต่อผู้ใช้โดยตรง</div>
+    </div>
+
+    <nav class="breadcrumb">
+        <a href="../index.html">หน้าแรก</a>
+        <span class="separator">/</span>
+        <a href="index.html">หน้าที่แต่ละ Layer</a>
+        <span class="separator">/</span>
+        <span>Layer 7 - Application</span>
+    </nav>
+
+    <div class="container">
+        <section class="theory-section">
+            <div class="theory-header">
+                <h2>📖 ทฤษฎี: Application Layer</h2>
+                <button class="theory-toggle-btn" onclick="toggleTheory()" id="toggle-btn">ซ่อนเนื้อหา</button>
+            </div>
+            
+            <div class="theory-content" id="theory-content">
+                <div class="theory-block">
+                    <h3>หน้าที่ของ Application Layer</h3>
+                    <p>Application Layer เป็นชั้นบนสุดของ OSI Model ทำหน้าที่เป็น Interface ระหว่างโปรแกรมที่ผู้ใช้ใช้งานกับเครือข่าย เป็นชั้นที่ผู้ใช้มองเห็นและโต้ตอบโดยตรง</p>
+                    
+                    <div class="term-box">
+                        <h4>📘 Application Layer</h4>
+                        <ul>
+                            <li><strong>PDU:</strong> Data</li>
+                            <li><strong>หน้าที่:</strong> ให้บริการเครือข่ายแก่แอปพลิเคชัน</li>
+                            <li><strong>ตัวอย่าง:</strong> Web Browser, Email Client, FTP Client</li>
+                            <li><strong>Analogy:</strong> เหมือนพนักงานต้อนรับที่ช่วยติดต่อราชการแทนเรา</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>Protocol หลักใน Application Layer</h3>
+                    <div class="protocol-grid">
+                        <div class="protocol-card">
+                            <h4>HTTP/HTTPS</h4>
+                            <p>HyperText Transfer Protocol - ใช้สำหรับเข้าเว็บไซต์ (Port 80/443)</p>
+                        </div>
+                        <div class="protocol-card">
+                            <h4>FTP</h4>
+                            <p>File Transfer Protocol - โอนไฟล์ระหว่างเครื่อง (Port 20/21)</p>
+                        </div>
+                        <div class="protocol-card">
+                            <h4>SMTP</h4>
+                            <p>Simple Mail Transfer Protocol - ส่งอีเมล (Port 25)</p>
+                        </div>
+                        <div class="protocol-card">
+                            <h4>POP3/IMAP</h4>
+                            <p>รับอีเมล (Port 110/143)</p>
+                        </div>
+                        <div class="protocol-card">
+                            <h4>DNS</h4>
+                            <p>Domain Name System - แปลงชื่อโดเมนเป็น IP (Port 53)</p>
+                        </div>
+                        <div class="protocol-card">
+                            <h4>Telnet/SSH</h4>
+                            <p>Remote Access - ควบคุมเครื่องจากระยะไกล (Port 23/22)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>หลักการทำงาน</h3>
+                    <ul>
+                        <li>รับ Request จากผู้ใช้ (เช่น เปิดเว็บ)</li>
+                        <li>สร้างข้อมูลที่จะส่ง (Data)</li>
+                        <li>ส่งต่อให้ Presentation Layer</li>
+                        <li>รับ Response กลับมาแสดงผู้ใช้</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section style="text-align: center; margin-top: 2rem;">
+            <a href="layer6-presentation.html" style="display: inline-block; background: var(--layer6-color); color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none;">← Layer 6: Presentation</a>
+            <a href="index.html" style="display: inline-block; background: var(--primary-color); color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; margin: 0 0.5rem;">ดูทั้งหมด</a>
+        </section>
+    </div>
+
+    <footer class="page-footer">
+        <p>แหล่งอ้างอิง: ISO/IEC 7498-1</p>
+    </footer>
+
+    <script>
+        function toggleTheory() {
+            const content = document.getElementById('theory-content');
+            const btn = document.getElementById('toggle-btn');
+            if (content.classList.contains('collapsed')) {
+                content.classList.remove('collapsed');
+                btn.textContent = 'ซ่อนเนื้อหา';
+            } else {
+                content.classList.add('collapsed');
+                btn.textContent = 'แสดงเนื้อหา';
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>โปรโตคอล TCP/IP - TCP/IP Protocol Suite</title>
+    <link rel="stylesheet" href="../../shared/css/global.css?v=1.0">
+</head>
+<body>
+    <header class="page-header">
+        <h1>🌐 โปรโตคอล TCP/IP</h1>
+        <p>Transmission Control Protocol / Internet Protocol</p>
+    </header>
+
+    <nav class="breadcrumb">
+        <a href="../../index.html">หน้าแรก</a>
+        <span class="separator">/</span>
+        <a href="../index.html">โปรโตคอล</a>
+        <span class="separator">/</span>
+        <span>TCP/IP</span>
+    </nav>
+
+    <div class="container">
+        <section class="theory-section">
+            <div class="theory-header">
+                <h2>📖 ทฤษฎี: TCP/IP Protocol Suite</h2>
+                <button class="theory-toggle-btn" onclick="toggleTheory()" id="toggle-btn">ซ่อนเนื้อหา</button>
+            </div>
+            
+            <div class="theory-content" id="theory-content">
+                <div class="theory-block">
+                    <h3>TCP/IP คืออะไร?</h3>
+                    <p>TCP/IP (Transmission Control Protocol/Internet Protocol) เป็นชุดโปรโตคอลที่ใช้ในอินเทอร์เน็ตและเครือข่ายส่วนใหญ่ทั่วโลก ถูกพัฒนาโดย DARPA ในปี 1970</p>
+                    
+                    <div class="term-box">
+                        <h4>📘 TCP/IP</h4>
+                        <ul>
+                            <li><strong>พัฒนาโดย:</strong> DARPA (Defense Advanced Research Projects Agency)</li>
+                            <li><strong>ปีที่เริ่ม:</strong> 1970s (ARPANET)</li>
+                            <li><strong>จำนวน Layers:</strong> 4 Layers (Application, Transport, Internet, Physical)</li>
+                            <li><strong>สถานะ:</strong> มาตรฐานของอินเทอร์เน็ตปัจจุบัน</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>4 Layers ของ TCP/IP</h3>
+                    <table class="comparison-table">
+                        <thead>
+                            <tr>
+                                <th>Layer</th>
+                                <th>ชื่อ</th>
+                                <th>เทียบกับ OSI</th>
+                                <th>Protocol ตัวอย่าง</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>4</td>
+                                <td>Application</td>
+                                <td>Layer 5-7 (Session, Presentation, Application)</td>
+                                <td>HTTP, FTP, SMTP, DNS</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Transport</td>
+                                <td>Layer 4 (Transport)</td>
+                                <td>TCP, UDP</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Internet</td>
+                                <td>Layer 3 (Network)</td>
+                                <td>IP, ICMP, ARP</td>
+                            </tr>
+                            <tr>
+                                <td>1</td>
+                                <td>Physical</td>
+                                <td>Layer 1-2 (Physical, Data Link)</td>
+                                <td>Ethernet, WiFi</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="theory-block">
+                    <h3>ทำไม TCP/IP ถึงเป็นมาตรฐาน?</h3>
+                    <ul>
+                        <li><strong>เปิดกว้าง:</strong> ไม่ติดลิขสิทธิ์ ใช้ได้ทุกคน</li>
+                        <li><strong>ทดสอบแล้ว:</strong> ใช้งานมายาวนานบนอินเทอร์เน็ต</li>
+                        <li><strong>ยืดหยุ่น:</strong> ทำงานบนเครือข่ายหลายประเภท</li>
+                        <li><strong>Router ทั่วไป:</strong> อุปกรณ์ทุกยี่ห้อรองรับ</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section style="margin-top: 2rem;">
+            <h3 style="margin-bottom: 1rem;">เลือก Layer เพื่อดูรายละเอียด</h3>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+                <a href="application-layer.html" style="background: var(--layer7-color); color: white; padding: 1.5rem; border-radius: 12px; text-decoration: none;">
+                    <h4>Layer 4: Application</h4>
+                    <p>HTTP, FTP, SMTP, DNS</p>
+                </a>
+                <a href="transport-layer.html" style="background: var(--layer4-color); color: white; padding: 1.5rem; border-radius: 12px; text-decoration: none;">
+                    <h4>Layer 3: Transport</h4>
+                    <p>TCP, UDP, Port Numbers</p>
+                </a>
+                <a href="internet-layer.html" style="background: var(--layer3-color); color: white; padding: 1.5rem; border-radius: 12px; text-decoration: none;">
+                    <h4>Layer 2: Internet</h4>
+                    <p>IP, ICMP, ARP, Routing</p>
+                </a>
+                <a href="physical-layer.html" style="background: var(--layer1-color); color: white; padding: 1.5rem; border-radius: 12px; text-decoration: none;">
+                    <h4>Layer 1: Physical</h4>
+                    <p>Ethernet, WiFi</p>
+                </a>
+                <a href="tcp-ip-vs-osi.html" style="background: var(--primary-color); color: white; padding: 1.5rem; border-radius: 12px; text-decoration: none; grid-column: 1 / -1;">
+                    <h4>เปรียบเทียบ TCP/IP vs OSI</h4>
+                    <p>ความเหมือนและความแตกต่าง</p>
+                </a>
+            </div>
+        </section>
+    </div>
+
+    <footer class="page-footer">
+        <p>แหล่งอ้างอิง: RFC 791, RFC 793, DARPA Internet Program</p>
+    </footer>
+
+    <script>
+        function toggleTheory() {
+            const content = document.getElementById('theory-content');
+            const btn = document.getElementById('toggle-btn');
+            if (content.classList.contains('collapsed')) {
+                content.classList.remove('collapsed');
+                btn.textContent = 'ซ่อนเนื้อหา';
+            } else {
+                content.classList.add('collapsed');
+                btn.textContent = 'แสดงเนื้อหา';
+            }
+        }
+    </script>
+</body>
+</html>

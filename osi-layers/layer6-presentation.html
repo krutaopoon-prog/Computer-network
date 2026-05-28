@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layer 6 - Presentation Layer</title>
+    <link rel="stylesheet" href="../shared/css/global.css?v=1.0">
+    <style>
+        .layer-header {
+            background: var(--layer6-color);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+        }
+        
+        .layer-header h1 { margin: 0; }
+        .layer-header .subtitle { opacity: 0.9; margin-top: 0.5rem; }
+    </style>
+</head>
+<body>
+    <div class="layer-header">
+        <h1>Layer 6: Presentation Layer</h1>
+        <div class="subtitle">ชั้นนำเสนอ - แปลงและจัดรูปแบบข้อมูล</div>
+    </div>
+
+    <nav class="breadcrumb">
+        <a href="../index.html">หน้าแรก</a>
+        <span class="separator">/</span>
+        <a href="index.html">หน้าที่แต่ละ Layer</a>
+        <span class="separator">/</span>
+        <span>Layer 6 - Presentation</span>
+    </nav>
+
+    <div class="container">
+        <section class="theory-section">
+            <div class="theory-header">
+                <h2>📖 ทฤษฎี: Presentation Layer</h2>
+                <button class="theory-toggle-btn" onclick="toggleTheory()" id="toggle-btn">ซ่อนเนื้อหา</button>
+            </div>
+            
+            <div class="theory-content" id="theory-content">
+                <div class="theory-block">
+                    <h3>หน้าที่ของ Presentation Layer</h3>
+                    <p>Presentation Layer ทำหน้าที่ "แปลภาษา" ข้อมูลให้เครื่องต่างกันเข้าใจตรงกัน จัดการเรื่องรูปแบบข้อมูล เข้ารหัส และบีบอัด</p>
+                    
+                    <div class="term-box">
+                        <h4>📘 Presentation Layer</h4>
+                        <ul>
+                            <li><strong>PDU:</strong> Data</li>
+                            <li><strong>หน้าที่:</strong> Translation, Encryption, Compression</li>
+                            <li><strong>หน้าที่หลัก:</strong> แปลงข้อมูลให้เครื่องต่าง OS เข้าใจได้</li>
+                            <li><strong>Analogy:</strong> เหมือนล่ามแปลภาษา</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>3 หน้าที่หลัก</h3>
+                    <ul>
+                        <li><strong>Translation (การแปล):</strong> แปลงรูปแบบข้อมูล (เช่น EBCDIC → ASCII)</li>
+                        <li><strong>Encryption (การเข้ารหัส):</strong> ป้องกันข้อมูลถูกดักจับ (SSL/TLS)</li>
+                        <li><strong>Compression (การบีบอัด):</strong> ลดขนาดข้อมูลก่อนส่ง</li>
+                    </ul>
+                </div>
+
+                <div class="theory-block">
+                    <h3>ตัวอย่างที่ใช้จริง</h3>
+                    <ul>
+                        <li><strong>SSL/TLS:</strong> เข้ารหัส HTTPS</li>
+                        <li><strong>ASCII/Unicode:</strong> รหัสอักขระ</li>
+                        <li><strong>JPEG/MPEG:</strong> บีบอัดรูปภาพและวิดีโอ</li>
+                        <li><strong>ASCII/EBCDIC:</strong> แปลงรหัสอักขระ</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <section style="text-align: center; margin-top: 2rem;">
+            <a href="layer7-application.html" style="display: inline-block; background: var(--layer7-color); color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none;">← Layer 7: Application</a>
+            <a href="index.html" style="display: inline-block; background: var(--primary-color); color: white; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none; margin: 0 0.5rem;">ดูทั้งหมด</a>
+            <a href="layer5-session.html" style="display: inline-block; background: var(--layer5-color); color: #1e293b; padding: 0.75rem 1.5rem; border-radius: 8px; text-decoration: none;">Layer 5: Session →</a>
+        </section>
+    </div>
+
+    <footer class="page-footer">
+        <p>แหล่งอ้างอิง: ISO/IEC 7498-1</p>
+    </footer>
+
+    <script>
+        function toggleTheory() {
+            const content = document.getElementById('theory-content');
+            const btn = document.getElementById('toggle-btn');
+            if (content.classList.contains('collapsed')) {
+                content.classList.remove('collapsed');
+                btn.textContent = 'ซ่อนเนื้อหา';
+            } else {
+                content.classList.add('collapsed');
+                btn.textContent = 'แสดงเนื้อหา';
+            }
+        }
+    </script>
+</body>
+</html>

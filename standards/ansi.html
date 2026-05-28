@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANSI - American National Standards Institute</title>
+    <link rel="stylesheet" href="../shared/css/global.css?v=1.0">
+</head>
+<body>
+    <header class="page-header">
+        <h1>🇺🇸 ANSI</h1>
+        <p>American National Standards Institute</p>
+    </header>
+
+    <nav class="breadcrumb">
+        <a href="../index.html">หน้าแรก</a>
+        <span class="separator">/</span>
+        <a href="index.html">มาตรฐานเครือข่าย</a>
+        <span class="separator">/</span>
+        <span>ANSI</span>
+    </nav>
+
+    <div class="container">
+        <section class="theory-section">
+            <div class="theory-header">
+                <h2>📖 ทฤษฎี: ANSI</h2>
+                <button class="theory-toggle-btn" onclick="toggleTheory()" id="toggle-btn">ซ่อนเนื้อหา</button>
+            </div>
+            
+            <div class="theory-content" id="theory-content">
+                <div class="theory-block">
+                    <h3>ANSI คืออะไร?</h3>
+                    <p>ANSI (American National Standards Institute) เป็นสถาบันมาตรฐานแห่งชาติของสหรัฐอเมริกา ทำหน้าที่ประสานงานการพัฒนามาตรฐานในสหรัฐอเมริกา และเป็นตัวแทนสหรัฐฯ ในองค์กรมาตรฐานระหว่างประเทศ</p>
+                    
+                    <div class="term-box">
+                        <h4>📘 ข้อมูลทั่วไป</h4>
+                        <ul>
+                            <li><strong>ก่อตั้ง:</strong> 1918</li>
+                            <li><strong>สำนักงานใหญ่:</strong> วอชิงตัน ดี.ซี.</li>
+                            <li><strong>สมาชิก:</strong> บริษัท องค์กร และรัฐบาลกว่า 1,000 แห่ง</li>
+                            <li><strong>หน้าที่:</strong> รับรองมาตรฐานอเมริกัน (American National Standards)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="theory-block">
+                    <h3>ความสัมพันธ์กับองค์กรอื่น</h3>
+                    <ul>
+                        <li><strong>ISO:</strong> ANSI เป็นตัวแทนสหรัฐฯ ใน ISO</li>
+                        <li><strong>IEC:</strong> ANSI เป็นตัวแทนสหรัฐฯ ใน International Electrotechnical Commission</li>
+                        <li>ไม่ได้กำหนดมาตรฐานเอง แต่รับรองมาตรฐานที่องค์กรอื่นพัฒนา</li>
+                    </ul>
+                </div>
+
+                <div class="theory-block">
+                    <h3>มาตรฐานที่เกี่ยวข้องกับเครือข่าย</h3>
+                    <ul>
+                        <li><strong>ANSI/TIA-568</strong> - Commercial Building Telecommunications Cabling Standard</li>
+                        <li><strong>ANSI/TIA-569</strong> - Commercial Building Standard for Telecommunications Pathways and Spaces</li>
+                        <li><strong>ASCII (ANSI X3.4)</strong> - American Standard Code for Information Interchange</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="page-footer">
+        <p>แหล่งอ้างอิง: https://www.ansi.org</p>
+    </footer>
+
+    <script>
+        function toggleTheory() {
+            const content = document.getElementById('theory-content');
+            const btn = document.getElementById('toggle-btn');
+            if (content.classList.contains('collapsed')) {
+                content.classList.remove('collapsed');
+                btn.textContent = 'ซ่อนเนื้อหา';
+            } else {
+                content.classList.add('collapsed');
+                btn.textContent = 'แสดงเนื้อหา';
+            }
+        }
+    </script>
+</body>
+</html>
