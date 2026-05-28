@@ -173,7 +173,7 @@ class ZombieQuizGame {
             // Move zombie from right to left (towards player)
             // Starts at 2% from right edge, moves left towards player at 15%
             const progress = (maxTime - currentTime) / maxTime;
-            this.zombiePosition = 2 + (progress * 60); // Moves from 2% to 62% (from right)
+            this.zombiePosition = 2 + (progress * 13); // Moves from 2% to 15% (from right), reaches player when timer ends
             this.updateZombiePosition();
             
             // Check if zombie reached player (at 15% from right)
