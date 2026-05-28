@@ -1,12 +1,14 @@
 # 🌐 Skill Documentation - Computer Network Simulators
 
-> **Purpose:** This file is for AI collaborators to understand the project quickly.  
-> If you are an AI reading this, follow the conventions documented here.
+> **📌 ไฟล์นี้คืออะไร?** เอกสารสำหรับ AI/ผู้ร่วมพัฒนา เพื่อให้เข้าใจโครงสร้างโปรเจกต์และมาตรฐานการพัฒนา  
+> **🎯 เป้าหมาย:** สร้างเว็บไซต์สอน Computer Network แบบโต้ตอบสำหรับนักเรียนอาชีวะ
 
-**Project:** Interactive Network Simulators for Vocational Education  
-**Target Audience:** Vocational Students (ปวช./ปวส.)  
-**Course:** เครือข่ายคอมพิวเตอร์ (Computer Network)  
-**Created:** May 28, 2026
+**ชื่อโปรเจกต์:** Computer Network Interactive Simulators  
+**กลุ่มเป้าหมาย:** นักเรียน ปวช./ปวส. สาขาเทคโนโลยีสารสนเทศ  
+**วิชา:** เครือข่ายคอมพิวเตอร์ (Computer Network)  
+**GitHub:** https://github.com/krutaopoon-prog/Computer-network.git  
+**สร้างเมื่อ:** May 28, 2026  
+**อัปเดตล่าสุด:** May 28, 2026 (Chapter 1-2 + Games Complete)
 
 ---
 
@@ -84,6 +86,15 @@ computer-network/
 │       ├── css/
 │       └── js/
 │
+├── games/                  # 🎮 เกมฝึกหัด (NEW!)
+│   ├── index.html          # Game Hub
+│   └── zombie-quiz/        # Network Zombie Quiz Game
+│       ├── index.html
+│       ├── css/game.css
+│       └── js/
+│           ├── game.js
+│           └── questions.js
+│
 ├── shared/                 # 📦 ไฟล์ร่วม
 │   ├── css/global.css      # CSS หลัก
 │   └── js/
@@ -139,20 +150,59 @@ computer-network/
 | `tcp-ip/index.html` | ภาพรวม TCP/IP 4 Layers |
 | `ieee-standards/index.html` | ภาพรวม IEEE 802 Standards |
 
+### Games (`games/`)
+| File | Role |
+|------|------|
+| `index.html` | Game Hub - รวมเกมทั้งหมด |
+| `zombie-quiz/index.html` | 🧟‍♂️ Network Zombie Quiz - เกมตอบคำถามแนวเอาชีวิตรอด |
+| `zombie-quiz/js/questions.js` | คลังคำถาม 50+ ข้อ (Standards, OSI, Protocols) |
+| `zombie-quiz/js/game.js` | ตรรกะเกม (timer, high score, animation) |
+| `zombie-quiz/css/game.css` | สไตล์เกม (dark theme, zombie animation) |
+
 ---
 
-## 🎯 Core Features (Every Simulator Must Have)
+## 🎯 องค์ประกอบหลัก (ทุก Simulator ต้องมี)
 
-1. **Theory Section** - Read before simulation (with references)
-2. **Interactive Learning Mode** - Animation + step-by-step
-3. **Practice Quiz** - Name entry → 10 questions (matched to theory) → Result (name + score + grade)
-4. **Responsive Design** - Desktop, Tablet, Mobile
-5. **Web-based** - No installation, browser only
+### ส่วนบังคับ:
+1. **📖 Theory Section** - อ่านทฤษฎีก่อนเล่น simulation (พร้อมแหล่งอ้างอิง)
+2. **🎮 Interactive Learning** - Animation + คำอธิบาย step-by-step
+3. **📝 Practice Quiz** - กรอกชื่อ → 10 คำถาม → ผลลัพธ์ (ชื่อ + คะแนน + เกรด)
+4. **📱 Responsive Design** - รองรับ Desktop, Tablet, Mobile
+5. **🌐 Web-based** - ไม่ต้องติดตั้ง เล่นบน browser ได้เลย
 
-**Optional (protocol-dependent):**
-- Oscilloscope/Waveform View (signal visualization on canvas)
-- Arduino Code Examples
-- Sub-Simulators (Multi-Slave, Full-Duplex, etc.)
+### ส่วนเสริม (ตาม protocol):
+- 📊 Oscilloscope/Waveform View (แสดงสัญญาณบน canvas)
+- 🔌 Arduino Code Examples
+- 🔄 Sub-Simulators (Multi-Slave, Full-Duplex, etc.)
+
+---
+
+## 🎮 ระบบเกม (Games System)
+
+### 🧟‍♂️ Network Zombie Quiz (เกมหลัก)
+- **แนวคิด:** ผู้เล่นเป็นนักเรียน 🧑‍🎓 ต้องตอบคำถาม Network ให้ถูกเพื่อยิงซอมบี้
+- **คำถาม:** 50+ ข้อจาก Standards + OSI + Protocols
+- **รูปแบบ:** 2 ตัวเลือก (ซ้าย/ขวา) หรือใช้ลูกศร/A/D
+- **จับเวลา:** 10 วินาที → ลดลงตามคะแนน (ขั้นต่ำ 3 วิ)
+- **จบเกม:** ตอบผิด หรือ ซอมบี้ถึงตัว หรือ หมดเวลา
+- **High Score:** บันทึกใน Local Storage
+- **Endless:** เล่นได้ไม่มีที่สิ้นสุด คำถามสุ่มไม่ซ้ำ
+
+**Animation:**
+- ซอมบี้ 🧟‍♂️ เกิดที่ขอบขวา → เดินเข้ามาซ้าย
+- นักเรียน 🧑‍🎓 ยืนฝั่งซ้ายถือปืน 🔫
+- ตอบถูก = ยิงซอมบี้ล้ม
+- ตอบผิด = ซอมบี้พุ่งใส่
+
+**โครงสร้างไฟล์เกม:**
+```
+games/zombie-quiz/
+├── index.html          # หน้าเกมหลัก (UI)
+├── css/game.css        # สไตล์ + animation
+└── js/
+    ├── game.js         # ตรรกะเกม (class ZombieQuizGame)
+    └── questions.js    # คลังคำถาม (const QUESTIONS)
+```
 
 ---
 
@@ -379,45 +429,81 @@ function toggleTheory() {
 
 ---
 
-## 🚀 Future Topics Roadmap
+## 🚀 แผนพัฒนา (Roadmap)
 
-| Topic | Difficulty | Status |
-|-------|-----------|--------|
-| Network Standards (5 orgs) | Easy | ✅ Done |
-| OSI 7 Layers | Medium | ✅ Done |
-| OSI Communication | Medium | ✅ Done |
-| Legacy Protocols | Easy | ✅ Done |
-| TCP/IP | Medium | ✅ Done |
-| IEEE 802 Standards | Medium | ✅ Done |
-| IP Addressing & Subnetting | Medium | 🔜 Next |
-| Routing Protocols | Hard | 📋 Planned |
-| Network Security | Hard | 📋 Planned |
-| Wireless Networks | Medium | 📋 Planned |
+### ✅ เสร็จแล้ว (Completed)
+| บท | หัวข้อ | ลิงก์ |
+|-----|--------|-------|
+| 1 | มาตรฐานเครือข่าย (5 องค์กร) | `standards/` |
+| 1 | แบบจำลอง OSI (7 Layers) | `osi-overview/` |
+| 1 | การสื่อสารบน OSI | `osi-communication/` |
+| 2 | โปรโตคอลรุ่นเก่า | `protocols/legacy-protocols/` |
+| 2 | TCP/IP | `protocols/tcp-ip/` |
+| 2 | มาตรฐาน IEEE | `protocols/ieee-standards/` |
+| - | 🎮 Network Zombie Quiz | `games/zombie-quiz/` |
+
+### 🔜 กำลังทำ (In Progress)
+| บท | หัวข้อ | ความยาก |
+|-----|--------|----------|
+| 3 | IP Addressing & Subnetting | Medium |
+| 3 | Routing Protocols (RIP, OSPF, BGP) | Hard |
+
+### 📋 วางแผน (Planned)
+| บท | หัวข้อ | ความยาก |
+|-----|--------|----------|
+| 4 | Network Security (Firewall, VPN, Encryption) | Hard |
+| 4 | Wireless Networks (Wi-Fi, Bluetooth, 5G) | Medium |
+| 5 | Network Troubleshooting | Medium |
+| - | 🎮 Protocol Simulator (interactive) | Hard |
+| - | 🎮 OSI Layer Builder (drag & drop) | Medium |
 
 ---
 
-## ✏️ How to Add a New Topic
+## ✏️ วิธีเพิ่มบทเรียนใหม่
 
-1. Create folder: `topic-name/`
-2. Create subfolders: `css/`, `js/`
-3. Copy template from existing topic
-4. Write `index.html` with Theory Section
-5. Create detail pages as needed
-6. Add link in root `index.html`
-7. Update this `skill.md`
+### ขั้นตอน:
+1. สร้างโฟลเดอร์: `topic-name/`
+2. สร้างโฟลเดอร์ย่อย: `css/`, `js/`
+3. คัดลอก template จากบทที่มีอยู่
+4. เขียน `index.html` พร้อม Theory Section
+5. สร้างหน้าย่อยตามต้องการ
+6. เพิ่มลิงก์ใน `index.html` (root)
+7. อัปเดต `skill.md`
+8. **push ขึ้น GitHub**
 
-### Topic Structure Template:
+### โครงสร้างบทใหม่:
 ```
 topic-name/
-├── index.html          # Main page with overview
-├── detail-page.html    # (optional) Specific topic
+├── index.html              # หน้าหลัก + ภาพรวม
+├── sub-topic.html          # (optional) หน้าย่อย
+├── interactive.html        # (optional) โต้ตอบ
 ├── css/
-│   └── (optional) custom styles
+│   └── custom.css          # (optional) สไตล์เฉพาะ
 └── js/
-    └── (optional) interactive scripts
+    └── script.js           # (optional) สคริปต์เฉพาะ
+```
+
+### การเพิ่มคำถามในเกม:
+แก้ไข `games/zombie-quiz/js/questions.js`:
+```javascript
+{
+    question: "คำถามใหม่?",
+    options: ["ถูกต้อง", "ผิด"],
+    correct: 0,
+    chapter: "topic-name",
+    difficulty: "easy"  // easy | medium | hard
+}
 ```
 
 ---
 
-**Last Updated:** May 28, 2026  
-**Status:** Chapter 1-2 Complete (Standards + OSI Model + Protocols)
+## 📞 ข้อมูลติดต่อ
+
+- **GitHub Repository:** https://github.com/krutaopoon-prog/Computer-network.git
+- **GitHub Pages:** https://krutaopoon-prog.github.io/Computer-network/
+
+---
+
+**📝 บันทึกการอัปเดต:**
+- **May 28, 2026:** Chapter 1-2 Complete + Games (Zombie Quiz)
+- **สถานะปัจจุบัน:** ✅ บท 1-2 พร้อมใช้งาน + 🎮 เกมพร้อมเล่น
