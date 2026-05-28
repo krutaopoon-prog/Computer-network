@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <title>แบบทดสอบ: มาตรฐานเครือข่ายคอมพิวเตอร์</title>
+    <link rel="stylesheet" href="../shared/css/global.css?v=1.0">
+    <style>
+        .quiz-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        .quiz-header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 2px solid var(--border-color);
+        }
+        
+        .quiz-header h2 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        
+        .quiz-progress {
+            background: #e0e7ff;
+            height: 8px;
+            border-radius: 4px;
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+        
+        .quiz-progress-bar {
+            background: var(--primary-color);
+            height: 100%;
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+        
+        .question-box {
+            margin-bottom: 2rem;
+        }
+        
+        .question-number {
+            background: var(--primary-color);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+        
+        .question-text {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .options-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .option-item {
+            margin-bottom: 0.75rem;
+        }
+        
+        .option-btn {
+            width: 100%;
+            padding: 1rem 1.5rem;
+            text-align: left;
+            background: #f8fafc;
+            border: 2px solid #e2e8f0;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+        
+        .option-btn:hover {
+            background: #e0e7ff;
+            border-color: var(--primary-color);
+        }
+        
+        .option-btn.correct {
+            background: #dcfce7;
+            border-color: var(--success-color);
+            color: #166534;
+        }
+        
+        .option-btn.wrong {
+            background: #fee2e2;
+            border-color: var(--error-color);
+            color: #991b1b;
+        }
+        
+        .option-btn:disabled {
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+        
+        .explanation-box {
+            background: #f0f9ff;
+            border-left: 4px solid var(--primary-color);
+            padding: 1rem 1.5rem;
+            margin-top: 1rem;
+            border-radius: 0 8px 8px 0;
+            display: none;
+        }
+        
+        .explanation-box.show {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .quiz-navigation {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+            padding-top: 1.5rem;
+            border-top: 2px solid var(--border-color);
+        }
+        
+        .nav-btn {
+            padding: 0.75rem 2rem;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background 0.3s ease;
+        }
+        
+        .nav-btn:hover {
+            background: var(--secondary-color);
+        }
+        
+        .nav-btn:disabled {
+            background: #94a3b8;
+            cursor: not-allowed;
+        }
+        
+        .result-container {
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+        
+        .score-display {
+            font-size: 4rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin: 1rem 0;
+        }
+        
+        .grade-display {
+            font-size: 2rem;
+            padding: 1rem 2rem;
+            border-radius: 12px;
+            display: inline-block;
+            margin: 1rem 0;
+        }
+        
+        .grade-a { background: #dcfce7; color: #166534; }
+        .grade-b { background: #dbeafe; color: #1e40af; }
+        .grade-c { background: #fef3c7; color: #92400e; }
+        .grade-d { background: #fee2e2; color: #991b1b; }
+        
+        .result-summary {
+            margin: 2rem 0;
+            text-align: left;
+            background: #f8fafc;
+            padding: 1.5rem;
+            border-radius: 12px;
+        }
+        
+        .result-item {
+            display: flex;
+            align-items: center;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        
+        .result-item:last-child {
+            border-bottom: none;
+        }
+        
+        .result-icon {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+        }
+        
+        .start-screen, .result-screen {
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+        
+        .start-btn, .restart-btn {
+            padding: 1rem 3rem;
+            font-size: 1.2rem;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1.5rem;
+        }
+        
+        .start-btn:hover, .restart-btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+        
+        .quiz-info {
+            background: #f0f9ff;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            text-align: left;
+        }
+        
+        .quiz-info ul {
+            margin: 0;
+            padding-left: 1.5rem;
+        }
+        
+        .quiz-info li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header class="page-header">
+        <h1>📝 แบบทดสอบ: มาตรฐานเครือข่าย</h1>
+        <p>ทดสอบความรู้เรื่ององค์กรมาตรฐาน ISO, ITU, ANSI, IEEE, EIA</p>
+    </header>
+
+    <nav class="breadcrumb">
+        <a href="../index.html">หน้าแรก</a>
+        <span class="separator">/</span>
+        <a href="index.html">มาตรฐานเครือข่าย</a>
+        <span class="separator">/</span>
+        <span>แบบทดสอบ</span>
+    </nav>
+
+    <div class="container">
+        <div class="quiz-container">
+            <!-- Start Screen -->
+            <div id="start-screen" class="start-screen">
+                <div style="font-size: 4rem; margin-bottom: 1rem;">📝</div>
+                <h2>แบบทดสอบบทที่ 1</h2>
+                <p>มาตรฐานเครือข่ายคอมพิวเตอร์</p>
+                
+                <div class="quiz-info">
+                    <ul>
+                        <li><strong>จำนวนข้อ:</strong> 10 ข้อ</li>
+                        <li><strong>คะแนนเต็ม:</strong> 10 คะแนน</li>
+                        <li><strong>เนื้อหา:</strong> ISO, ITU, ANSI, IEEE, EIA</li>
+                        <li><strong>เกณฑ์ผ่าน:</strong> 6/10 คะแนน (60%)</li>
+                    </ul>
+                </div>
+                
+                <button class="start-btn" onclick="startQuiz()">เริ่มทำแบบทดสอบ</button>
+            </div>
+
+            <!-- Quiz Screen -->
+            <div id="quiz-screen" class="hidden">
+                <div class="quiz-header">
+                    <h2>แบบทดสอบ: มาตรฐานเครือข่าย</h2>
+                    <p>ข้อที่ <span id="current-question">1</span> จาก 10</p>
+                </div>
+                
+                <div class="quiz-progress">
+                    <div class="quiz-progress-bar" id="progress-bar" style="width: 10%"></div>
+                </div>
+                
+                <div class="question-box">
+                    <span class="question-number">ข้อที่ <span id="q-number">1</span></span>
+                    <div class="question-text" id="question-text">
+                        กำลังโหลดคำถาม...
+                    </div>
+                    
+                    <ul class="options-list" id="options-list">
+                        <!-- Options generated by JS -->
+                    </ul>
+                    
+                    <div class="explanation-box" id="explanation-box">
+                        <strong>💡 คำอธิบาย:</strong>
+                        <p id="explanation-text"></p>
+                    </div>
+                </div>
+                
+                <div class="quiz-navigation">
+                    <button class="nav-btn" id="prev-btn" onclick="previousQuestion()" disabled>← ข้อก่อนหน้า</button>
+                    <button class="nav-btn" id="next-btn" onclick="nextQuestion()">ข้อถัดไป →</button>
+                </div>
+            </div>
+
+            <!-- Result Screen -->
+            <div id="result-screen" class="result-screen hidden">
+                <div style="font-size: 4rem; margin-bottom: 1rem;">🎉</div>
+                <h2>ผลการทดสอบ</h2>
+                
+                <div class="score-display">
+                    <span id="final-score">0</span>/10
+                </div>
+                
+                <div class="grade-display" id="grade-display">
+                    ผลลัพธ์
+                </div>
+                
+                <div class="result-summary" id="result-summary">
+                    <!-- Summary generated by JS -->
+                </div>
+                
+                <div style="margin-top: 2rem;">
+                    <button class="restart-btn" onclick="restartQuiz()">🔄 ทำแบบทดสอบใหม่</button>
+                    <br><br>
+                    <a href="index.html" style="color: var(--primary-color);">← กลับสู่หน้าเนื้อหา</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="page-footer">
+        <p>แบบทดสอบ: มาตรฐานเครือข่ายคอมพิวเตอร์</p>
+    </footer>
+
+    <script>
+        const quizData = [
+            {
+                question: "ISO ย่อมาจากคำว่าอะไร?",
+                options: [
+                    "International Organization for Standardization",
+                    "International Standard Organization"
+                ],
+                correct: 0,
+                explanation: "ISO ย่อมาจาก International Organization for Standardization (องค์กรระหว่างประเทศว่าด้วยการมาตรฐาน) ก่อตั้งในปี 1947 มีสมาชิก 170 ประเทศ"
+            },
+            {
+                question: "ITU มีสำนักงานใหญ่ตั้งอยู่ที่เมืองใด?",
+                options: [
+                    "Geneva, Switzerland",
+                    "New York, USA"
+                ],
+                correct: 0,
+                explanation: "ITU (International Telecommunication Union) มีสำนักงานใหญ่ที่ Geneva, Switzerland ก่อตั้งในปี 1865 เป็นองค์กรระหว่างประเทศที่เก่าแก่ที่สุด"
+            },
+            {
+                question: "มาตรฐาน IEEE 802.3 คืออะไร?",
+                options: [
+                    "Ethernet (Wired LAN)",
+                    "Wireless LAN (Wi-Fi)"
+                ],
+                correct: 0,
+                explanation: "IEEE 802.3 คือมาตรฐาน Ethernet สำหรับเครือข่ายแบบใช้สาย (Wired LAN) ส่วน 802.11 คือ Wi-Fi"
+            },
+            {
+                question: "EIA ยุบตัวลงในปีใด?",
+                options: [
+                    "2011",
+                    "2000"
+                ],
+                correct: 0,
+                explanation: "EIA (Electronic Industries Alliance) ยุบตัวลงในปี 2011 แต่มาตรฐานของ EIA เช่น RS-232, EIA/TIA-568 ยังใช้งานอยู่และถูกสืบทอดโดย TIA"
+            },
+            {
+                question: "ANSI เป็นสถาบันมาตรฐานของประเทศใด?",
+                options: [
+                    "สหรัฐอเมริกา (USA)",
+                    "สหภาพยุโรป (EU)"
+                ],
+                correct: 0,
+                explanation: "ANSI (American National Standards Institute) เป็นสถาบันรับรองมาตรฐานของสหรัฐอเมริกา ก่อตั้งในปี 1918 มีบทบาทสำคัญในการประสานงานกับ ISO"
+            },
+            {
+                question: "OSI Model ถูกกำหนดโดยองค์กรใด?",
+                options: [
+                    "ISO",
+                    "IEEE"
+                ],
+                correct: 0,
+                explanation: "OSI Model (Open Systems Interconnection) ถูกกำหนดโดย ISO ในมาตรฐาน ISO/IEC 7498-1 เป็นแบบจำลอง 7 ชั้นสำหรับเครือข่ายคอมพิวเตอร์"
+            },
+            {
+                question: "IEEE 802.11 คือมาตรฐานใด?",
+                options: [
+                    "Wireless LAN (Wi-Fi)",
+                    "Bluetooth"
+                ],
+                correct: 0,
+                explanation: "IEEE 802.11 คือมาตรฐาน Wireless LAN (Wi-Fi) ส่วน Bluetooth อยู่ใน 802.15"
+            },
+            {
+                question: "มาตรฐาน EIA/TIA-568 เกี่ยวข้องกับเรื่องใด?",
+                options: [
+                    "การเดินสายเคเบิล LAN ในอาคาร",
+                    "การเข้ารหัสข้อมูล"
+                ],
+                correct: 0,
+                explanation: "EIA/TIA-568 เป็นมาตรฐานการเดินสายเคเบิลโทรคมนาคมในอาคาร (Commercial Building Telecommunications Cabling) กำหนดการเข้าหัวสาย LAN (T568A/T568B)"
+            },
+            {
+                question: "ITU-T รับผิดชอบด้านใด?",
+                options: [
+                    "การกำหนดมาตรฐานโทรคมนาคม",
+                    "การกำหนดมาตรฐานฮาร์ดแวร์คอมพิวเตอร์"
+                ],
+                correct: 0,
+                explanation: "ITU-T (ITU Telecommunication Standardization Sector) รับผิดชอบการกำหนดมาตรฐานด้านโทรคมนาคม เช่น X.25, ATM, VoIP"
+            },
+            {
+                question: "RS-232 เป็นมาตรฐานการสื่อสารแบบใด?",
+                options: [
+                    "Serial Communication (แบบอนุกรม)",
+                    "Parallel Communication (แบบขนาน)"
+                ],
+                correct: 0,
+                explanation: "RS-232 (Recommended Standard 232) เป็นมาตรฐานการสื่อสารแบบอนุกรม (Serial) ที่ใช้กันมายาวนาน เช่น Console Port ของ Router/Switch"
+            }
+        ];
+
+        let currentQuestion = 0;
+        let score = 0;
+        let answers = [];
+        let answered = [];
+
+        function startQuiz() {
+            document.getElementById('start-screen').classList.add('hidden');
+            document.getElementById('quiz-screen').classList.remove('hidden');
+            currentQuestion = 0;
+            score = 0;
+            answers = [];
+            answered = new Array(quizData.length).fill(false);
+            showQuestion();
+        }
+
+        function showQuestion() {
+            const q = quizData[currentQuestion];
+            document.getElementById('current-question').textContent = currentQuestion + 1;
+            document.getElementById('q-number').textContent = currentQuestion + 1;
+            document.getElementById('question-text').textContent = q.question;
+            
+            // Update progress bar
+            const progress = ((currentQuestion + 1) / quizData.length) * 100;
+            document.getElementById('progress-bar').style.width = progress + '%';
+            
+            // Generate options
+            const optionsList = document.getElementById('options-list');
+            optionsList.innerHTML = '';
+            
+            q.options.forEach((option, index) => {
+                const li = document.createElement('li');
+                li.className = 'option-item';
+                li.innerHTML = `
+                    <button class="option-btn" id="option-${index}" onclick="selectAnswer(${index})" ${answered[currentQuestion] ? 'disabled' : ''}>
+                        ${String.fromCharCode(65 + index)}. ${option}
+                    </button>
+                `;
+                optionsList.appendChild(li);
+            });
+            
+            // Show explanation if already answered
+            const explanationBox = document.getElementById('explanation-box');
+            if (answered[currentQuestion]) {
+                explanationBox.classList.add('show');
+                document.getElementById('explanation-text').textContent = q.explanation;
+                
+                // Highlight correct/wrong
+                const selected = answers[currentQuestion];
+                if (selected === q.correct) {
+                    document.getElementById(`option-${selected}`).classList.add('correct');
+                } else {
+                    document.getElementById(`option-${selected}`).classList.add('wrong');
+                    document.getElementById(`option-${q.correct}`).classList.add('correct');
+                }
+            } else {
+                explanationBox.classList.remove('show');
+            }
+            
+            // Update navigation buttons
+            document.getElementById('prev-btn').disabled = currentQuestion === 0;
+            
+            if (currentQuestion === quizData.length - 1) {
+                document.getElementById('next-btn').textContent = answered[currentQuestion] ? 'ดูผลลัพธ์ →' : 'ข้อถัดไป →';
+            } else {
+                document.getElementById('next-btn').textContent = 'ข้อถัดไป →';
+            }
+        }
+
+        function selectAnswer(optionIndex) {
+            if (answered[currentQuestion]) return;
+            
+            answered[currentQuestion] = true;
+            answers[currentQuestion] = optionIndex;
+            
+            const q = quizData[currentQuestion];
+            
+            // Disable all buttons
+            q.options.forEach((_, index) => {
+                document.getElementById(`option-${index}`).disabled = true;
+            });
+            
+            // Show correct/wrong
+            if (optionIndex === q.correct) {
+                document.getElementById(`option-${optionIndex}`).classList.add('correct');
+                score++;
+            } else {
+                document.getElementById(`option-${optionIndex}`).classList.add('wrong');
+                document.getElementById(`option-${q.correct}`).classList.add('correct');
+            }
+            
+            // Show explanation
+            document.getElementById('explanation-box').classList.add('show');
+            document.getElementById('explanation-text').textContent = q.explanation;
+            
+            // Update next button if last question
+            if (currentQuestion === quizData.length - 1) {
+                document.getElementById('next-btn').textContent = 'ดูผลลัพธ์ →';
+            }
+        }
+
+        function previousQuestion() {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                showQuestion();
+            }
+        }
+
+        function nextQuestion() {
+            if (currentQuestion < quizData.length - 1) {
+                currentQuestion++;
+                showQuestion();
+            } else if (answered[currentQuestion]) {
+                showResults();
+            }
+        }
+
+        function showResults() {
+            document.getElementById('quiz-screen').classList.add('hidden');
+            document.getElementById('result-screen').classList.remove('hidden');
+            
+            document.getElementById('final-score').textContent = score;
+            
+            // Calculate grade
+            const percentage = (score / quizData.length) * 100;
+            let gradeClass = '';
+            let gradeText = '';
+            
+            if (percentage >= 80) {
+                gradeClass = 'grade-a';
+                gradeText = '👍 เก่งมาก! (A)';
+            } else if (percentage >= 70) {
+                gradeClass = 'grade-b';
+                gradeText = '🙂 ดี (B)';
+            } else if (percentage >= 60) {
+                gradeClass = 'grade-c';
+                gradeText = '😐 ผ่าน (C)';
+            } else {
+                gradeClass = 'grade-d';
+                gradeText = '😢 ไม่ผ่าน (D) - ลองใหม่นะ';
+            }
+            
+            const gradeDisplay = document.getElementById('grade-display');
+            gradeDisplay.className = 'grade-display ' + gradeClass;
+            gradeDisplay.textContent = gradeText;
+            
+            // Summary
+            const summary = document.getElementById('result-summary');
+            summary.innerHTML = '<h3>สรุปผล:</h3>';
+            
+            quizData.forEach((q, index) => {
+                const isCorrect = answers[index] === q.correct;
+                const item = document.createElement('div');
+                item.className = 'result-item';
+                item.innerHTML = `
+                    <span class="result-icon">${isCorrect ? '✅' : '❌'}</span>
+                    <span>ข้อ ${index + 1}: ${isCorrect ? 'ถูกต้อง' : 'ผิด'} - ${q.question.substring(0, 50)}...</span>
+                `;
+                summary.appendChild(item);
+            });
+        }
+
+        function restartQuiz() {
+            document.getElementById('result-screen').classList.add('hidden');
+            document.getElementById('start-screen').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
