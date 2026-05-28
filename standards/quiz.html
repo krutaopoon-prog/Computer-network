@@ -241,6 +241,40 @@
             margin-bottom: 0.5rem;
         }
         
+        .name-input-box {
+            background: #fff7ed;
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin: 1.5rem 0;
+            text-align: left;
+        }
+        
+        .name-input-box label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #9a3412;
+        }
+        
+        .name-input-box input {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 2px solid #fdba74;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-family: inherit;
+        }
+        
+        .name-input-box input:focus {
+            outline: none;
+            border-color: #f97316;
+        }
+        
+        .name-input-box .hint {
+            margin: 0.5rem 0 0 0;
+            font-size: 0.85rem;
+            color: #c2410c;
+        }
+        
         .hidden {
             display: none;
         }
@@ -273,8 +307,14 @@
                         <li><strong>จำนวนข้อ:</strong> 10 ข้อ</li>
                         <li><strong>คะแนนเต็ม:</strong> 10 คะแนน</li>
                         <li><strong>เนื้อหา:</strong> ISO, ITU, ANSI, IEEE, EIA</li>
-                        <li><strong>เกณฑ์ผ่าน:</strong> 6/10 คะแนน (60%)</li>
+                        <li><strong>ตัวเลือก:</strong> ก. ข. ค. ง.</li>
                     </ul>
+                </div>
+                
+                <div class="name-input-box">
+                    <label for="student-name"><strong>📝 กรอกชื่อนักเรียน:</strong></label>
+                    <input type="text" id="student-name" placeholder="ชื่อ-นามสกุล" maxlength="50">
+                    <p class="hint">* กรุณากรอกชื่อก่อนเริ่มทำแบบทดสอบ</p>
                 </div>
                 
                 <button class="start-btn" onclick="startQuiz()">เริ่มทำแบบทดสอบ</button>
@@ -319,11 +359,7 @@
                 <h2>ผลการทดสอบ</h2>
                 
                 <div class="score-display">
-                    <span id="final-score">0</span>/10
-                </div>
-                
-                <div class="grade-display" id="grade-display">
-                    ผลลัพธ์
+                    <span id="final-score">0</span>/10 คะแนน
                 </div>
                 
                 <div class="result-summary" id="result-summary">
@@ -334,6 +370,10 @@
                     <button class="restart-btn" onclick="restartQuiz()">🔄 ทำแบบทดสอบใหม่</button>
                     <br><br>
                     <a href="index.html" style="color: var(--primary-color);">← กลับสู่หน้าเนื้อหา</a>
+                </div>
+                
+                <div class="name-input-box" style="margin-top: 1.5rem; background: #f0fdf4;">
+                    <p style="margin: 0; color: #166534;"><strong>👤 ผู้ทำแบบทดสอบ:</strong> <span id="result-student-name">-</span></p>
                 </div>
             </div>
         </div>
@@ -349,7 +389,9 @@
                 question: "ISO ย่อมาจากคำว่าอะไร?",
                 options: [
                     "International Organization for Standardization",
-                    "International Standard Organization"
+                    "International Standard Organization",
+                    "International System Organization",
+                    "International Service Organization"
                 ],
                 correct: 0,
                 explanation: "ISO ย่อมาจาก International Organization for Standardization (องค์กรระหว่างประเทศว่าด้วยการมาตรฐาน) ก่อตั้งในปี 1947 มีสมาชิก 170 ประเทศ"
@@ -358,7 +400,9 @@
                 question: "ITU มีสำนักงานใหญ่ตั้งอยู่ที่เมืองใด?",
                 options: [
                     "Geneva, Switzerland",
-                    "New York, USA"
+                    "New York, USA",
+                    "London, UK",
+                    "Tokyo, Japan"
                 ],
                 correct: 0,
                 explanation: "ITU (International Telecommunication Union) มีสำนักงานใหญ่ที่ Geneva, Switzerland ก่อตั้งในปี 1865 เป็นองค์กรระหว่างประเทศที่เก่าแก่ที่สุด"
@@ -367,7 +411,9 @@
                 question: "มาตรฐาน IEEE 802.3 คืออะไร?",
                 options: [
                     "Ethernet (Wired LAN)",
-                    "Wireless LAN (Wi-Fi)"
+                    "Wireless LAN (Wi-Fi)",
+                    "Bluetooth",
+                    "Token Ring"
                 ],
                 correct: 0,
                 explanation: "IEEE 802.3 คือมาตรฐาน Ethernet สำหรับเครือข่ายแบบใช้สาย (Wired LAN) ส่วน 802.11 คือ Wi-Fi"
@@ -376,7 +422,9 @@
                 question: "EIA ยุบตัวลงในปีใด?",
                 options: [
                     "2011",
-                    "2000"
+                    "2000",
+                    "1995",
+                    "1985"
                 ],
                 correct: 0,
                 explanation: "EIA (Electronic Industries Alliance) ยุบตัวลงในปี 2011 แต่มาตรฐานของ EIA เช่น RS-232, EIA/TIA-568 ยังใช้งานอยู่และถูกสืบทอดโดย TIA"
@@ -385,7 +433,9 @@
                 question: "ANSI เป็นสถาบันมาตรฐานของประเทศใด?",
                 options: [
                     "สหรัฐอเมริกา (USA)",
-                    "สหภาพยุโรป (EU)"
+                    "สหภาพยุโรป (EU)",
+                    "ญี่ปุ่น (Japan)",
+                    "อังกฤษ (UK)"
                 ],
                 correct: 0,
                 explanation: "ANSI (American National Standards Institute) เป็นสถาบันรับรองมาตรฐานของสหรัฐอเมริกา ก่อตั้งในปี 1918 มีบทบาทสำคัญในการประสานงานกับ ISO"
@@ -394,7 +444,9 @@
                 question: "OSI Model ถูกกำหนดโดยองค์กรใด?",
                 options: [
                     "ISO",
-                    "IEEE"
+                    "IEEE",
+                    "ITU",
+                    "ANSI"
                 ],
                 correct: 0,
                 explanation: "OSI Model (Open Systems Interconnection) ถูกกำหนดโดย ISO ในมาตรฐาน ISO/IEC 7498-1 เป็นแบบจำลอง 7 ชั้นสำหรับเครือข่ายคอมพิวเตอร์"
@@ -403,7 +455,9 @@
                 question: "IEEE 802.11 คือมาตรฐานใด?",
                 options: [
                     "Wireless LAN (Wi-Fi)",
-                    "Bluetooth"
+                    "Bluetooth",
+                    "Ethernet",
+                    "WiMAX"
                 ],
                 correct: 0,
                 explanation: "IEEE 802.11 คือมาตรฐาน Wireless LAN (Wi-Fi) ส่วน Bluetooth อยู่ใน 802.15"
@@ -412,7 +466,9 @@
                 question: "มาตรฐาน EIA/TIA-568 เกี่ยวข้องกับเรื่องใด?",
                 options: [
                     "การเดินสายเคเบิล LAN ในอาคาร",
-                    "การเข้ารหัสข้อมูล"
+                    "การเข้ารหัสข้อมูล",
+                    "การสื่อสารดาวเทียม",
+                    "การเขียนโปรแกรม"
                 ],
                 correct: 0,
                 explanation: "EIA/TIA-568 เป็นมาตรฐานการเดินสายเคเบิลโทรคมนาคมในอาคาร (Commercial Building Telecommunications Cabling) กำหนดการเข้าหัวสาย LAN (T568A/T568B)"
@@ -421,7 +477,9 @@
                 question: "ITU-T รับผิดชอบด้านใด?",
                 options: [
                     "การกำหนดมาตรฐานโทรคมนาคม",
-                    "การกำหนดมาตรฐานฮาร์ดแวร์คอมพิวเตอร์"
+                    "การกำหนดมาตรฐานฮาร์ดแวร์คอมพิวเตอร์",
+                    "การกำหนดมาตรฐานซอฟต์แวร์",
+                    "การกำหนดมาตรฐานด้านสิ่งแวดล้อม"
                 ],
                 correct: 0,
                 explanation: "ITU-T (ITU Telecommunication Standardization Sector) รับผิดชอบการกำหนดมาตรฐานด้านโทรคมนาคม เช่น X.25, ATM, VoIP"
@@ -430,7 +488,9 @@
                 question: "RS-232 เป็นมาตรฐานการสื่อสารแบบใด?",
                 options: [
                     "Serial Communication (แบบอนุกรม)",
-                    "Parallel Communication (แบบขนาน)"
+                    "Parallel Communication (แบบขนาน)",
+                    "Wireless Communication",
+                    "Fiber Optic Communication"
                 ],
                 correct: 0,
                 explanation: "RS-232 (Recommended Standard 232) เป็นมาตรฐานการสื่อสารแบบอนุกรม (Serial) ที่ใช้กันมายาวนาน เช่น Console Port ของ Router/Switch"
@@ -441,8 +501,18 @@
         let score = 0;
         let answers = [];
         let answered = [];
+        let studentName = "";
 
         function startQuiz() {
+            const nameInput = document.getElementById('student-name');
+            studentName = nameInput.value.trim();
+            
+            if (!studentName) {
+                alert('กรุณากรอกชื่อนักเรียนก่อนเริ่มทำแบบทดสอบ');
+                nameInput.focus();
+                return;
+            }
+            
             document.getElementById('start-screen').classList.add('hidden');
             document.getElementById('quiz-screen').classList.remove('hidden');
             currentQuestion = 0;
@@ -469,9 +539,10 @@
             q.options.forEach((option, index) => {
                 const li = document.createElement('li');
                 li.className = 'option-item';
+                const thaiLabels = ['ก', 'ข', 'ค', 'ง'];
                 li.innerHTML = `
                     <button class="option-btn" id="option-${index}" onclick="selectAnswer(${index})" ${answered[currentQuestion] ? 'disabled' : ''}>
-                        ${String.fromCharCode(65 + index)}. ${option}
+                        ${thaiLabels[index]}. ${option}
                     </button>
                 `;
                 optionsList.appendChild(li);
@@ -558,29 +629,7 @@
             document.getElementById('result-screen').classList.remove('hidden');
             
             document.getElementById('final-score').textContent = score;
-            
-            // Calculate grade
-            const percentage = (score / quizData.length) * 100;
-            let gradeClass = '';
-            let gradeText = '';
-            
-            if (percentage >= 80) {
-                gradeClass = 'grade-a';
-                gradeText = '👍 เก่งมาก! (A)';
-            } else if (percentage >= 70) {
-                gradeClass = 'grade-b';
-                gradeText = '🙂 ดี (B)';
-            } else if (percentage >= 60) {
-                gradeClass = 'grade-c';
-                gradeText = '😐 ผ่าน (C)';
-            } else {
-                gradeClass = 'grade-d';
-                gradeText = '😢 ไม่ผ่าน (D) - ลองใหม่นะ';
-            }
-            
-            const gradeDisplay = document.getElementById('grade-display');
-            gradeDisplay.className = 'grade-display ' + gradeClass;
-            gradeDisplay.textContent = gradeText;
+            document.getElementById('result-student-name').textContent = studentName;
             
             // Summary
             const summary = document.getElementById('result-summary');
@@ -588,11 +637,12 @@
             
             quizData.forEach((q, index) => {
                 const isCorrect = answers[index] === q.correct;
+                const thaiLabels = ['ก', 'ข', 'ค', 'ง'];
                 const item = document.createElement('div');
                 item.className = 'result-item';
                 item.innerHTML = `
                     <span class="result-icon">${isCorrect ? '✅' : '❌'}</span>
-                    <span>ข้อ ${index + 1}: ${isCorrect ? 'ถูกต้อง' : 'ผิด'} - ${q.question.substring(0, 50)}...</span>
+                    <span>ข้อ ${index + 1}: ${isCorrect ? 'ถูกต้อง' : 'ผิด'} (ตอบ ${thaiLabels[answers[index]] || '-'}) - ${q.question.substring(0, 50)}...</span>
                 `;
                 summary.appendChild(item);
             });
@@ -601,6 +651,8 @@
         function restartQuiz() {
             document.getElementById('result-screen').classList.add('hidden');
             document.getElementById('start-screen').classList.remove('hidden');
+            document.getElementById('student-name').value = '';
+            studentName = '';
         }
     </script>
 </body>
