@@ -64,10 +64,24 @@
                 </div>
             </div>
 
-            <!-- Zombie Area -->
-            <div class="zombie-area" id="zombie-container">
+            <!-- Battle Area: Zombie vs Player -->
+            <div class="battle-area" id="zombie-container">
                 <div class="ground-line"></div>
-                <div id="zombie" class="zombie zombie-type-1" style="left: 100%;">🧟‍♂️</div>
+                
+                <!-- Player (Left side) -->
+                <div id="player" class="player-character">
+                    <div class="player-emoji">🧑‍🎓</div>
+                    <div class="player-weapon">🔫</div>
+                </div>
+                
+                <!-- Distance indicator -->
+                <div class="distance-indicator">
+                    <div class="distance-line"></div>
+                    <div class="distance-text">ระยะห่าง</div>
+                </div>
+                
+                <!-- Zombie (Right side, moves left) -->
+                <div id="zombie" class="zombie zombie-type-1">🧟‍♂️</div>
             </div>
 
             <!-- Question -->

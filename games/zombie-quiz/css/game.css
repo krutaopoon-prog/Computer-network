@@ -192,10 +192,10 @@ body {
     font-weight: bold;
 }
 
-/* Zombie Container */
-.zombie-area {
+/* Battle Area */
+.battle-area {
     position: relative;
-    height: 200px;
+    height: 220px;
     margin-bottom: 30px;
     overflow: hidden;
     background: linear-gradient(to bottom, 
@@ -207,19 +207,98 @@ body {
 .ground-line {
     position: absolute;
     bottom: 20px;
-    left: 0;
-    right: 0;
+    left: 10%;
+    right: 10%;
     height: 2px;
     background: rgba(255, 255, 255, 0.2);
 }
 
+/* Player Character (Left side) */
+.player-character {
+    position: absolute;
+    bottom: 25px;
+    left: 10%;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    z-index: 10;
+}
+
+.player-emoji {
+    font-size: 3.5rem;
+    filter: drop-shadow(0 0 10px rgba(72, 187, 120, 0.5));
+}
+
+.player-weapon {
+    font-size: 2rem;
+    transform: rotate(-45deg);
+    margin-left: -10px;
+}
+
+.player-character.shooting .player-weapon {
+    animation: shoot-recoil 0.3s ease;
+}
+
+@keyframes shoot-recoil {
+    0% { transform: rotate(-45deg) translateX(0); }
+    50% { transform: rotate(-30deg) translateX(10px); }
+    100% { transform: rotate(-45deg) translateX(0); }
+}
+
+/* Distance Indicator */
+.distance-indicator {
+    position: absolute;
+    bottom: 25px;
+    left: 20%;
+    right: 20%;
+    height: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.distance-line {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(to right, 
+        rgba(72, 187, 120, 0.5) 0%, 
+        rgba(237, 137, 54, 0.5) 50%,
+        rgba(229, 62, 62, 0.5) 100%);
+    border-radius: 2px;
+}
+
+.distance-text {
+    position: absolute;
+    top: -25px;
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.6);
+    background: rgba(0,0,0,0.5);
+    padding: 2px 8px;
+    border-radius: 10px;
+}
+
+/* Zombie (Right side, moves left towards player) */
 .zombie {
     position: absolute;
-    bottom: 20px;
-    font-size: 4rem;
-    transition: left 0.1s linear;
-    transform: scaleX(-1);
-    filter: drop-shadow(0 0 10px rgba(229, 62, 62, 0.5));
+    bottom: 25px;
+    right: 10%;
+    font-size: 3.5rem;
+    transition: right 0.1s linear;
+    filter: drop-shadow(0 0 15px rgba(229, 62, 62, 0.7));
+    z-index: 5;
+}
+
+.zombie.moving {
+    animation: zombie-walk 0.5s ease-in-out infinite;
+}
+
+@keyframes zombie-walk {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    25% { transform: translateY(-5px) rotate(-3deg); }
+    50% { transform: translateY(0) rotate(0deg); }
+    75% { transform: translateY(-5px) rotate(3deg); }
 }
 
 .zombie.dead {
@@ -227,9 +306,21 @@ body {
 }
 
 @keyframes zombie-die {
-    0% { transform: scaleX(-1) rotate(0); opacity: 1; }
-    50% { transform: scaleX(-1) rotate(-90deg); }
-    100% { transform: scaleX(-1) rotate(-90deg) translateY(50px); opacity: 0; }
+    0% { transform: rotate(0); opacity: 1; }
+    50% { transform: rotate(90deg); }
+    100% { transform: rotate(90deg) translateY(50px); opacity: 0; }
+}
+
+/* Player attacked animation */
+.player-character.attacked {
+    animation: player-shake 0.5s ease;
+}
+
+@keyframes player-shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-10px); }
+    50% { transform: translateX(10px); }
+    75% { transform: translateX(-5px); }
 }
 
 /* Question Area */

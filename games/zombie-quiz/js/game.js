@@ -12,7 +12,9 @@ class ZombieQuizGame {
         this.baseTime = 10;
         this.minTime = 3;
         this.isPlaying = false;
-        this.zombiePosition = 100; // Percentage from right
+        this.zombiePosition = 70; // Percentage from right (starts at 70%, moves towards player at 15%)
+        this.playerPosition = 15; // Player is at 15% from left
+        this.dangerZone = 25; // When zombie reaches 25% from right, game over
         
         this.initElements();
         this.bindEvents();
@@ -35,6 +37,7 @@ class ZombieQuizGame {
         this.highScoreDisplay = document.getElementById('high-score-display');
         this.finalScoreDisplay = document.getElementById('final-score');
         this.zombie = document.getElementById('zombie');
+        this.player = document.getElementById('player');
         this.zombieContainer = document.getElementById('zombie-container');
         
         // Buttons
@@ -122,8 +125,9 @@ class ZombieQuizGame {
         this.option1Btn.textContent = this.currentQuestion.options[0];
         this.option2Btn.textContent = this.currentQuestion.options[1];
         
-        // Reset zombie position
-        this.zombiePosition = 100;
+        // Reset zombie position (starts at right side)
+        this.zombiePosition = 70;
+        this.zombie.classList.remove('moving');
         this.updateZombiePosition();
         
         // Calculate time based on score (get harder)
@@ -138,6 +142,9 @@ class ZombieQuizGame {
         
         const maxTime = this.timeLeft;
         let currentTime = this.timeLeft;
+        
+        // Start zombie walking animation
+        this.zombie.classList.add('moving');
         
         this.timer = setInterval(() => {
             currentTime -= 0.1;
@@ -161,9 +168,17 @@ class ZombieQuizGame {
                 }
             }
             
-            // Move zombie
-            this.zombiePosition = 10 + (currentTime / maxTime) * 90;
+            // Move zombie from right to left (towards player)
+            // Starts at 70% from right, moves towards player at 15%
+            const progress = (maxTime - currentTime) / maxTime;
+            this.zombiePosition = 70 - (progress * 50); // Moves from 70% to 20%
             this.updateZombiePosition();
+            
+            // Check if zombie reached player
+            if (this.zombiePosition <= this.dangerZone) {
+                this.player.classList.add('attacked');
+                this.gameOver('zombie-attack');
+            }
             
             if (currentTime <= 0) {
                 this.gameOver('timeout');
@@ -172,44 +187,60 @@ class ZombieQuizGame {
     }
 
     updateZombiePosition() {
-        this.zombie.style.left = `${this.zombiePosition}%`;
+        // Position from right (zombie moves from right towards player)
+        this.zombie.style.right = `${this.zombiePosition}%`;
     }
 
     answer(selectedIndex) {
         if (!this.isPlaying) return;
         
         clearInterval(this.timer);
+        this.zombie.classList.remove('moving');
         
         if (selectedIndex === this.currentQuestion.correct) {
-            // Correct answer
+            // Correct answer - Player shoots zombie
             this.score++;
             this.updateScore();
             
+            // Player shooting animation
+            this.player.classList.add('shooting');
+            
             // Zombie death animation
-            this.zombie.classList.add('zombie-dead');
+            setTimeout(() => {
+                this.zombie.classList.add('zombie-dead');
+            }, 200);
             
             // Button feedback
             const correctBtn = selectedIndex === 0 ? this.option1Btn : this.option2Btn;
             correctBtn.classList.add('correct');
             
             setTimeout(() => {
+                this.player.classList.remove('shooting');
                 this.zombie.classList.remove('zombie-dead');
                 correctBtn.classList.remove('correct');
                 this.nextQuestion();
-            }, 500);
+            }, 800);
         } else {
-            // Wrong answer
+            // Wrong answer - Zombie attacks player
             const wrongBtn = selectedIndex === 0 ? this.option1Btn : this.option2Btn;
             const correctBtn = this.currentQuestion.correct === 0 ? this.option1Btn : this.option2Btn;
             
             wrongBtn.classList.add('wrong');
             correctBtn.classList.add('correct');
             
+            // Zombie attacks player animation
+            this.zombie.style.transition = 'right 0.5s ease';
+            this.zombie.style.right = '15%';
+            
+            setTimeout(() => {
+                this.player.classList.add('attacked');
+            }, 400);
+            
             setTimeout(() => {
                 wrongBtn.classList.remove('wrong');
                 correctBtn.classList.remove('correct');
                 this.gameOver('wrong');
-            }, 500);
+            }, 800);
         }
     }
 
@@ -229,8 +260,10 @@ class ZombieQuizGame {
         const reasonText = document.getElementById('game-over-reason');
         if (reason === 'timeout') {
             reasonText.textContent = '⏰ หมดเวลา! ซอมบี้เข้ามาถึงตัวแล้ว!';
+        } else if (reason === 'zombie-attack') {
+            reasonText.textContent = '🧟 ซอมบี้เข้ามาถึงตัวคุณแล้ว! เกมจบ!';
         } else {
-            reasonText.textContent = '💀 ตอบผิด! ซอมบี้กัดคุณ!';
+            reasonText.textContent = '💀 ตอบผิด! ซอมบี้โจมตีคุณ!';
         }
         
         this.showScreen('gameover');
