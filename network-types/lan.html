@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>LAN — เครือข่ายท้องถิ่น - Computer Network</title>
+    <link rel="stylesheet" href="../shared/css/global.css?v=1.0">
+    <link rel="stylesheet" href="css/style.css?v=1.0">
+</head>
+<body>
+    <header class="page-header" style="background: linear-gradient(135deg, #16a34a, #22c55e);">
+        <h1>LAN — เครือข่ายท้องถิ่น</h1>
+        <p>Local Area Network — เครือข่ายเฉพาะที่</p>
+    </header>
+
+    <nav class="breadcrumb">
+        <a href="../index.html">Home</a>
+        <span>/</span>
+        <a href="index.html">บทที่ 3</a>
+        <span>/</span>
+        <span>LAN</span>
+    </nav>
+
+    <!-- Sub-chapter nav -->
+    <div style="background:white; border-bottom:1px solid #e2e8f0; padding:0.75rem 1rem;">
+        <div style="max-width:1400px; margin:0 auto; display:flex; gap:0.5rem; flex-wrap:wrap;">
+            <span style="font-size:0.85rem; color:#64748b; padding:0.35rem 0; margin-right:0.5rem;">บทที่ 3:</span>
+            <a class="tab-btn active" href="lan.html">LAN</a>
+            <a class="tab-btn" href="man.html">MAN</a>
+            <a class="tab-btn" href="wan.html">WAN</a>
+            <a class="tab-btn" href="topology.html">Topology</a>
+            <a class="tab-btn" href="network-services.html">Network Services</a>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <!-- Theory -->
+        <section class="theory-section">
+            <div class="theory-header">
+                <h2>📖 ทฤษฎี: เครือข่ายแลน (LAN)</h2>
+                <button id="toggle-btn" onclick="toggleTheory()" class="btn-secondary">ซ่อน</button>
+            </div>
+            <div class="theory-content" id="theory-content">
+                <div class="theory-block">
+                    <div class="term-box">
+                        <h4>📘 LAN (Local Area Network) คืออะไร?</h4>
+                        <ul>
+                            <li><strong>นิยาม:</strong> เครือข่ายส่วนบุคคลที่มีการเชื่อมต่อและครอบคลุมภายในพื้นที่และระยะทางที่จำกัด</li>
+                            <li><strong>ย่อมาจาก:</strong> Local Area Network</li>
+                            <li><strong>ระยะทาง:</strong> ปกติไม่เกิน 10 กิโลเมตร (ขยายด้วย Repeater ได้)</li>
+                            <li><strong>อุปมา:</strong> เหมือนระบบไฟฟ้าภายในบ้าน — ใช้ร่วมกันได้ภายในพื้นที่เดียวกัน</li>
+                        </ul>
+                    </div>
+                    <div class="term-box">
+                        <h4>📘 ลักษณะสำคัญ</h4>
+                        <ul>
+                            <li>เชื่อมต่อ PC หรือ Microcomputer หลายเครื่อง เพื่อใช้ทรัพยากรร่วมกัน</li>
+                            <li>ถูกจำกัดด้วยขนาด จึงใช้งานภายในหน่วยงานเดียวกัน</li>
+                            <li>ส่วนใหญ่ใช้ <strong>สายเคเบิล</strong> เป็นสื่อกลางในการส่งข้อมูล</li>
+                            <li>หากต้องการเชื่อมต่อระยะไกลขึ้น ต้องใช้ <strong>Repeater</strong> ทวนสัญญาณ</li>
+                            <li>การขยายระยะทางมีข้อจำกัดจาก <strong>จำนวน Repeater</strong> ที่ใช้ได้</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="theory-block">
+                    <h3>ตัวอย่างการใช้งาน LAN</h3>
+                    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1rem; margin:1rem 0;">
+                        <div style="background:#f0fdf4; border-radius:8px; padding:1rem; text-align:center; border:1px solid #bbf7d0;">
+                            <div style="font-size:2rem; margin-bottom:0.5rem;">🏫</div>
+                            <strong>โรงเรียน</strong>
+                            <p style="font-size:0.85rem; color:#475569; margin-top:0.25rem;">ห้องเรียน, ห้องสมุด, ห้อง ICT เชื่อมถึงกัน</p>
+                        </div>
+                        <div style="background:#f0fdf4; border-radius:8px; padding:1rem; text-align:center; border:1px solid #bbf7d0;">
+                            <div style="font-size:2rem; margin-bottom:0.5rem;">🏢</div>
+                            <strong>สำนักงาน</strong>
+                            <p style="font-size:0.85rem; color:#475569; margin-top:0.25rem;">แผนกต่างๆ แชร์ Printer และ File ร่วมกัน</p>
+                        </div>
+                        <div style="background:#f0fdf4; border-radius:8px; padding:1rem; text-align:center; border:1px solid #bbf7d0;">
+                            <div style="font-size:2rem; margin-bottom:0.5rem;">🏥</div>
+                            <strong>โรงพยาบาล</strong>
+                            <p style="font-size:0.85rem; color:#475569; margin-top:0.25rem;">ระบบข้อมูลผู้ป่วย เชื่อมทุกห้อง</p>
+                        </div>
+                        <div style="background:#f0fdf4; border-radius:8px; padding:1rem; text-align:center; border:1px solid #bbf7d0;">
+                            <div style="font-size:2rem; margin-bottom:0.5rem;">🏠</div>
+                            <strong>บ้านพัก</strong>
+                            <p style="font-size:0.85rem; color:#475569; margin-top:0.25rem;">WiFi ภายในบ้าน เชื่อมทุกอุปกรณ์</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Diagram -->
+        <section style="background:white; border-radius:12px; padding:1.5rem; margin:2rem 0; box-shadow:0 4px 6px -1px rgba(0,0,0,0.1);">
+            <h2 style="margin-bottom:1rem; font-size:1.25rem;">แผนภาพ LAN — เครือข่ายในโรงเรียน</h2>
+            <div class="diagram-box">
+                <svg viewBox="0 0 700 340" width="100%" style="max-width:700px; font-family:'Segoe UI',sans-serif;">
+                    <!-- Background -->
+                    <rect width="700" height="340" fill="#f8fafc" rx="8"/>
+
+                    <!-- Switch center -->
+                    <rect x="290" y="145" width="120" height="50" rx="8" fill="#16a34a" stroke="#15803d" stroke-width="2"/>
+                    <text x="350" y="165" text-anchor="middle" fill="white" font-size="12" font-weight="bold">Switch</text>
+                    <text x="350" y="183" text-anchor="middle" fill="#dcfce7" font-size="10">Central Hub</text>
+
+                    <!-- Office Node -->
+                    <line x1="290" y1="155" x2="160" y2="80" stroke="#94a3b8" stroke-width="2" stroke-dasharray="5,3"/>
+                    <rect x="80" y="40" width="110" height="60" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+                    <text x="105" y="58" font-size="11" fill="#1e40af">🖥️ Office</text>
+                    <text x="95" y="75" font-size="9" fill="#475569">3 workstations</text>
+                    <text x="95" y="88" font-size="9" fill="#475569">+ Printer</text>
+
+                    <!-- Library Node -->
+                    <line x1="350" y1="145" x2="350" y2="70" stroke="#94a3b8" stroke-width="2" stroke-dasharray="5,3"/>
+                    <rect x="290" y="20" width="120" height="50" rx="8" fill="#dcfce7" stroke="#22c55e" stroke-width="1.5"/>
+                    <text x="318" y="40" font-size="11" fill="#166534">📚 Library</text>
+                    <text x="308" y="57" font-size="9" fill="#475569">5 computers</text>
+                    <text x="308" y="67" font-size="9" fill="#475569">+ Scanner</text>
+
+                    <!-- Server Node -->
+                    <line x1="410" y1="155" x2="540" y2="80" stroke="#94a3b8" stroke-width="2" stroke-dasharray="5,3"/>
+                    <rect x="510" y="35" width="110" height="60" rx="8" fill="#fef9c3" stroke="#f59e0b" stroke-width="1.5"/>
+                    <text x="535" y="53" font-size="11" fill="#92400e">🗄️ Server</text>
+                    <text x="525" y="70" font-size="9" fill="#475569">File Server</text>
+                    <text x="525" y="82" font-size="9" fill="#475569">+ Print Server</text>
+
+                    <!-- ICT Room Node -->
+                    <line x1="290" y1="175" x2="160" y2="250" stroke="#94a3b8" stroke-width="2" stroke-dasharray="5,3"/>
+                    <rect x="60" y="225" width="130" height="60" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5"/>
+                    <text x="88" y="247" font-size="11" fill="#9d174d">💻 ICT Room</text>
+                    <text x="75" y="264" font-size="9" fill="#475569">20 computers</text>
+                    <text x="75" y="276" font-size="9" fill="#475569">Lab teaching</text>
+
+                    <!-- Classroom Node -->
+                    <line x1="350" y1="195" x2="350" y2="265" stroke="#94a3b8" stroke-width="2" stroke-dasharray="5,3"/>
+                    <rect x="280" y="265" width="140" height="55" rx="8" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1.5"/>
+                    <text x="308" y="285" font-size="11" fill="#5b21b6">🏫 Classroom</text>
+                    <text x="296" y="302" font-size="9" fill="#475569">Interactive Board</text>
+                    <text x="296" y="312" font-size="9" fill="#475569">+ Teacher PC</text>
+
+                    <!-- General Classroom -->
+                    <line x1="410" y1="175" x2="540" y2="250" stroke="#94a3b8" stroke-width="2" stroke-dasharray="5,3"/>
+                    <rect x="510" y="225" width="130" height="60" rx="8" fill="#fff7ed" stroke="#f97316" stroke-width="1.5"/>
+                    <text x="530" y="247" font-size="11" fill="#9a3412">🔌 General</text>
+                    <text x="525" y="262" font-size="9" fill="#475569">Administration</text>
+                    <text x="525" y="274" font-size="9" fill="#475569">+ Finance Dept.</text>
+
+                    <!-- Cable label -->
+                    <text x="350" y="330" text-anchor="middle" font-size="11" fill="#64748b">--- สายเคเบิล (Ethernet Cable) ---</text>
+                </svg>
+                <figcaption>รูปที่ 1 ตัวอย่างเครือข่ายแลน (LAN) ในโรงเรียน</figcaption>
+            </div>
+        </section>
+
+        <!-- Pros/Cons -->
+        <section style="background:white; border-radius:12px; padding:1.5rem; margin:2rem 0; box-shadow:0 4px 6px -1px rgba(0,0,0,0.1);">
+            <h2 style="margin-bottom:1rem; font-size:1.25rem;">ข้อดีและข้อจำกัดของ LAN</h2>
+            <div class="pros-cons">
+                <div class="pros">
+                    <h4>✅ ข้อดี</h4>
+                    <ul>
+                        <li>ส่งข้อมูลได้เร็ว</li>
+                        <li>ค่าใช้จ่ายต่ำ</li>
+                        <li>แชร์ทรัพยากรได้ เช่น Printer, File</li>
+                        <li>บำรุงรักษาง่าย</li>
+                        <li>ติดตั้งและขยายได้ง่าย</li>
+                    </ul>
+                </div>
+                <div class="cons">
+                    <h4>⚠️ ข้อจำกัด</h4>
+                    <ul>
+                        <li>ครอบคลุมพื้นที่จำกัด (ไม่เกิน 10 กม.)</li>
+                        <li>ขยายระยะทางต้องใช้ Repeater</li>
+                        <li>จำนวน Repeater มีข้อจำกัด</li>
+                        <li>ความเร็วลดลงเมื่อมีผู้ใช้มาก</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navigation -->
+        <div style="display:flex; justify-content:space-between; margin-top:2rem;">
+            <a href="index.html" style="text-decoration:none; color:#2563eb; font-weight:600;">← ภาพรวมบทที่ 3</a>
+            <a href="man.html" style="text-decoration:none; color:#2563eb; font-weight:600;">MAN →</a>
+        </div>
+
+    </div>
+
+    <footer class="page-footer">
+        <p>บทที่ 3: ประเภทของเครือข่ายคอมพิวเตอร์ | Computer Network</p>
+    </footer>
+
+    <script>
+        function toggleTheory() {
+            const content = document.getElementById('theory-content');
+            const btn = document.getElementById('toggle-btn');
+            if (content.classList.contains('collapsed')) {
+                content.classList.remove('collapsed');
+                btn.textContent = 'ซ่อน';
+            } else {
+                content.classList.add('collapsed');
+                btn.textContent = 'แสดง';
+            }
+        }
+    </script>
+</body>
+</html>

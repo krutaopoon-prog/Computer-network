@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>ประเภทของเครือข่ายคอมพิวเตอร์ - Computer Network</title>
+    <link rel="stylesheet" href="../shared/css/global.css?v=1.0">
+    <link rel="stylesheet" href="css/style.css?v=1.0">
+    <style>
+        .overview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        .overview-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+            text-decoration: none;
+            color: #1e293b;
+            border: 1px solid #e2e8f0;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+        .overview-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.15);
+        }
+        .overview-card-header {
+            padding: 1.25rem 1.5rem;
+            color: white;
+        }
+        .overview-card-header h3 { margin: 0; font-size: 1.2rem; }
+        .overview-card-header p { margin: 0.25rem 0 0; opacity: 0.9; font-size: 0.9rem; }
+        .overview-card-body { padding: 1.25rem 1.5rem; flex: 1; }
+        .overview-card-body ul {
+            list-style: none; padding: 0; margin: 0;
+            font-size: 0.9rem; color: #475569;
+        }
+        .overview-card-body li { margin-bottom: 0.35rem; padding-left: 1rem; position: relative; }
+        .overview-card-body li::before { content: "›"; position: absolute; left: 0; color: #94a3b8; }
+        .overview-card-footer {
+            padding: 0.75rem 1.5rem;
+            background: #f8fafc;
+            font-size: 0.85rem;
+            color: #2563eb;
+            font-weight: 600;
+            border-top: 1px solid #e2e8f0;
+        }
+        .header-lan  { background: linear-gradient(135deg, #16a34a, #22c55e); }
+        .header-man  { background: linear-gradient(135deg, #1d4ed8, #3b82f6); }
+        .header-wan  { background: linear-gradient(135deg, #ea580c, #f97316); }
+        .header-topo { background: linear-gradient(135deg, #7c3aed, #8b5cf6); }
+        .header-svc  { background: linear-gradient(135deg, #0891b2, #06b6d4); }
+
+        .summary-section {
+            background: white;
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
+        }
+        .summary-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+        .summary-table th { background: #1e293b; color: white; padding: 0.75rem 1rem; text-align: left; }
+        .summary-table td { padding: 0.75rem 1rem; border-bottom: 1px solid #e2e8f0; vertical-align: top; }
+        .summary-table tr:last-child td { border-bottom: none; }
+        .badge-lan  { background: #dcfce7; color: #16a34a; padding: 2px 8px; border-radius: 12px; font-size: 0.8rem; font-weight: 600; }
+        .badge-man  { background: #dbeafe; color: #1d4ed8; padding: 2px 8px; border-radius: 12px; font-size: 0.8rem; font-weight: 600; }
+        .badge-wan  { background: #ffedd5; color: #ea580c; padding: 2px 8px; border-radius: 12px; font-size: 0.8rem; font-weight: 600; }
+    </style>
+</head>
+<body>
+    <header class="page-header">
+        <h1>ประเภทของเครือข่ายคอมพิวเตอร์</h1>
+        <p>บทที่ 3 — LAN, MAN, WAN, Topology และการให้บริการเครือข่าย</p>
+    </header>
+
+    <nav class="breadcrumb">
+        <a href="../index.html">Home</a>
+        <span>/</span>
+        <span>บทที่ 3: ประเภทเครือข่าย</span>
+    </nav>
+
+    <div class="container">
+
+        <!-- Quick Overview -->
+        <section class="summary-section">
+            <h2 style="margin-bottom:1rem; color:#1e293b;">ภาพรวมบทที่ 3</h2>
+            <table class="summary-table">
+                <thead>
+                    <tr>
+                        <th>ประเภท</th>
+                        <th>ชื่อเต็ม</th>
+                        <th>ระยะทาง</th>
+                        <th>ตัวอย่าง</th>
+                        <th>สื่อกลาง</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><span class="badge-lan">LAN</span></td>
+                        <td>Local Area Network</td>
+                        <td>&lt; 10 กม.</td>
+                        <td>โรงเรียน, สำนักงาน</td>
+                        <td>สายเคเบิล, WiFi</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge-man">MAN</span></td>
+                        <td>Metropolitan Area Network</td>
+                        <td>10–100 กม.</td>
+                        <td>เครือข่ายเมือง, ธนาคาร</td>
+                        <td>Fiber Optic, Microwave</td>
+                    </tr>
+                    <tr>
+                        <td><span class="badge-wan">WAN</span></td>
+                        <td>Wide Area Network</td>
+                        <td>&gt; 100 กม.</td>
+                        <td>Internet, บริษัทข้ามชาติ</td>
+                        <td>Satellite, เคเบิลใต้น้ำ</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Main Topic Cards -->
+        <h2 style="margin-bottom:1.25rem; font-size:1.5rem;">หัวข้อในบทนี้</h2>
+        <div class="overview-grid">
+
+            <a href="lan.html" class="overview-card">
+                <div class="overview-card-header header-lan">
+                    <h3>🏫 LAN — เครือข่ายท้องถิ่น</h3>
+                    <p>Local Area Network</p>
+                </div>
+                <div class="overview-card-body">
+                    <ul>
+                        <li>เชื่อมอุปกรณ์ในพื้นที่จำกัด</li>
+                        <li>ระยะทางไม่เกิน 10 กิโลเมตร</li>
+                        <li>ใช้ใน อาคาร / โรงเรียน / สำนักงาน</li>
+                        <li>ส่งข้อมูลเร็ว ค่าใช้จ่ายต่ำ</li>
+                    </ul>
+                </div>
+                <div class="overview-card-footer">เรียนรู้ LAN →</div>
+            </a>
+
+            <a href="man.html" class="overview-card">
+                <div class="overview-card-header header-man">
+                    <h3>🏙️ MAN — เครือข่ายระดับเมือง</h3>
+                    <p>Metropolitan Area Network</p>
+                </div>
+                <div class="overview-card-body">
+                    <ul>
+                        <li>เชื่อม LAN หลายวงเข้าด้วยกัน</li>
+                        <li>ครอบคลุมระดับเมือง / จังหวัด</li>
+                        <li>มี Backbone เป็นกระดูกสันหลัง</li>
+                        <li>ใช้ Fiber Optic / Microwave</li>
+                    </ul>
+                </div>
+                <div class="overview-card-footer">เรียนรู้ MAN →</div>
+            </a>
+
+            <a href="wan.html" class="overview-card">
+                <div class="overview-card-header header-wan">
+                    <h3>🌍 WAN — เครือข่ายระดับประเทศ</h3>
+                    <p>Wide Area Network</p>
+                </div>
+                <div class="overview-card-body">
+                    <ul>
+                        <li>ครอบคลุมระดับประเทศ / ข้ามทวีป</li>
+                        <li>ระยะทางตั้งแต่ 100 กม. ขึ้นไป</li>
+                        <li>Private Network vs PDN/VAN</li>
+                        <li>ใช้ Satellite, เคเบิลใต้น้ำ</li>
+                    </ul>
+                </div>
+                <div class="overview-card-footer">เรียนรู้ WAN →</div>
+            </a>
+
+            <a href="topology.html" class="overview-card">
+                <div class="overview-card-header header-topo">
+                    <h3>🔗 Topology — รูปแบบการเชื่อมต่อ</h3>
+                    <p>Network Topology</p>
+                </div>
+                <div class="overview-card-body">
+                    <ul>
+                        <li>Bus Topology — แบบแถวลำดับ</li>
+                        <li>Ring Topology — แบบวงแหวน</li>
+                        <li>Star Topology — แบบดาว</li>
+                        <li>Mesh Topology — แบบตาข่าย</li>
+                    </ul>
+                </div>
+                <div class="overview-card-footer">เรียนรู้ Topology →</div>
+            </a>
+
+            <a href="network-services.html" class="overview-card">
+                <div class="overview-card-header header-svc">
+                    <h3>🖥️ การให้บริการเครือข่าย</h3>
+                    <p>Network Services</p>
+                </div>
+                <div class="overview-card-body">
+                    <ul>
+                        <li>Client-Server — แม่ข่าย/ลูกข่าย</li>
+                        <li>Peer-to-Peer — แบบเท่าเทียม</li>
+                        <li>เปรียบเทียบข้อดี/ข้อเสีย</li>
+                        <li>เลือกแบบไหนให้เหมาะสม</li>
+                    </ul>
+                </div>
+                <div class="overview-card-footer">เรียนรู้ Network Services →</div>
+            </a>
+
+            <a href="../network-types-quiz/index.html" class="overview-card" style="border: 2px solid #2563eb; background: linear-gradient(135deg, #dbeafe, #ede9fe);">
+                <div class="overview-card-header" style="background: linear-gradient(135deg, #2563eb, #7c3aed);">
+                    <h3>📝 แบบทดสอบบทที่ 3</h3>
+                    <p>ทดสอบความเข้าใจทั้งบท</p>
+                </div>
+                <div class="overview-card-body">
+                    <ul>
+                        <li>10 ข้อ — 4 ตัวเลือก</li>
+                        <li>ครอบคลุม LAN/MAN/WAN</li>
+                        <li>Topology ทั้ง 4 แบบ</li>
+                        <li>Client-Server vs Peer-to-Peer</li>
+                    </ul>
+                </div>
+                <div class="overview-card-footer" style="color: #7c3aed;">ทำแบบทดสอบ →</div>
+            </a>
+
+        </div>
+
+        <!-- Connection Types Section -->
+        <section class="summary-section">
+            <h2 style="margin-bottom:1rem; color:#1e293b;">การเชื่อมต่อเครือข่าย 2 แบบ</h2>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:1.5rem;">
+                <div class="info-box">
+                    <h4 style="color:#1d4ed8; margin-bottom:0.5rem;">📌 Point to Point (จุดต่อจุด)</h4>
+                    <p style="font-size:0.9rem; color:#475569;">เชื่อมต่อระหว่างอุปกรณ์ 2 ตัว มีช่องทางสื่อสารเฉพาะสำหรับสองอุปกรณ์นั้น ใช้ Microwave หรือ Satellite ได้</p>
+                </div>
+                <div class="info-box green">
+                    <h4 style="color:#16a34a; margin-bottom:0.5rem;">📌 Multi Point (หลายจุด)</h4>
+                    <p style="font-size:0.9rem; color:#475569;">อุปกรณ์มากกว่า 2 ตัว ใช้ Link ร่วมกัน ประหยัดสาย แต่ข้อมูลอาจชนกันได้หากส่งพร้อมกัน</p>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <footer class="page-footer">
+        <p>บทที่ 3: ประเภทของเครือข่ายคอมพิวเตอร์ | Computer Network</p>
+    </footer>
+</body>
+</html>

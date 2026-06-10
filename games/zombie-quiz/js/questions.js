@@ -356,10 +356,152 @@ const QUESTIONS = [
         correct: 0,
         chapter: "protocols",
         difficulty: "medium"
+    },
+
+    // ========== NETWORK TYPES - บทที่ 3 (20 questions) ==========
+    {
+        question: "LAN ย่อมาจาก Local Area Network",
+        options: ["ถูกต้อง", "ผิด"],
+        correct: 0,
+        chapter: "network-types",
+        difficulty: "easy"
+    },
+    {
+        question: "MAN ย่อมาจาก Metropolitan Area Network",
+        options: ["ถูกต้อง", "ผิด"],
+        correct: 0,
+        chapter: "network-types",
+        difficulty: "easy"
+    },
+    {
+        question: "WAN ย่อมาจาก Wide Area Network",
+        options: ["ถูกต้อง", "ผิด"],
+        correct: 0,
+        chapter: "network-types",
+        difficulty: "easy"
+    },
+    {
+        question: "เครือข่าย LAN ครอบคลุมระยะทางได้ไม่เกิน 10 กิโลเมตร",
+        options: ["ถูกต้อง", "ผิด"],
+        correct: 0,
+        chapter: "network-types",
+        difficulty: "easy"
+    },
+    {
+        question: "เครือข่าย WAN มีระยะทางการเชื่อมต่อตั้งแต่ 100 กิโลเมตรขึ้นไป",
+        options: ["ถูกต้อง", "ผิด"],
+        correct: 0,
+        chapter: "network-types",
+        difficulty: "easy"
+    },
+    {
+        question: "Router เป็นอุปกรณ์หลักที่ใช้ใน WAN",
+        options: ["ถูกต้อง", "ผิด"],
+        correct: 0,
+        chapter: "network-types",
+        difficulty: "easy"
+    },
+    {
+        question: "Star Topology ต้องใช้ Hub หรือ Switch เป็นอุปกรณ์ศูนย์กลาง",
+        options: ["ถูกต้อง", "ผิด"],
+        correct: 0,
+        chapter: "network-types",
+        difficulty: "easy"
+    },
+    {
+        question: "Bus Topology ถ้าสายหลักขาด ทั้งระบบจะหยุดทำงาน",
+        options: ["ถูกต้อง", "ผิด"],
+        correct: 0,
+        chapter: "network-types",
+        difficulty: "easy"
+    },
+    {
+        question: "Mesh Topology มีระบบชดเชย (Redundant) เมื่อสายหนึ่งขาด",
+        options: ["ถูกต้อง", "ผิด"],
+        correct: 0,
+        chapter: "network-types",
+        difficulty: "medium"
+    },
+    {
+        question: "Client-Server ต้องการผู้ดูแลระบบ (Administrator) เพื่อดูแลเครือข่าย",
+        options: ["ถูกต้อง", "ผิด"],
+        correct: 0,
+        chapter: "network-types",
+        difficulty: "medium"
+    },
+    {
+        question: "Peer-to-Peer เหมาะสำหรับเครือข่ายขนาดใหญ่มากกว่า 100 เครื่อง",
+        options: ["ถูกต้อง", "ผิด"],
+        correct: 1,
+        chapter: "network-types",
+        difficulty: "medium"
+    },
+    {
+        question: "Ring Topology ส่งข้อมูลวนทิศทางเดียวคล้ายวงแหวน",
+        options: ["ถูกต้อง", "ผิด"],
+        correct: 0,
+        chapter: "network-types",
+        difficulty: "medium"
+    },
+    {
+        question: "MAN ใช้ Fiber Optic Cable และ Microwave เป็นสื่อกลาง",
+        options: ["ถูกต้อง", "ผิด"],
+        correct: 0,
+        chapter: "network-types",
+        difficulty: "medium"
+    },
+    {
+        question: "Private Network ในระบบ WAN เป็นเครือข่ายที่องค์กรจัดตั้งเพื่อใช้เองทั้งหมด",
+        options: ["ถูกต้อง", "ผิด"],
+        correct: 0,
+        chapter: "network-types",
+        difficulty: "medium"
+    },
+    {
+        question: "Star Topology ถ้าเครื่องลูกข่ายหนึ่งเครื่องเสีย จะทำให้ทั้งระบบหยุดทำงาน",
+        options: ["ถูกต้อง", "ผิด"],
+        correct: 1,
+        chapter: "network-types",
+        difficulty: "medium"
+    },
+    {
+        question: "Bus Topology ประหยัดสายที่สุดใน 4 รูปแบบ",
+        options: ["ถูกต้อง", "ผิด"],
+        correct: 0,
+        chapter: "network-types",
+        difficulty: "medium"
+    },
+    {
+        question: "FDDI และ Token Ring ใช้รูปแบบ Ring Topology",
+        options: ["ถูกต้อง", "ผิด"],
+        correct: 0,
+        chapter: "network-types",
+        difficulty: "hard"
+    },
+    {
+        question: "PDN ย่อมาจาก Public Data Network ซึ่งเป็นเครือข่าย WAN ที่มีบุคคลที่สาม (Third Party) ดูแลระบบ",
+        options: ["ถูกต้อง", "ผิด"],
+        correct: 0,
+        chapter: "network-types",
+        difficulty: "hard"
+    },
+    {
+        question: "Backbone ในเครือข่าย MAN ทำหน้าที่เป็นกระดูกสันหลังในการเชื่อมต่อ LAN ต่างๆ",
+        options: ["ถูกต้อง", "ผิด"],
+        correct: 0,
+        chapter: "network-types",
+        difficulty: "hard"
+    },
+    {
+        question: "Hybrid Topology คือการนำหลาย Topology มาผสมกัน เช่น Star + Bus",
+        options: ["ถูกต้อง", "ผิด"],
+        correct: 0,
+        chapter: "network-types",
+        difficulty: "hard"
     }
 ];
 
-// Total: 50 questions
+// Total: 70 questions
 // Export for use in game.js
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = QUESTIONS;

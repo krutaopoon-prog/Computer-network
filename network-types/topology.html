@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>Topology — รูปแบบการเชื่อมต่อ - Computer Network</title>
+    <link rel="stylesheet" href="../shared/css/global.css?v=1.0">
+    <link rel="stylesheet" href="css/style.css?v=1.0">
+</head>
+<body>
+    <header class="page-header" style="background: linear-gradient(135deg, #7c3aed, #8b5cf6);">
+        <h1>รูปแบบการเชื่อมต่อเครือข่าย</h1>
+        <p>Network Topology — Bus, Ring, Star, Mesh</p>
+    </header>
+
+    <nav class="breadcrumb">
+        <a href="../index.html">Home</a>
+        <span>/</span>
+        <a href="index.html">บทที่ 3</a>
+        <span>/</span>
+        <span>Topology</span>
+    </nav>
+
+    <div style="background:white; border-bottom:1px solid #e2e8f0; padding:0.75rem 1rem;">
+        <div style="max-width:1400px; margin:0 auto; display:flex; gap:0.5rem; flex-wrap:wrap;">
+            <span style="font-size:0.85rem; color:#64748b; padding:0.35rem 0; margin-right:0.5rem;">บทที่ 3:</span>
+            <a class="tab-btn" href="lan.html">LAN</a>
+            <a class="tab-btn" href="man.html">MAN</a>
+            <a class="tab-btn" href="wan.html">WAN</a>
+            <a class="tab-btn active" href="topology.html">Topology</a>
+            <a class="tab-btn" href="network-services.html">Network Services</a>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <!-- Theory intro -->
+        <section class="theory-section">
+            <div class="theory-header">
+                <h2>📖 ทฤษฎี: Topology คืออะไร?</h2>
+                <button id="toggle-btn" onclick="toggleTheory()" class="btn-secondary">ซ่อน</button>
+            </div>
+            <div class="theory-content" id="theory-content">
+                <div class="theory-block">
+                    <div class="term-box">
+                        <h4>📘 Topology (โทโพลยี) คืออะไร?</h4>
+                        <ul>
+                            <li><strong>นิยาม:</strong> รูปแบบการเชื่อมต่อคอมพิวเตอร์ทางกายภาพ เพื่อให้สามารถสื่อสารร่วมกันได้</li>
+                            <li><strong>สำคัญ:</strong> เทคโนโลยีเครือข่ายท้องถิ่นต้องมีรูปแบบโทโพลยี หลายแบบ จึงต้องรู้ข้อดี/ข้อเสียแต่ละแบบ</li>
+                            <li><strong>การเลือก:</strong> ขึ้นอยู่กับ ประสิทธิภาพ การใช้งาน ความน่าเชื่อถือ ความยุ่งยากในการติดตั้ง และค่าใช้จ่าย</li>
+                        </ul>
+                    </div>
+                    <div class="info-box">
+                        <strong>การเชื่อมต่อ 2 รูปแบบพื้นฐาน:</strong><br>
+                        <span style="font-size:0.9rem;">
+                            📌 <strong>Point to Point</strong> — ลิงก์เฉพาะระหว่าง 2 อุปกรณ์ เช่น Mainframe กับ Workstation<br>
+                            📌 <strong>Multi Point</strong> — อุปกรณ์หลายตัวใช้ลิงก์เดียวกันร่วมกัน ประหยัดสาย แต่อาจชนกันได้
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Demo -->
+        <div id="topology-demo">
+            <h2 style="margin-bottom:0.75rem; font-size:1.25rem;">🎮 จำลอง Topology แบบ Interactive</h2>
+            <p style="color:#64748b; font-size:0.9rem; margin-bottom:1rem;">เลือก Topology แล้วกด "จำลองการส่งข้อมูล" เพื่อดู packet วิ่ง</p>
+
+            <div class="demo-controls">
+                <button class="demo-btn bus"  data-topo="bus">Bus</button>
+                <button class="demo-btn ring" data-topo="ring">Ring</button>
+                <button class="demo-btn star" data-topo="star">Star</button>
+                <button class="demo-btn mesh" data-topo="mesh">Mesh</button>
+                <button id="btn-animate" style="padding:0.5rem 1.25rem; background:#ef4444; color:white; border:none; border-radius:20px; cursor:pointer; font-size:0.9rem; font-weight:600;">
+                    ▶ จำลองการส่งข้อมูล
+                </button>
+            </div>
+
+            <canvas id="demo-canvas"></canvas>
+        </div>
+
+        <!-- 4 Topology Cards -->
+        <h2 style="margin:2rem 0 1rem; font-size:1.35rem;">รูปแบบ Topology ทั้ง 4 แบบ</h2>
+
+        <!-- Bus -->
+        <div class="type-card">
+            <div class="type-card-header" style="background: linear-gradient(135deg, #7c3aed, #8b5cf6);">
+                <h3>3.1 รูปแบบบัส (Bus Topology)</h3>
+                <span class="badge">แบบแถวลำดับ</span>
+            </div>
+            <div class="type-card-body">
+                <p style="color:#475569; margin-bottom:1rem;">เชื่อมต่อเครื่องเรียงต่อกันเป็นแนวเส้นตรง เหมือนการคล้องโซ่ โดยปิดหัวท้ายด้วย <strong>Terminator</strong></p>
+                <div class="diagram-box">
+                    <svg viewBox="0 0 600 160" width="100%" style="max-width:600px; font-family:'Segoe UI',sans-serif;">
+                        <rect width="600" height="160" fill="#f8fafc" rx="6"/>
+                        <!-- Bus line -->
+                        <rect x="40" y="75" width="520" height="8" rx="4" fill="#8b5cf6"/>
+                        <!-- Terminators -->
+                        <rect x="22" y="65" width="14" height="28" rx="3" fill="#475569"/>
+                        <rect x="564" y="65" width="14" height="28" rx="3" fill="#475569"/>
+                        <text x="29" y="108" text-anchor="middle" font-size="9" fill="#64748b">T</text>
+                        <text x="571" y="108" text-anchor="middle" font-size="9" fill="#64748b">T</text>
+
+                        <!-- Nodes -->
+                        <!-- PC 1 -->
+                        <line x1="120" y1="75" x2="120" y2="38" stroke="#94a3b8" stroke-width="2"/>
+                        <rect x="95" y="18" width="50" height="20" rx="4" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1.5"/>
+                        <text x="120" y="31" text-anchor="middle" font-size="10" fill="#5b21b6">PC 1</text>
+
+                        <!-- PC 2 -->
+                        <line x1="220" y1="75" x2="220" y2="38" stroke="#94a3b8" stroke-width="2"/>
+                        <rect x="195" y="18" width="50" height="20" rx="4" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1.5"/>
+                        <text x="220" y="31" text-anchor="middle" font-size="10" fill="#5b21b6">PC 2</text>
+
+                        <!-- PC 3 -->
+                        <line x1="320" y1="75" x2="320" y2="38" stroke="#94a3b8" stroke-width="2"/>
+                        <rect x="295" y="18" width="50" height="20" rx="4" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1.5"/>
+                        <text x="320" y="31" text-anchor="middle" font-size="10" fill="#5b21b6">PC 3</text>
+
+                        <!-- PC 4 -->
+                        <line x1="420" y1="75" x2="420" y2="38" stroke="#94a3b8" stroke-width="2"/>
+                        <rect x="395" y="18" width="50" height="20" rx="4" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1.5"/>
+                        <text x="420" y="31" text-anchor="middle" font-size="10" fill="#5b21b6">PC 4</text>
+
+                        <!-- Server below -->
+                        <line x1="300" y1="83" x2="300" y2="118" stroke="#94a3b8" stroke-width="2"/>
+                        <rect x="265" y="118" width="70" height="25" rx="4" fill="#fef9c3" stroke="#f59e0b" stroke-width="1.5"/>
+                        <text x="300" y="133" text-anchor="middle" font-size="10" fill="#92400e">Server</text>
+
+                        <!-- T-Connector label -->
+                        <text x="220" y="80" text-anchor="middle" font-size="8" fill="#7c3aed">T-Connector</text>
+
+                        <text x="300" y="155" text-anchor="middle" font-size="10" fill="#64748b">Bus Topology — ส่งข้อมูลผ่านสายแกนร่วมกัน</text>
+                    </svg>
+                    <figcaption>รูปแบบบัส (Bus Topology)</figcaption>
+                </div>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>✅ ข้อดี</h4>
+                        <ul>
+                            <li>ประหยัดสาย</li>
+                            <li>เชื่อมต่อได้ง่าย</li>
+                            <li>ไม่ต้องใช้อุปกรณ์เพิ่มเติม</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>⚠️ ข้อเสีย</h4>
+                        <ul>
+                            <li>หาจุดเสียได้ยาก</li>
+                            <li>ถ้าสายขาด ทั้งระบบหยุดทำงาน</li>
+                            <li>ข้อมูลอาจชนกัน</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ring -->
+        <div class="type-card" style="margin-top:1.5rem;">
+            <div class="type-card-header" style="background: linear-gradient(135deg, #db2777, #ec4899);">
+                <h3>3.2 รูปแบบวงแหวน (Ring Topology)</h3>
+                <span class="badge">แบบวงกลม</span>
+            </div>
+            <div class="type-card-body">
+                <p style="color:#475569; margin-bottom:1rem;">นำปลายสายของโครงสร้างแบบบัสมาเชื่อมเข้าด้วยกันเป็นวงกลม ใช้ใน <strong>FDDI</strong> และ <strong>Token Ring</strong></p>
+                <div class="diagram-box">
+                    <svg viewBox="0 0 400 300" width="100%" style="max-width:400px; font-family:'Segoe UI',sans-serif;">
+                        <rect width="400" height="300" fill="#f8fafc" rx="6"/>
+                        <!-- Ring -->
+                        <circle cx="200" cy="150" r="90" fill="none" stroke="#ec4899" stroke-width="3" stroke-dasharray="8,3"/>
+
+                        <!-- 6 nodes on ring -->
+                        <g id="ring-nodes">
+                            <!-- Top -->
+                            <circle cx="200" cy="60" r="20" fill="#fce7f3" stroke="#ec4899" stroke-width="2"/>
+                            <text x="200" y="64" text-anchor="middle" font-size="10" fill="#9d174d">PC1</text>
+                            <!-- Top-right -->
+                            <circle cx="278" cy="105" r="20" fill="#fce7f3" stroke="#ec4899" stroke-width="2"/>
+                            <text x="278" y="109" text-anchor="middle" font-size="10" fill="#9d174d">PC2</text>
+                            <!-- Bottom-right -->
+                            <circle cx="278" cy="195" r="20" fill="#fce7f3" stroke="#ec4899" stroke-width="2"/>
+                            <text x="278" y="199" text-anchor="middle" font-size="10" fill="#9d174d">PC3</text>
+                            <!-- Bottom -->
+                            <circle cx="200" cy="240" r="20" fill="#fce7f3" stroke="#ec4899" stroke-width="2"/>
+                            <text x="200" y="244" text-anchor="middle" font-size="10" fill="#9d174d">PC4</text>
+                            <!-- Bottom-left -->
+                            <circle cx="122" cy="195" r="20" fill="#fce7f3" stroke="#ec4899" stroke-width="2"/>
+                            <text x="122" y="199" text-anchor="middle" font-size="10" fill="#9d174d">PC5</text>
+                            <!-- Top-left -->
+                            <circle cx="122" cy="105" r="20" fill="#fce7f3" stroke="#ec4899" stroke-width="2"/>
+                            <text x="122" y="109" text-anchor="middle" font-size="10" fill="#9d174d">PC6</text>
+                        </g>
+                        <!-- Direction arrow -->
+                        <path d="M 250 68 A 90 90 0 0 1 290 115" fill="none" stroke="#ec4899" stroke-width="2" marker-end="url(#arrowRing)"/>
+                        <defs>
+                            <marker id="arrowRing" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto">
+                                <path d="M0,0 L8,4 L0,8 Z" fill="#ec4899"/>
+                            </marker>
+                        </defs>
+                        <text x="200" y="155" text-anchor="middle" font-size="11" fill="#9d174d" font-weight="600">Token Ring</text>
+                        <text x="200" y="290" text-anchor="middle" font-size="10" fill="#64748b">Ring Topology — ส่งข้อมูลทิศทางเดียวตามวง</text>
+                    </svg>
+                    <figcaption>รูปแบบวงแหวน (Ring Topology)</figcaption>
+                </div>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>✅ ข้อดี</h4>
+                        <ul>
+                            <li>ประหยัดสาย</li>
+                            <li>ขยายการเชื่อมต่อได้ง่าย</li>
+                            <li>ถ้าใช้สายมากกว่า 1 เส้น สร้างเป็นวงชดเชยได้</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>⚠️ ข้อเสีย</h4>
+                        <ul>
+                            <li>ควบคุมการทำงานซับซ้อน</li>
+                            <li>ถ้าเกิดจุดบกพร่อง ตรวจหาได้ยาก</li>
+                            <li>ส่งข้อมูลทิศทางเดียว อาจช้า</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Star -->
+        <div class="type-card" style="margin-top:1.5rem;">
+            <div class="type-card-header" style="background: linear-gradient(135deg, #d97706, #f59e0b);">
+                <h3>3.3 รูปแบบดาว (Star Topology)</h3>
+                <span class="badge">แบบมีศูนย์กลาง</span>
+            </div>
+            <div class="type-card-body">
+                <p style="color:#475569; margin-bottom:1rem;">เชื่อมต่อทุกอุปกรณ์เข้าหา <strong>Hub/Switch</strong> ที่เป็นศูนย์กลาง — เป็น Topology ที่นิยมมากที่สุดในปัจจุบัน</p>
+                <div class="diagram-box">
+                    <svg viewBox="0 0 400 320" width="100%" style="max-width:400px; font-family:'Segoe UI',sans-serif;">
+                        <rect width="400" height="320" fill="#f8fafc" rx="6"/>
+
+                        <!-- Lines from hub to each node -->
+                        <line x1="200" y1="160" x2="200" y2="60" stroke="#f59e0b" stroke-width="2"/>
+                        <line x1="200" y1="160" x2="310" y2="100" stroke="#f59e0b" stroke-width="2"/>
+                        <line x1="200" y1="160" x2="310" y2="230" stroke="#f59e0b" stroke-width="2"/>
+                        <line x1="200" y1="160" x2="200" y2="270" stroke="#f59e0b" stroke-width="2"/>
+                        <line x1="200" y1="160" x2="90" y2="230" stroke="#f59e0b" stroke-width="2"/>
+                        <line x1="200" y1="160" x2="90" y2="100" stroke="#f59e0b" stroke-width="2"/>
+
+                        <!-- Hub center -->
+                        <rect x="160" y="138" width="80" height="44" rx="8" fill="#f59e0b" stroke="#d97706" stroke-width="2"/>
+                        <text x="200" y="156" text-anchor="middle" font-size="11" fill="white" font-weight="bold">Hub /</text>
+                        <text x="200" y="173" text-anchor="middle" font-size="11" fill="white" font-weight="bold">Switch</text>
+
+                        <!-- Leaf nodes -->
+                        <circle cx="200" cy="45" r="18" fill="#fef9c3" stroke="#f59e0b" stroke-width="2"/>
+                        <text x="200" y="49" text-anchor="middle" font-size="10" fill="#92400e">PC1</text>
+
+                        <circle cx="318" cy="100" r="18" fill="#fef9c3" stroke="#f59e0b" stroke-width="2"/>
+                        <text x="318" y="104" text-anchor="middle" font-size="10" fill="#92400e">PC2</text>
+
+                        <circle cx="318" cy="232" r="18" fill="#fef9c3" stroke="#f59e0b" stroke-width="2"/>
+                        <text x="318" y="236" text-anchor="middle" font-size="10" fill="#92400e">PC3</text>
+
+                        <circle cx="200" cy="285" r="18" fill="#fef9c3" stroke="#f59e0b" stroke-width="2"/>
+                        <text x="200" y="289" text-anchor="middle" font-size="10" fill="#92400e">PC4</text>
+
+                        <circle cx="82" cy="232" r="18" fill="#fef9c3" stroke="#f59e0b" stroke-width="2"/>
+                        <text x="82" y="236" text-anchor="middle" font-size="10" fill="#92400e">PC5</text>
+
+                        <circle cx="82" cy="100" r="18" fill="#fef9c3" stroke="#f59e0b" stroke-width="2"/>
+                        <text x="82" y="104" text-anchor="middle" font-size="10" fill="#92400e">PC6</text>
+
+                        <text x="200" y="312" text-anchor="middle" font-size="10" fill="#64748b">Star Topology — ทุกอุปกรณ์เชื่อมผ่าน Hub กลาง</text>
+                    </svg>
+                    <figcaption>รูปแบบดาว (Star Topology)</figcaption>
+                </div>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>✅ ข้อดี</h4>
+                        <ul>
+                            <li>ตรวจหาจุดบกพร่องง่าย</li>
+                            <li>ถ้าเครื่องหนึ่งเสีย ไม่กระทบเครื่องอื่น</li>
+                            <li>เพิ่มเครื่องได้ง่าย</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>⚠️ ข้อเสีย</h4>
+                        <ul>
+                            <li>เสียค่าใช้จ่ายซื้อ Hub/Switch</li>
+                            <li>ใช้สายมาก เพราะต่อจากจุดศูนย์กลาง</li>
+                            <li>ถ้า Hub เสีย ทั้งระบบใช้ไม่ได้</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mesh -->
+        <div class="type-card" style="margin-top:1.5rem;">
+            <div class="type-card-header" style="background: linear-gradient(135deg, #0891b2, #06b6d4);">
+                <h3>3.4 รูปแบบตาข่าย (Mesh Topology)</h3>
+                <span class="badge">แบบเชื่อมทุกจุด</span>
+            </div>
+            <div class="type-card-body">
+                <p style="color:#475569; margin-bottom:1rem;">เชื่อมต่อพร้อมกันหลายจุดเป็นรูปแบบตาข่าย ทุกโหนดเชื่อมถึงกัน มีระบบชดเชย (Redundant) ใช้ใน <strong>Internet</strong></p>
+                <div class="diagram-box">
+                    <svg viewBox="0 0 400 300" width="100%" style="max-width:400px; font-family:'Segoe UI',sans-serif;">
+                        <rect width="400" height="300" fill="#f8fafc" rx="6"/>
+
+                        <!-- All connections (fully connected 6 nodes) -->
+                        <g stroke="#06b6d4" stroke-width="1.5" opacity="0.6">
+                            <!-- top to all -->
+                            <line x1="200" y1="50" x2="320" y2="120"/>
+                            <line x1="200" y1="50" x2="320" y2="210"/>
+                            <line x1="200" y1="50" x2="200" y2="255"/>
+                            <line x1="200" y1="50" x2="80" y2="210"/>
+                            <line x1="200" y1="50" x2="80" y2="120"/>
+                            <!-- tr to rest -->
+                            <line x1="320" y1="120" x2="320" y2="210"/>
+                            <line x1="320" y1="120" x2="200" y2="255"/>
+                            <line x1="320" y1="120" x2="80" y2="210"/>
+                            <line x1="320" y1="120" x2="80" y2="120"/>
+                            <!-- br to rest -->
+                            <line x1="320" y1="210" x2="200" y2="255"/>
+                            <line x1="320" y1="210" x2="80" y2="210"/>
+                            <line x1="320" y1="210" x2="80" y2="120"/>
+                            <!-- bottom to rest -->
+                            <line x1="200" y1="255" x2="80" y2="210"/>
+                            <line x1="200" y1="255" x2="80" y2="120"/>
+                            <!-- bl to tl -->
+                            <line x1="80" y1="210" x2="80" y2="120"/>
+                        </g>
+
+                        <!-- Nodes -->
+                        <circle cx="200" cy="50"  r="22" fill="#cffafe" stroke="#06b6d4" stroke-width="2.5"/>
+                        <text x="200" y="54" text-anchor="middle" font-size="10" fill="#164e63">PC1</text>
+                        <circle cx="320" cy="120" r="22" fill="#cffafe" stroke="#06b6d4" stroke-width="2.5"/>
+                        <text x="320" y="124" text-anchor="middle" font-size="10" fill="#164e63">PC2</text>
+                        <circle cx="320" cy="210" r="22" fill="#cffafe" stroke="#06b6d4" stroke-width="2.5"/>
+                        <text x="320" y="214" text-anchor="middle" font-size="10" fill="#164e63">PC3</text>
+                        <circle cx="200" cy="255" r="22" fill="#cffafe" stroke="#06b6d4" stroke-width="2.5"/>
+                        <text x="200" y="259" text-anchor="middle" font-size="10" fill="#164e63">PC4</text>
+                        <circle cx="80" cy="210" r="22" fill="#cffafe" stroke="#06b6d4" stroke-width="2.5"/>
+                        <text x="80" y="214" text-anchor="middle" font-size="10" fill="#164e63">PC5</text>
+                        <circle cx="80" cy="120" r="22" fill="#cffafe" stroke="#06b6d4" stroke-width="2.5"/>
+                        <text x="80" y="124" text-anchor="middle" font-size="10" fill="#164e63">PC6</text>
+
+                        <text x="200" y="290" text-anchor="middle" font-size="10" fill="#64748b">Mesh Topology — ทุกจุดเชื่อมถึงกันหมด (Redundant)</text>
+                    </svg>
+                    <figcaption>รูปแบบตาข่าย (Mesh Topology)</figcaption>
+                </div>
+                <div class="pros-cons">
+                    <div class="pros">
+                        <h4>✅ ข้อดี</h4>
+                        <ul>
+                            <li>มีระบบชดเชย (Redundant)</li>
+                            <li>ถ้าสายหนึ่งขาด ยังส่งผ่านเส้นทางอื่นได้</li>
+                            <li>เหมาะกับเครือข่ายขนาดใหญ่ที่ต้องเชื่อถือได้</li>
+                        </ul>
+                    </div>
+                    <div class="cons">
+                        <h4>⚠️ ข้อเสีย</h4>
+                        <ul>
+                            <li>เดินสายยุ่งยาก ค่าใช้จ่ายสูงมาก</li>
+                            <li>การจัดการซับซ้อน</li>
+                            <li>ใช้สายจำนวนมาก</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="info-box purple" style="margin-top:1rem;">
+                    <strong>Hybrid Topology</strong> — ในทางปฏิบัติ เครือข่ายขนาดใหญ่มักใช้หลาย Topology ผสมกัน เรียกว่า "ไฮบริดโทโพลยี (Hybrid Topology)" เช่น Star + Bus หรือ Star + Ring
+                </div>
+            </div>
+        </div>
+
+        <!-- Summary Compare Table -->
+        <section style="background:white; border-radius:12px; padding:1.5rem; margin:2rem 0; box-shadow:0 4px 6px -1px rgba(0,0,0,0.1);">
+            <h2 style="margin-bottom:1rem; font-size:1.25rem;">เปรียบเทียบ Topology ทั้ง 4 แบบ</h2>
+            <div style="overflow-x:auto;">
+                <table class="compare-table" style="min-width:580px;">
+                    <thead>
+                        <tr>
+                            <th style="background:#475569;">รายการ</th>
+                            <th style="background:#8b5cf6;">Bus</th>
+                            <th style="background:#ec4899;">Ring</th>
+                            <th style="background:#f59e0b;">Star</th>
+                            <th style="background:#06b6d4;">Mesh</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>การใช้สาย</td>
+                            <td>น้อยมาก</td>
+                            <td>น้อย</td>
+                            <td>ปานกลาง</td>
+                            <td>มากมาก</td>
+                        </tr>
+                        <tr>
+                            <td>หาจุดเสียได้ง่าย?</td>
+                            <td>ยาก</td>
+                            <td>ยาก</td>
+                            <td>ง่ายมาก</td>
+                            <td>ง่าย</td>
+                        </tr>
+                        <tr>
+                            <td>ถ้าสายขาด</td>
+                            <td>ระบบหยุด</td>
+                            <td>ระบบหยุด</td>
+                            <td>เฉพาะจุดนั้น</td>
+                            <td>ใช้เส้นอื่นแทน</td>
+                        </tr>
+                        <tr>
+                            <td>ค่าใช้จ่าย</td>
+                            <td>ต่ำ</td>
+                            <td>ต่ำ-กลาง</td>
+                            <td>ปานกลาง</td>
+                            <td>สูงมาก</td>
+                        </tr>
+                        <tr>
+                            <td>อุปกรณ์กลาง</td>
+                            <td>ไม่มี</td>
+                            <td>ไม่มี</td>
+                            <td>Hub/Switch</td>
+                            <td>ไม่มี</td>
+                        </tr>
+                        <tr>
+                            <td>ความนิยม</td>
+                            <td>เก่า / ลดลง</td>
+                            <td>FDDI, Token Ring</td>
+                            <td>สูงมาก</td>
+                            <td>Internet / WAN</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Navigation -->
+        <div style="display:flex; justify-content:space-between; margin-top:2rem;">
+            <a href="wan.html" style="text-decoration:none; color:#2563eb; font-weight:600;">← WAN</a>
+            <a href="network-services.html" style="text-decoration:none; color:#2563eb; font-weight:600;">Network Services →</a>
+        </div>
+
+    </div>
+
+    <footer class="page-footer">
+        <p>บทที่ 3: ประเภทของเครือข่ายคอมพิวเตอร์ | Computer Network</p>
+    </footer>
+
+    <script src="js/topology-demo.js?v=1.0"></script>
+    <script>
+        function toggleTheory() {
+            const content = document.getElementById('theory-content');
+            const btn = document.getElementById('toggle-btn');
+            if (content.classList.contains('collapsed')) { content.classList.remove('collapsed'); btn.textContent = 'ซ่อน'; }
+            else { content.classList.add('collapsed'); btn.textContent = 'แสดง'; }
+        }
+    </script>
+</body>
+</html>

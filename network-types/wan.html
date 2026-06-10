@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>WAN — เครือข่ายวงกว้าง - Computer Network</title>
+    <link rel="stylesheet" href="../shared/css/global.css?v=1.0">
+    <link rel="stylesheet" href="css/style.css?v=1.0">
+</head>
+<body>
+    <header class="page-header" style="background: linear-gradient(135deg, #ea580c, #f97316);">
+        <h1>WAN — เครือข่ายวงกว้าง</h1>
+        <p>Wide Area Network — เครือข่ายระดับประเทศ/ทวีป</p>
+    </header>
+
+    <nav class="breadcrumb">
+        <a href="../index.html">Home</a>
+        <span>/</span>
+        <a href="index.html">บทที่ 3</a>
+        <span>/</span>
+        <span>WAN</span>
+    </nav>
+
+    <div style="background:white; border-bottom:1px solid #e2e8f0; padding:0.75rem 1rem;">
+        <div style="max-width:1400px; margin:0 auto; display:flex; gap:0.5rem; flex-wrap:wrap;">
+            <span style="font-size:0.85rem; color:#64748b; padding:0.35rem 0; margin-right:0.5rem;">บทที่ 3:</span>
+            <a class="tab-btn" href="lan.html">LAN</a>
+            <a class="tab-btn" href="man.html">MAN</a>
+            <a class="tab-btn active" href="wan.html">WAN</a>
+            <a class="tab-btn" href="topology.html">Topology</a>
+            <a class="tab-btn" href="network-services.html">Network Services</a>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <!-- Theory -->
+        <section class="theory-section">
+            <div class="theory-header">
+                <h2>📖 ทฤษฎี: เครือข่ายแวน (WAN)</h2>
+                <button id="toggle-btn" onclick="toggleTheory()" class="btn-secondary">ซ่อน</button>
+            </div>
+            <div class="theory-content" id="theory-content">
+                <div class="theory-block">
+                    <div class="term-box">
+                        <h4>📘 WAN (Wide Area Network) คืออะไร?</h4>
+                        <ul>
+                            <li><strong>นิยาม:</strong> เครือข่ายระดับประเทศ ครอบคลุมพื้นที่ระดับประเทศหรือข้ามทวีป</li>
+                            <li><strong>ย่อมาจาก:</strong> Wide Area Network</li>
+                            <li><strong>ระยะทาง:</strong> ตั้งแต่ 100 กิโลเมตรขึ้นไป ไม่มีข้อจำกัดด้านระยะทาง</li>
+                            <li><strong>อุปมา:</strong> เหมือนระบบทางหลวงแผ่นดิน — เชื่อมทุกเมืองทั้งประเทศ/โลก</li>
+                        </ul>
+                    </div>
+                    <div class="term-box">
+                        <h4>📘 Router — อุปกรณ์สำคัญของ WAN</h4>
+                        <ul>
+                            <li><strong>หน้าที่:</strong> เลือกเส้นทางที่เหมาะสมในการส่งข้อมูล</li>
+                            <li><strong>ความสามารถ:</strong> รับส่งข้อมูลได้อย่างชาญฉลาด ทำให้สัญญาณจากผู้ส่งไปยังผู้รับถูกต้อง รวดเร็ว</li>
+                            <li><strong>เปรียบได้กับ:</strong> ป้ายบอกทางบนทางด่วน</li>
+                        </ul>
+                    </div>
+                    <div class="theory-block">
+                        <h3>สื่อกลางที่ใช้ใน WAN</h3>
+                        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:1rem; margin:1rem 0;">
+                            <div style="background:#fff7ed; border-radius:8px; padding:1rem; text-align:center; border:1px solid #fed7aa;">
+                                <div style="font-size:1.8rem;">🛰️</div>
+                                <strong style="font-size:0.9rem;">ดาวเทียม</strong>
+                                <p style="font-size:0.8rem; color:#475569; margin-top:0.25rem;">Satellite Communication</p>
+                            </div>
+                            <div style="background:#fff7ed; border-radius:8px; padding:1rem; text-align:center; border:1px solid #fed7aa;">
+                                <div style="font-size:1.8rem;">📡</div>
+                                <strong style="font-size:0.9rem;">ไมโครเวฟ</strong>
+                                <p style="font-size:0.8rem; color:#475569; margin-top:0.25rem;">Microwave</p>
+                            </div>
+                            <div style="background:#fff7ed; border-radius:8px; padding:1rem; text-align:center; border:1px solid #fed7aa;">
+                                <div style="font-size:1.8rem;">🌊</div>
+                                <strong style="font-size:0.9rem;">เคเบิลใต้น้ำ</strong>
+                                <p style="font-size:0.8rem; color:#475569; margin-top:0.25rem;">Submarine Communications Cable</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- WAN Diagram -->
+        <section style="background:white; border-radius:12px; padding:1.5rem; margin:2rem 0; box-shadow:0 4px 6px -1px rgba(0,0,0,0.1);">
+            <h2 style="margin-bottom:1rem; font-size:1.25rem;">แผนภาพ WAN — เครือข่ายระดับประเทศ</h2>
+            <div class="diagram-box">
+                <svg viewBox="0 0 720 360" width="100%" style="max-width:720px; font-family:'Segoe UI',sans-serif;">
+                    <rect width="720" height="360" fill="#f0f9ff" rx="8"/>
+
+                    <!-- Satellite -->
+                    <ellipse cx="360" cy="45" rx="30" ry="18" fill="#fbbf24" stroke="#f59e0b" stroke-width="2"/>
+                    <line x1="340" y1="40" x2="330" y2="30" stroke="#f59e0b" stroke-width="2"/>
+                    <line x1="380" y1="40" x2="390" y2="30" stroke="#f59e0b" stroke-width="2"/>
+                    <text x="360" y="48" text-anchor="middle" font-size="10" fill="white" font-weight="bold">SAT</text>
+                    <text x="360" y="20" text-anchor="middle" font-size="11" fill="#92400e" font-weight="600">🛰️ ดาวเทียม</text>
+
+                    <!-- Satellite beams -->
+                    <line x1="340" y1="60" x2="150" y2="160" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="6,3" opacity="0.7"/>
+                    <line x1="380" y1="60" x2="570" y2="160" stroke="#fbbf24" stroke-width="1.5" stroke-dasharray="6,3" opacity="0.7"/>
+
+                    <!-- Bangkok Router -->
+                    <rect x="60" y="140" width="170" height="60" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="2"/>
+                    <text x="145" y="163" text-anchor="middle" font-size="12" fill="#1e40af" font-weight="bold">🏙️ กรุงเทพฯ</text>
+                    <text x="145" y="180" text-anchor="middle" font-size="10" fill="#475569">Router + ISP</text>
+                    <text x="145" y="193" text-anchor="middle" font-size="9" fill="#64748b">WAN Node (Central)</text>
+
+                    <!-- Chiang Mai Router -->
+                    <rect x="490" y="140" width="170" height="60" rx="8" fill="#dcfce7" stroke="#22c55e" stroke-width="2"/>
+                    <text x="575" y="163" text-anchor="middle" font-size="12" fill="#166534" font-weight="bold">🏔️ เชียงใหม่</text>
+                    <text x="575" y="180" text-anchor="middle" font-size="10" fill="#475569">Router + ISP</text>
+                    <text x="575" y="193" text-anchor="middle" font-size="9" fill="#64748b">WAN Node (North)</text>
+
+                    <!-- Microwave connection -->
+                    <line x1="230" y1="170" x2="490" y2="170" stroke="#8b5cf6" stroke-width="2.5" stroke-dasharray="8,4"/>
+                    <text x="360" y="158" text-anchor="middle" font-size="10" fill="#7c3aed" font-weight="600">📡 Microwave Link</text>
+
+                    <!-- Phuket Router -->
+                    <rect x="150" y="280" width="160" height="60" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="2"/>
+                    <text x="230" y="303" text-anchor="middle" font-size="12" fill="#9d174d" font-weight="bold">🏖️ ภูเก็ต</text>
+                    <text x="230" y="320" text-anchor="middle" font-size="10" fill="#475569">Router + ISP</text>
+                    <text x="230" y="333" text-anchor="middle" font-size="9" fill="#64748b">WAN Node (South)</text>
+
+                    <!-- Khon Kaen Router -->
+                    <rect x="410" y="280" width="160" height="60" rx="8" fill="#ede9fe" stroke="#8b5cf6" stroke-width="2"/>
+                    <text x="490" y="303" text-anchor="middle" font-size="12" fill="#5b21b6" font-weight="bold">🌾 ขอนแก่น</text>
+                    <text x="490" y="320" text-anchor="middle" font-size="10" fill="#475569">Router + ISP</text>
+                    <text x="490" y="333" text-anchor="middle" font-size="9" fill="#64748b">WAN Node (NE)</text>
+
+                    <!-- Lines BKK to Phuket -->
+                    <line x1="145" y1="200" x2="200" y2="280" stroke="#94a3b8" stroke-width="2"/>
+                    <!-- Lines BKK to KhonKaen -->
+                    <line x1="230" y1="200" x2="450" y2="280" stroke="#94a3b8" stroke-width="2"/>
+                    <!-- Lines CNX to KhonKaen -->
+                    <line x1="520" y1="200" x2="520" y2="280" stroke="#94a3b8" stroke-width="2"/>
+                    <!-- Lines Phuket to KhonKaen (cross) -->
+                    <line x1="310" y1="310" x2="410" y2="310" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4,3"/>
+
+                    <!-- Submarine cable hint -->
+                    <text x="360" y="350" text-anchor="middle" font-size="10" fill="#64748b">เชื่อมต่อระหว่างประเทศ: Submarine Cable / Satellite</text>
+                </svg>
+                <figcaption>รูปที่ 3 ตัวอย่างเครือข่ายแวน (WAN) ระดับประเทศ</figcaption>
+            </div>
+        </section>
+
+        <!-- Private vs Public -->
+        <section style="background:white; border-radius:12px; padding:1.5rem; margin:2rem 0; box-shadow:0 4px 6px -1px rgba(0,0,0,0.1);">
+            <h2 style="margin-bottom:1.25rem; font-size:1.25rem;">WAN แบ่งเป็น 2 ประเภท</h2>
+
+            <div class="type-card" style="margin-bottom:1.25rem;">
+                <div class="type-card-header wan">
+                    <h3>1.3.1 เครือข่ายส่วนตัว (Private Network)</h3>
+                </div>
+                <div class="type-card-body">
+                    <p style="color:#475569; margin-bottom:0.75rem;">เครือข่ายที่องค์กรจัดตั้งเองสำหรับใช้งานภายใน เพื่อเชื่อมต่อสาขาต่างๆ ทั่วประเทศ</p>
+                    <div class="pros-cons">
+                        <div class="pros">
+                            <h4>✅ ข้อดี</h4>
+                            <ul>
+                                <li>ควบคุมดูแลเครือข่ายเองได้</li>
+                                <li>ขยายเครือข่ายไปยังจุดที่ต้องการ</li>
+                                <li>รักษาความลับของข้อมูลได้ดี</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <h4>⚠️ ข้อเสีย</h4>
+                            <ul>
+                                <li>ใน<strong>กรณีที่ไม่มี</strong>การส่งข้อมูลต่อเนื่อง สิ้นเปลืองค่าใช้จ่ายสูง</li>
+                                <li>ต้องจัดหาช่องทางสื่อสารเชื่อมโยงระหว่างสาขา</li>
+                                <li>อาจไม่สามารถจัดช่องทางการสื่อสารได้ทุกพื้นที่</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="type-card">
+                <div class="type-card-header wan">
+                    <h3>1.3.2 เครือข่ายสาธารณะ (PDN / VAN)</h3>
+                </div>
+                <div class="type-card-body">
+                    <p style="color:#475569; margin-bottom:0.75rem;">
+                        เครือข่ายมูลค่าเพิ่ม (VAN: Value Added Network) หรือ PDN (Public Data Network) คือ WAN ที่มีองค์กรภายนอก (Third Party) เป็นผู้ดูแลระบบ บริษัทสามารถเช่าใช้บริการได้
+                    </p>
+                    <div class="info-box green">
+                        <strong>ทำไมถึงนิยมใช้?</strong><br>
+                        <span style="font-size:0.9rem;">ค่าใช้จ่ายต่ำกว่าการจัดตั้งเครือข่ายส่วนตัว ใช้งานได้ทันทีโดยไม่ต้องเสียเวลาจัดตั้ง รวมทั้งมีบริการให้เลือกหลากหลายตาม ราคา ความเร็ว ขอบเขตพื้นที่บริการ</span>
+                    </div>
+                    <div class="pros-cons" style="margin-top:0.75rem;">
+                        <div class="pros">
+                            <h4>✅ ข้อดี</h4>
+                            <ul>
+                                <li>ค่าใช้จ่ายต่ำกว่าเครือข่ายส่วนตัว</li>
+                                <li>ใช้งานได้ทันที ไม่ต้องติดตั้งเอง</li>
+                                <li>มีบริการให้เลือกหลากหลาย</li>
+                            </ul>
+                        </div>
+                        <div class="cons">
+                            <h4>⚠️ ข้อเสีย</h4>
+                            <ul>
+                                <li>ควบคุมเครือข่ายได้น้อยกว่า</li>
+                                <li>ความปลอดภัยขึ้นอยู่กับผู้ให้บริการ</li>
+                                <li>ขยายเครือข่ายตามความต้องการได้จำกัด</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Full Comparison Table -->
+        <section style="background:white; border-radius:12px; padding:1.5rem; margin:2rem 0; box-shadow:0 4px 6px -1px rgba(0,0,0,0.1);">
+            <h2 style="margin-bottom:1rem; font-size:1.25rem;">เปรียบเทียบ LAN / MAN / WAN</h2>
+            <table class="compare-table">
+                <thead>
+                    <tr>
+                        <th>รายการ</th>
+                        <th class="lan-header">LAN</th>
+                        <th class="man-header">MAN</th>
+                        <th class="wan-header">WAN</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>ระยะทาง</td><td>&lt; 10 กม.</td><td>10–100 กม.</td><td>&gt; 100 กม.</td></tr>
+                    <tr><td>พื้นที่</td><td>อาคาร / ชั้น</td><td>เมือง / จังหวัด</td><td>ประเทศ / โลก</td></tr>
+                    <tr><td>สื่อกลาง</td><td>Ethernet, WiFi</td><td>Fiber Optic, Microwave</td><td>Satellite, เคเบิลใต้น้ำ</td></tr>
+                    <tr><td>ความเร็ว</td><td>สูง (10Mbps–10Gbps)</td><td>ปานกลาง–สูง</td><td>ต่ำ–ปานกลาง</td></tr>
+                    <tr><td>ค่าใช้จ่าย</td><td>ต่ำ</td><td>ปานกลาง</td><td>สูง</td></tr>
+                    <tr><td>ตัวอย่าง</td><td>โรงเรียน, บ้าน</td><td>ธนาคาร, ราชการ</td><td>Internet, บริษัทข้ามชาติ</td></tr>
+                    <tr><td>อุปกรณ์หลัก</td><td>Switch, Hub</td><td>Switch, Bridge</td><td>Router</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Navigation -->
+        <div style="display:flex; justify-content:space-between; margin-top:2rem;">
+            <a href="man.html" style="text-decoration:none; color:#2563eb; font-weight:600;">← MAN</a>
+            <a href="topology.html" style="text-decoration:none; color:#2563eb; font-weight:600;">Topology →</a>
+        </div>
+
+    </div>
+
+    <footer class="page-footer">
+        <p>บทที่ 3: ประเภทของเครือข่ายคอมพิวเตอร์ | Computer Network</p>
+    </footer>
+    <script>
+        function toggleTheory() {
+            const content = document.getElementById('theory-content');
+            const btn = document.getElementById('toggle-btn');
+            if (content.classList.contains('collapsed')) { content.classList.remove('collapsed'); btn.textContent = 'ซ่อน'; }
+            else { content.classList.add('collapsed'); btn.textContent = 'แสดง'; }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>MAN — เครือข่ายระดับเมือง - Computer Network</title>
+    <link rel="stylesheet" href="../shared/css/global.css?v=1.0">
+    <link rel="stylesheet" href="css/style.css?v=1.0">
+</head>
+<body>
+    <header class="page-header" style="background: linear-gradient(135deg, #1d4ed8, #3b82f6);">
+        <h1>MAN — เครือข่ายระดับเมือง</h1>
+        <p>Metropolitan Area Network — เครือข่ายแมน</p>
+    </header>
+
+    <nav class="breadcrumb">
+        <a href="../index.html">Home</a>
+        <span>/</span>
+        <a href="index.html">บทที่ 3</a>
+        <span>/</span>
+        <span>MAN</span>
+    </nav>
+
+    <div style="background:white; border-bottom:1px solid #e2e8f0; padding:0.75rem 1rem;">
+        <div style="max-width:1400px; margin:0 auto; display:flex; gap:0.5rem; flex-wrap:wrap;">
+            <span style="font-size:0.85rem; color:#64748b; padding:0.35rem 0; margin-right:0.5rem;">บทที่ 3:</span>
+            <a class="tab-btn" href="lan.html">LAN</a>
+            <a class="tab-btn active" href="man.html">MAN</a>
+            <a class="tab-btn" href="wan.html">WAN</a>
+            <a class="tab-btn" href="topology.html">Topology</a>
+            <a class="tab-btn" href="network-services.html">Network Services</a>
+        </div>
+    </div>
+
+    <div class="container">
+
+        <!-- Theory -->
+        <section class="theory-section">
+            <div class="theory-header">
+                <h2>📖 ทฤษฎี: เครือข่ายแมน (MAN)</h2>
+                <button id="toggle-btn" onclick="toggleTheory()" class="btn-secondary">ซ่อน</button>
+            </div>
+            <div class="theory-content" id="theory-content">
+                <div class="theory-block">
+                    <div class="term-box">
+                        <h4>📘 MAN (Metropolitan Area Network) คืออะไร?</h4>
+                        <ul>
+                            <li><strong>นิยาม:</strong> เครือข่ายที่เชื่อมต่อ LAN หลายวงเข้าด้วยกัน ครอบคลุมพื้นที่กว้างกว่า LAN แต่ไม่เกินระดับเมือง/จังหวัด</li>
+                            <li><strong>ย่อมาจาก:</strong> Metropolitan Area Network</li>
+                            <li><strong>ระยะทาง:</strong> ประมาณ 10 กิโลเมตรขึ้นไป ถึงระดับเมืองหรือจังหวัด</li>
+                            <li><strong>อุปมา:</strong> เหมือนระบบรถเมล์ในเมือง — เชื่อมหลายสถานีเข้าด้วยกันในพื้นที่หนึ่ง</li>
+                        </ul>
+                    </div>
+                    <div class="term-box">
+                        <h4>📘 Backbone คืออะไร?</h4>
+                        <ul>
+                            <li><strong>นิยาม:</strong> สายแกนหลักหรือสายแกนหลักในการเชื่อมต่อเครือข่าย MAN</li>
+                            <li><strong>หน้าที่:</strong> เป็นกระดูกสันหลัง ทำหน้าที่รับส่งข้อมูลระหว่าง LAN ต่างๆ</li>
+                            <li><strong>สื่อกลาง:</strong> ส่วนใหญ่ใช้ Fiber Optic Cable และ Microwave</li>
+                        </ul>
+                    </div>
+                    <div class="theory-block">
+                        <h3>ลักษณะสำคัญของ MAN</h3>
+                        <ul style="list-style:none; padding:0;">
+                            <li style="padding:0.4rem 0; border-bottom:1px solid #e2e8f0;">🔷 เชื่อม LAN หลายวงเข้าด้วยกัน เช่น สาขาของธนาคาร</li>
+                            <li style="padding:0.4rem 0; border-bottom:1px solid #e2e8f0;">🔷 ครอบคลุมภายในเมืองเดียวกันหรือจังหวัดเดียวกัน</li>
+                            <li style="padding:0.4rem 0; border-bottom:1px solid #e2e8f0;">🔷 ต้องมี Backbone เป็นกระดูกสันหลังในการเชื่อมต่อ</li>
+                            <li style="padding:0.4rem 0; border-bottom:1px solid #e2e8f0;">🔷 สื่อกลาง: Fiber Optic Cable และ Microwave</li>
+                            <li style="padding:0.4rem 0;">🔷 เป็นเครือข่ายที่เชื่อมระหว่างสาขาของบริษัทขนาดกลาง</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Diagram -->
+        <section style="background:white; border-radius:12px; padding:1.5rem; margin:2rem 0; box-shadow:0 4px 6px -1px rgba(0,0,0,0.1);">
+            <h2 style="margin-bottom:1rem; font-size:1.25rem;">แผนภาพ MAN — เครือข่ายระดับเมือง</h2>
+            <div class="diagram-box">
+                <svg viewBox="0 0 700 380" width="100%" style="max-width:700px; font-family:'Segoe UI',sans-serif;">
+                    <rect width="700" height="380" fill="#f8fafc" rx="8"/>
+
+                    <!-- City boundary -->
+                    <ellipse cx="350" cy="190" rx="280" ry="160" fill="none" stroke="#bfdbfe" stroke-width="2" stroke-dasharray="8,4"/>
+                    <text x="350" y="30" text-anchor="middle" font-size="13" fill="#1d4ed8" font-weight="600">เครือข่ายระดับเมือง (MAN)</text>
+
+                    <!-- Central NVR / Backbone -->
+                    <circle cx="350" cy="190" r="45" fill="#1d4ed8" stroke="#1e40af" stroke-width="2"/>
+                    <text x="350" y="185" text-anchor="middle" fill="white" font-size="11" font-weight="bold">Central</text>
+                    <text x="350" y="200" text-anchor="middle" fill="#bfdbfe" font-size="10">NVR/Backbone</text>
+
+                    <!-- Branch 1 — Bank HQ -->
+                    <line x1="310" y1="160" x2="160" y2="80" stroke="#3b82f6" stroke-width="2.5"/>
+                    <rect x="70" y="45" width="120" height="55" rx="8" fill="#dbeafe" stroke="#3b82f6" stroke-width="1.5"/>
+                    <text x="100" y="65" font-size="11" fill="#1e40af">🏦 ธนาคาร</text>
+                    <text x="85" y="80" font-size="9" fill="#475569">สำนักงานใหญ่</text>
+                    <text x="85" y="92" font-size="9" fill="#475569">LAN 50 nodes</text>
+
+                    <!-- Branch 2 — Hospital -->
+                    <line x1="350" y1="145" x2="350" y2="60" stroke="#3b82f6" stroke-width="2.5"/>
+                    <rect x="280" y="15" width="140" height="50" rx="8" fill="#dcfce7" stroke="#22c55e" stroke-width="1.5"/>
+                    <text x="315" y="35" font-size="11" fill="#166534">🏥 โรงพยาบาล</text>
+                    <text x="296" y="52" font-size="9" fill="#475569">LAN 100+ nodes</text>
+
+                    <!-- Branch 3 — University -->
+                    <line x1="390" y1="160" x2="540" y2="80" stroke="#3b82f6" stroke-width="2.5"/>
+                    <rect x="510" y="45" width="130" height="55" rx="8" fill="#fef9c3" stroke="#f59e0b" stroke-width="1.5"/>
+                    <text x="535" y="65" font-size="11" fill="#92400e">🎓 มหาวิทยาลัย</text>
+                    <text x="522" y="80" font-size="9" fill="#475569">LAN หลายอาคาร</text>
+                    <text x="522" y="92" font-size="9" fill="#475569">200+ nodes</text>
+
+                    <!-- Branch 4 — Government -->
+                    <line x1="310" y1="220" x2="160" y2="290" stroke="#3b82f6" stroke-width="2.5"/>
+                    <rect x="55" y="265" width="135" height="55" rx="8" fill="#fce7f3" stroke="#ec4899" stroke-width="1.5"/>
+                    <text x="80" y="285" font-size="11" fill="#9d174d">🏛️ ราชการ</text>
+                    <text x="68" y="300" font-size="9" fill="#475569">กระทรวง/กรม</text>
+                    <text x="68" y="312" font-size="9" fill="#475569">LAN 80 nodes</text>
+
+                    <!-- Branch 5 — Mall -->
+                    <line x1="350" y1="235" x2="350" y2="305" stroke="#3b82f6" stroke-width="2.5"/>
+                    <rect x="270" y="305" width="160" height="55" rx="8" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1.5"/>
+                    <text x="310" y="325" font-size="11" fill="#5b21b6">🏬 ห้างสรรพสินค้า</text>
+                    <text x="290" y="342" font-size="9" fill="#475569">POS + Surveillance</text>
+                    <text x="290" y="354" font-size="9" fill="#475569">LAN 60 nodes</text>
+
+                    <!-- Branch 6 — ISP -->
+                    <line x1="390" y1="220" x2="540" y2="290" stroke="#3b82f6" stroke-width="2.5"/>
+                    <rect x="510" y="265" width="130" height="55" rx="8" fill="#fff7ed" stroke="#f97316" stroke-width="1.5"/>
+                    <text x="535" y="285" font-size="11" fill="#9a3412">🏢 บริษัทเอกชน</text>
+                    <text x="522" y="300" font-size="9" fill="#475569">สำนักงาน + สาขา</text>
+                    <text x="522" y="312" font-size="9" fill="#475569">LAN 30 nodes</text>
+
+                    <!-- Fiber label -->
+                    <text x="350" y="370" text-anchor="middle" font-size="11" fill="#64748b">สายสัญญาณ: Fiber Optic Cable / Microwave</text>
+                </svg>
+                <figcaption>รูปที่ 2 ตัวอย่างเครือข่ายแมน (MAN) ในระดับเมือง</figcaption>
+            </div>
+        </section>
+
+        <!-- Comparison LAN vs MAN -->
+        <section style="background:white; border-radius:12px; padding:1.5rem; margin:2rem 0; box-shadow:0 4px 6px -1px rgba(0,0,0,0.1);">
+            <h2 style="margin-bottom:1rem; font-size:1.25rem;">เปรียบเทียบ LAN กับ MAN</h2>
+            <table class="compare-table">
+                <thead>
+                    <tr>
+                        <th>รายการ</th>
+                        <th class="lan-header">LAN</th>
+                        <th class="man-header">MAN</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>ระยะทาง</td><td>ไม่เกิน 10 กม.</td><td>10 กม. ขึ้นไป ถึงระดับเมือง</td></tr>
+                    <tr><td>พื้นที่ครอบคลุม</td><td>อาคาร / ชั้น / ห้อง</td><td>เมือง / จังหวัด</td></tr>
+                    <tr><td>สื่อกลาง</td><td>สายเคเบิล (Ethernet)</td><td>Fiber Optic, Microwave</td></tr>
+                    <tr><td>ตัวอย่าง</td><td>เครือข่ายโรงเรียน</td><td>เครือข่ายธนาคารในเมือง</td></tr>
+                    <tr><td>ความซับซ้อน</td><td>ต่ำ</td><td>ปานกลาง–สูง</td></tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Pros/Cons -->
+        <section style="background:white; border-radius:12px; padding:1.5rem; margin:2rem 0; box-shadow:0 4px 6px -1px rgba(0,0,0,0.1);">
+            <h2 style="margin-bottom:1rem; font-size:1.25rem;">ข้อดีและข้อจำกัดของ MAN</h2>
+            <div class="pros-cons">
+                <div class="pros">
+                    <h4>✅ ข้อดี</h4>
+                    <ul>
+                        <li>ประหยัดสายเมื่อเทียบกับ WAN</li>
+                        <li>ขยายการเชื่อมต่อได้ง่าย</li>
+                        <li>ครอบคลุมพื้นที่กว้างกว่า LAN</li>
+                        <li>รองรับองค์กรที่มีสาขาในเมืองเดียวกัน</li>
+                    </ul>
+                </div>
+                <div class="cons">
+                    <h4>⚠️ ข้อจำกัด</h4>
+                    <ul>
+                        <li>ควบคุมการทำงานค่อนข้างยุ่งยาก</li>
+                        <li>ถ้าเกิดจุดบกพร่อง ตรวจหาได้ยาก</li>
+                        <li>ค่าใช้จ่ายสูงกว่า LAN</li>
+                        <li>ต้องการผู้เชี่ยวชาญดูแล</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Navigation -->
+        <div style="display:flex; justify-content:space-between; margin-top:2rem;">
+            <a href="lan.html" style="text-decoration:none; color:#2563eb; font-weight:600;">← LAN</a>
+            <a href="wan.html" style="text-decoration:none; color:#2563eb; font-weight:600;">WAN →</a>
+        </div>
+
+    </div>
+
+    <footer class="page-footer">
+        <p>บทที่ 3: ประเภทของเครือข่ายคอมพิวเตอร์ | Computer Network</p>
+    </footer>
+    <script>
+        function toggleTheory() {
+            const content = document.getElementById('theory-content');
+            const btn = document.getElementById('toggle-btn');
+            if (content.classList.contains('collapsed')) { content.classList.remove('collapsed'); btn.textContent = 'ซ่อน'; }
+            else { content.classList.add('collapsed'); btn.textContent = 'แสดง'; }
+        }
+    </script>
+</body>
+</html>
